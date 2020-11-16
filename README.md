@@ -18,7 +18,7 @@ https://docs.google.com/document/d/13jWebVuRNWinzF8m2_lh3aleEwTnNxaZ8GTQK_Wtp1Y/
     > origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
     > origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
     ```
-    - `git remote add upstream https://github.com/schen246/around-delivery-backend.git`
+    - `git remote add upstream https://github.com/lulu814/TripPlanner.git`
     - To verify the new upstream repository you've specified for your fork, type git remote -v again. You should see the URL for your fork as origin, and the URL for the original repository as upstream.
     ```
     $ git remote -v
