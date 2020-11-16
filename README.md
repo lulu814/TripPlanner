@@ -8,9 +8,9 @@ https://docs.google.com/document/d/13jWebVuRNWinzF8m2_lh3aleEwTnNxaZ8GTQK_Wtp1Y/
 # How to contribute to this repository
 
 ## fork a repo
-- step1: Fork this [repository](https://github.com/schen246/dronbot-backend.git)
+- step1: Fork this [repository]
 - step2: git clone to local machine from your own repository
-    - git clone https://github.com/YOUR-USERNAME/around-delivery-backend (replace YOUR-USERNAME with your repository)
+    - git clone https://github.com/YOUR-USERNAME/TripPlanner (replace YOUR-USERNAME with your repository)
 - step3: configure git to sync your fork with the original dronbot-backend repository
     - `cd your_listed_directory` which is the location of the fork you cloned in step2 (around-delivery-backend)
     - `git remote -v`
