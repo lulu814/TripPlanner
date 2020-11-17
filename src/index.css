@@ -105,3 +105,25 @@ h1 {
   color: #167bff;
   margin: 0;
 }
+
+/*-----------Plan and Post----------------*/
+.wbdv-mx-w-table {
+  max-width: 169px;
+}
+.wbdv-min-w-table-text{
+  min-width: 103px;
+}
+.wbdv-min-w-table-day{
+  min-width: 33px;
+}
+
+.react-img {
+  max-width: 500px;
+}
+
+.wbdv-add-widget-fixed{
+  position: fixed;
+  bottom: 2%;
+  right: 1%;
+}
+/*-----------End Plan and Post----------------*/

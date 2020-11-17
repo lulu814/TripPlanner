@@ -3,15 +3,24 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import './index.css';
 import App from './App';
+import {combineReducers, createStore} from "redux";
+import {Provider} from "react-redux";
+import widgetReducer from "./reducers/widgetReducer";
 
 
 import * as serviceWorker from './serviceWorker';
 import Map from "./map";
 
+const reducers = combineReducers({widgetReducer});
+
+const store = createStore(reducers);
+
 ReactDOM.render(
+    <Provider store={store}>
     <BrowserRouter>
         <App />
-    </BrowserRouter>,
+    </BrowserRouter>
+    </Provider>,
     document.getElementById('root')
 );
 
