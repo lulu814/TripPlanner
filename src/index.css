@@ -182,13 +182,6 @@ input, .search-button
   max-width: 1200px;
 }
 
-@media screen and (min-width: 1600px) {
-  #cover {
-    margin-left: calc((100vw - 1200px) / 2);
-    
-  }
-}
-
 form
 {
   height: 96px;
