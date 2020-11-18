@@ -14,12 +14,12 @@ export default function MenuTabs(){
     return(
         <nav className="nav nav-pills nav-justified">
             <a className="nav-item nav-link pill-item" href="/">
-                <i class="fas fa-search-location"></i>
+                <i className="fas fa-search-location"></i>
                 Search places
             </a> 
-            <a className="nav-item nav-link  pill-item"
+            <a className="nav-item nav-link pill-item"
                href="/posts/details">
-                <i class="fab fa-wpforms"></i>
+                <i className="fab fa-wpforms"></i>
                     Travel Forums
             </a>  
             <a className="nav-item nav-link pill-item" href="/posts"><FontAwesomeIcon icon={faPencilAlt}/>Write a post</a>

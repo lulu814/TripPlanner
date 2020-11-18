@@ -7,7 +7,7 @@ const  CardComponent = ({placeId} ) => {
 
     useEffect(() => {
         initialize();
-    }, []);
+    });
 
     const initialize = () => {
         const request = {
@@ -24,21 +24,20 @@ const  CardComponent = ({placeId} ) => {
                 if( place.reviews != null && place.reviews.length > 0 ) {
                     setText(place.reviews[0].text);
                 }
-
             }
         });
     };
 
     return (
-            <Card style={{ width: "18rem" }}>
+            <Card>
                 <Card.Img variant="top" src={photoUrl} />
-                <Card.Body>
+                {/* <Card.Body> */}
                     {/* <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                         Review :
                         {text}
                     </Card.Text> */}
-                </Card.Body>
+                {/* </Card.Body> */}
             </Card>
     );
 };

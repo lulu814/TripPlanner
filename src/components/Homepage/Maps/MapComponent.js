@@ -112,11 +112,9 @@ export default  function MapComponent() {
                                 setSelected(null);
                             }}
                         >
-                            <div>
+                            <div style={{ width: "18rem" }}>
                                 <CardComponent placeId = {selected.placeId} />
-                                <h3>
-                                    {selected.address}
-                                </h3>
+                                <h5>{selected.address}</h5>
                             </div>
                         </InfoWindow>
                     ) : null}

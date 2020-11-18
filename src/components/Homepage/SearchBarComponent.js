@@ -49,39 +49,38 @@ export default function SearchBar({panTo, setMarkers}) {
     return(
         <div className='search-section'>
             <div id="cover">
-                <form method="get" action="">
-                    <div className="tb">
-                        <div className="td">
-                            <Combobox onSelect={handleSelect}>
-                                <ComboboxInput
-                                    value={value}
-                                    onChange={handleInput}
-                                    disabled={!ready}
-                                    placeholder="Search your location"
-                                />
-                                <ComboboxPopover>
-                                    <ComboboxList>
-                                        {status === "OK" &&
-                                        data.map(({ id, description }) => (
-                                            <ComboboxOption key={id} value={description} />
-                                        ))}
-                                    </ComboboxList>
-                                </ComboboxPopover>
-                            </Combobox>
+                <div className="tb">
+                    <div className="td">
+                        <Combobox onSelect={handleSelect}>
+                            <ComboboxInput
+                                value={value}
+                                onChange={handleInput}
+                                disabled={!ready}
+                                placeholder="Search your location"
+                                className={'combo-searchbox'}
+                            />
+                            <ComboboxPopover>
+                                <ComboboxList>
+                                    {status === "OK" &&
+                                    data.map(({ id, description }) => (
+                                        <ComboboxOption key={id} value={description} />
+                                    ))}
+                                </ComboboxList>
+                            </ComboboxPopover>
+                        </Combobox>
 
-                                {/* <input 
-                                type="text" 
-                                placeholder="Where to?" 
-                                required/> */}
-                        </div>
-                        <div className="td" id="s-cover">
-                            <button type="submit" className="search-button">
-                                <div id="s-circle"></div>
-                                <span className="search-span-stick"></span>
-                            </button>
-                        </div>
+                            {/* <input 
+                            type="text" 
+                            placeholder="Where to?" 
+                            required/> */}
                     </div>
-                </form>
+                    <div className="td" id="s-cover">
+                        <button onClick={handleInput} className="search-button">
+                            <div id="s-circle"></div>
+                            <span className="search-span-stick"></span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     )
