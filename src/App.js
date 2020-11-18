@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "@fortawesome/fontawesome-free/js/all.min.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "@reach/combobox/styles.css";
-
+import 'font-awesome/css/font-awesome.min.css';
 
 import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button} from "react-bootstrap";
 import Login from "./components/LoginComponent";
@@ -14,6 +14,7 @@ import TripPlanHomeComponent from "./components/TripPlan/TripPlanHomeComponent";
 import TripPlanDetailComponent from "./components/TripPlan/TripPlanDetailComponent";
 import PostDetailComponent from "./components/Post/PostDetailComponent";
 import PostHomePage from "./components/Post/PostHomePage";
+import HomepageView from "./components/Homepage/HomepageViewComponent";
 
 
 export default function App() {
@@ -21,43 +22,18 @@ export default function App() {
 
   return (
       <Router>
-      <Container fluid>
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">Trip Planner</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-        </Navbar>
+          <Switch>
+            <Route exact path='/' component={HomepageView} />
+            <Route path="/signin" exact component={Login} />
+            <Route path="/signup" exact component={SignUp} />
+            <Route path="/profile" exact component={UserProfile} />
+            <Route path="/public-profile" exact component={PublicProfile} />
 
-            <Switch>
-              <Route exact path='/' component={Login} />
-              <Route path="/sign-in" exact component={Login} />
-              <Route path="/sign-up" exact component={SignUp} />
-              <Route path="/profile" exact component={UserProfile} />
-              <Route path="/public-profile" exact component={PublicProfile} />
-
-              //post and trip plan
-              <Route path={["", "/plans"]} exact component={TripPlanHomeComponent}/>
-              <Route path={["/plans/:planId"]} exact component={TripPlanDetailComponent}/>
-              <Route path={["/posts/:postId"]} exact component={PostDetailComponent}/>
-              <Route path={["/posts"]} exact component={PostHomePage}/>
-            </Switch>
-      </Container>
+            <Route path={["/plans"]} exact component={TripPlanHomeComponent}/>
+            <Route path={["/plans/:planId"]} exact component={TripPlanDetailComponent}/>
+            <Route path={["/posts/details"]} exact component={PostDetailComponent}/>
+            <Route path={["/posts"]} exact component={PostHomePage}/>
+          </Switch>
       </Router>
   );
 }

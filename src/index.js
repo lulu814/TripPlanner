@@ -9,7 +9,6 @@ import widgetReducer from "./reducers/widgetReducer";
 
 
 import * as serviceWorker from './serviceWorker';
-import Map from "./map";
 
 const reducers = combineReducers({widgetReducer});
 

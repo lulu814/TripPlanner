@@ -127,3 +127,238 @@ h1 {
   right: 1%;
 }
 /*-----------End Plan and Post----------------*/
+
+
+/*-----------Background images----------------*/
+.search-section {
+  width: 100%;
+  height: 400px;
+  background-image: url("assets/wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* background-size: 100% 100%; */
+  opacity: 1;
+  padding-top: 100px;
+  margin-top: 20px;
+}
+/*-----------Background images ends----------------*/
+
+/*-----------Homepage Search bar----------------*/
+*
+{
+  outline: none;
+}
+
+.tb
+{
+  display: table;
+  width: 100%;
+}
+
+.td
+{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+input, .search-button
+{
+  color: #ff7c7c;
+  font-family: Nunito;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+#cover
+{
+  padding: 15px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+  transform: scale(0.5);
+  max-width: 1200px;
+}
+
+@media screen and (min-width: 1600px) {
+  #cover {
+    margin-left: calc((100vw - 1200px) / 2);
+    
+  }
+}
+
+form
+{
+  height: 96px;
+}
+
+input[type="text"]
+{
+  width: 100%;
+  height: 96px;
+  font-size: 40px;
+  line-height: 1;
+}
+
+input[type="text"]::placeholder
+{
+  color: #e16868;
+}
+
+#s-cover
+{
+  width: 1px;
+  padding-left: 35px;
+}
+
+.search-button
+{
+  position: relative;
+  display: block;
+  width: 84px;
+  height: 96px;
+  cursor: pointer;
+}
+
+#s-circle
+{
+  position: relative;
+  top: -8px;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  margin-top: 0;
+  border-width: 15px;
+  border: 15px solid #ffd8d8;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: 0.5s ease all;
+}
+
+.search-span-stick
+{
+  position: absolute;
+  top: 68px;
+  left: 43px;
+  display: block;
+  width: 45px;
+  height: 15px;
+  background-color: transparent;
+  border-radius: 10px;
+  transform: rotateZ(52deg);
+  transition: 0.5s ease all;
+}
+
+.search-button span:before, .search-button span:after
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45px;
+  height: 15px;
+  background-color: #ffd8d8;
+  border-radius: 10px;
+  transform: rotateZ(0);
+  transition: 0.5s ease all;
+}
+
+#s-cover:hover #s-circle
+{
+  top: -1px;
+  width: 67px;
+  height: 15px;
+  border-width: 0;
+  background-color: #ffd8d8;
+  border-radius: 20px;
+}
+
+#s-cover:hover span
+{
+  top: 50%;
+  left: 56px;
+  width: 25px;
+  margin-top: -9px;
+  transform: rotateZ(0);
+}
+
+#s-cover:hover .search-button span:before
+{
+  bottom: 11px;
+  transform: rotateZ(52deg);
+}
+
+#s-cover:hover .search-button span:after
+{
+  bottom: -11px;
+  transform: rotateZ(-52deg);
+}
+#s-cover:hover .search-button span:before, #s-cover:hover .search-button span:after
+{
+  right: -6px;
+  width: 40px;
+  background-color: #ffd8d8;
+}
+
+#ytd-url {
+  display: block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 10px 14px;
+  margin: 20px;
+  color: #fff;
+  font-family: Nunito;
+  font-size: 12px;
+  text-decoration: none;
+  background-color: #ffcccc;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px -5px rgba(255, 117, 117, 0.86);
+  z-index: 125;
+}
+
+/*-----------Homepage Search bar ends----------------*/
+
+/*-----------Homepage nav bar----------------*/
+.navbar {
+  background-color: white !important;
+}
+
+.navbar-brand {
+  font-family:inherit;
+  font-weight: 600;
+  font-size: 1.8rem !important;
+  color: white;
+}
+
+.navbar-light .navbar-brand {
+  color: black !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black !important;
+}
+/*-----------Homepage nav bar ends----------------*/
+
+/*-----------Homepage menu pills----------------*/
+.pill-item{
+  display: block;
+  padding: 1.5rem 2rem !important;
+  border-radius: 1rem !important;
+  border: solid black 1px;
+  color: black;
+  margin-right: 15px;
+}
+
+.pill-item:hover {
+  background-color: black;
+  color: white;
+}
+/*-----------Homepage menu pills end----------------*/
+
+/*-----------Header css----------------*/
+.blank-header {
+  width: 60vw;
+}
