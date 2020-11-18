@@ -5,6 +5,7 @@ import {Container} from "react-bootstrap";
 import HeaderComponent from "./HeaderComponent";
 import MenuTabs from "./MenuTabsComponent";
 import SearchBarComponent from "./SearchBarComponent";
+import MapComponent from "./Maps/MapComponent";
 
 export default function HomepageView(){
     return(
@@ -12,8 +13,13 @@ export default function HomepageView(){
             <HeaderComponent/>
             <MenuTabs/>
             <Container fluid style={{height: '100vh'}}>
-                <SearchBarComponent/>
+                {/* <SearchBarComponent/> */}
+                
+                <MapComponent/>
+                    
+
             </Container>
+
         </Container>
     )
 }
