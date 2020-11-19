@@ -28,7 +28,7 @@ export default class SignUp extends Component {
         }).then((data) => {
             console.log(data);
             message.success('Registration succeed!');
-            this.props.history.push('/sign-in');
+            this.props.history.push('/signin');
         })
             .catch((err) => {
                 console.error(err);
@@ -84,7 +84,7 @@ export default class SignUp extends Component {
                         onClick={e => this.handleClick(e)}
                 >Register</button>
                 <p className="forgot-password text-right">
-                    Already registered, go back to <Link to={"/sign-in"} > log in </Link>
+                    Already registered, go back to <Link to={"/signin"} > log in </Link>
                 </p>
             </form>
     </div>

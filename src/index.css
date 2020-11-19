@@ -60,6 +60,7 @@ h1 {
 /*-----------map style---------------*/
 
 /*-----------User Account maybe?---------------*/
+@import "~antd/dist/antd.css";
 .outer {
   display: flex;
   justify-content: center;
