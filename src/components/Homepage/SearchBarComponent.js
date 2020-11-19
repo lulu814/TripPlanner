@@ -56,7 +56,7 @@ export default function SearchBar({panTo, setMarkers}) {
                                 value={value}
                                 onChange={handleInput}
                                 disabled={!ready}
-                                placeholder="Search your location"
+                                placeholder="Where to?"
                                 className='combo-input combo-searchbox'
                             />
                             <ComboboxPopover>

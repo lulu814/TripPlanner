@@ -22,7 +22,6 @@ export default function HeaderComponent(){
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Form inline>
                         <Nav className="mr-auto">
-                            <Nav.Link href="/signup">Register</Nav.Link>
                             <Nav.Link href="/signin">Login</Nav.Link>
                             <Nav.Link href="/profile"><FontAwesomeIcon icon={faUser}/></Nav.Link>
                         </Nav>

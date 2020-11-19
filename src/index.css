@@ -54,6 +54,8 @@ code {
   cursor: pointer;
 }
 
+/*-----------map style---------------*/
+
 /*-----------Trip details style---------------*/
 
 .col-md-5 {
@@ -67,7 +69,7 @@ code {
 }
 /*-----------Trip details style---------------*/
 
-/*-----------map style---------------*/
+
 
 /*-----------User Account maybe?---------------*/
 @import "~antd/dist/antd.css";
@@ -185,7 +187,7 @@ code {
 .combo-input, .search-button
 {
   color: #ff7c7c;
-  font-family: Nunito;
+  font-family: inherit;
   font-size: xxx-large!important;
   padding: 0;
   margin: 0;
