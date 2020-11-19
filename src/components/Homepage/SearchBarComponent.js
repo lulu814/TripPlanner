@@ -49,15 +49,15 @@ export default function SearchBar({panTo, setMarkers}) {
     return(
         <div className='search-section'>
             <div id="cover">
-                <div className="tb">
-                    <div className="td">
+                <div className="tb search-tb">
+                    <div className="td search-td">
                         <Combobox onSelect={handleSelect}>
                             <ComboboxInput
                                 value={value}
                                 onChange={handleInput}
                                 disabled={!ready}
                                 placeholder="Search your location"
-                                className={'combo-searchbox'}
+                                className='combo-input combo-searchbox'
                             />
                             <ComboboxPopover>
                                 <ComboboxList>
@@ -68,13 +68,8 @@ export default function SearchBar({panTo, setMarkers}) {
                                 </ComboboxList>
                             </ComboboxPopover>
                         </Combobox>
-
-                            {/* <input 
-                            type="text" 
-                            placeholder="Where to?" 
-                            required/> */}
                     </div>
-                    <div className="td" id="s-cover">
+                    <div className="td search-td" id="s-cover">
                         <button onClick={handleInput} className="search-button">
                             <div id="s-circle"></div>
                             <span className="search-span-stick"></span>

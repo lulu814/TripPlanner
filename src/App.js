@@ -26,7 +26,7 @@ export default function App() {
             <Route exact path='/' component={HomepageView} />
             <Route path="/signin" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
-            <Route path="/profile" exact component={UserProfile} />
+            <Route path="/profile" exact component={PublicProfile} />
             <Route path="/public-profile" exact component={PublicProfile} />
 
             <Route path={["/plans"]} exact component={TripPlanHomeComponent}/>
