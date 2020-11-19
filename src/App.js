@@ -4,6 +4,7 @@ import "@fortawesome/fontawesome-free/js/all.min.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "@reach/combobox/styles.css";
 import 'font-awesome/css/font-awesome.min.css';
+import HeaderComponent from "./components/Homepage/HeaderComponent";
 
 import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button} from "react-bootstrap";
 import Login from "./components/User/LoginComponent";
@@ -22,11 +23,12 @@ export default function App() {
 
   return (
       <Router>
+        <Container><HeaderComponent/></Container>
           <Switch>
             <Route exact path='/' component={HomepageView} />
             <Route path="/signin" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
-            <Route path="/profile" exact component={PublicProfile} />
+            <Route path="/profile" exact component={UserProfile} />
             <Route path="/public-profile" exact component={PublicProfile} />
 
             <Route path={["/plans"]} exact component={TripPlanHomeComponent}/>
