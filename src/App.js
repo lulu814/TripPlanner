@@ -31,7 +31,7 @@ export default function App() {
 
             <Route path={["/plans"]} exact component={TripPlanHomeComponent}/>
             <Route path={["/plans/:planId"]} exact component={TripPlanDetailComponent}/>
-            <Route path={["/posts/details"]} exact component={PostDetailComponent}/>
+            <Route path={["/posts/:postId"]} exact component={PostDetailComponent}/>
             <Route path={["/posts"]} exact component={PostHomePage}/>
           </Switch>
       </Router>

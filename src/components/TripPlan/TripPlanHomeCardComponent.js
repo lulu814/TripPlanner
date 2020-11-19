@@ -26,7 +26,7 @@ class TripPlanHomeCardComponent extends Component {
                      }/>
                     }
                     {!this.state.planBeingEdited &&
-                     <Link to={`trips/${this.state.plan.id}`}>{this.state.plan.name}
+                     <Link to={`plans/${this.state.plan.id}`}>{this.state.plan.name}
                      </Link>
                     }
                     <div className="mt-auto">
