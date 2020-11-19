@@ -32,6 +32,7 @@ class TripPlanDetailComponent extends React.Component {
                 </div>
             </div>
             <div className="col-md-5">
+                {/*map */}
                 <Container fluid style={{height: '100vh'}}>
                     {/* <SearchBarComponent/> */}
 
@@ -39,6 +40,7 @@ class TripPlanDetailComponent extends React.Component {
 
 
                 </Container>
+                {/*map */}
             </div>
 
         </div>
