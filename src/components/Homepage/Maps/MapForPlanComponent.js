@@ -21,7 +21,6 @@ import CardComponent from "./CardComponent";
 import MapDirectionsRenderer from "./MapDirectionComponent";
 import SearchBar from "../SearchBarComponent";
 
-import MapStyle from "./MapStyle";
 import {Combobox, ComboboxInput, ComboboxList, ComboboxOption, ComboboxPopover} from "@reach/combobox";
 
 // to avoid rerender
