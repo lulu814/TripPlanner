@@ -1,12 +1,6 @@
 import React from "react";
 import {Form, Nav, Navbar} from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { 
-    faPencilAlt,
-    faCalendarPlus,
-    faUser
-} from '@fortawesome/free-solid-svg-icons'
-import { FaForumbee } from 'react-icons/fa';
+import { FaForumbee, FaUserCircle } from 'react-icons/fa';
 
 export default function HeaderComponent(){
     return (
@@ -21,7 +15,7 @@ export default function HeaderComponent(){
                     <Form inline>
                         <Nav className="mr-auto">
                             <Nav.Link href="/signin">Login</Nav.Link>
-                            <Nav.Link href="/profile"><FontAwesomeIcon icon={faUser}/></Nav.Link>
+                            <Nav.Link href="/profile"><FaUserCircle /></Nav.Link>
                         </Nav>
 
                     </Form>
