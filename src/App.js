@@ -6,10 +6,10 @@ import "@reach/combobox/styles.css";
 import 'font-awesome/css/font-awesome.min.css';
 
 import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button} from "react-bootstrap";
-import Login from "./components/LoginComponent";
-import SignUp from "./components/SignUpComponent";
-import UserProfile from "./components/AccountComponent";
-import PublicProfile from "./components/PublicProfileComponent";
+import Login from "./components/User/LoginComponent";
+import SignUp from "./components/User/SignUpComponent";
+import UserProfile from "./components/User/AccountComponent";
+import PublicProfile from "./components/User/PublicProfileComponent";
 import TripPlanHomeComponent from "./components/TripPlan/TripPlanHomeComponent";
 import TripPlanDetailComponent from "./components/TripPlan/TripPlanDetailComponent";
 import PostDetailComponent from "./components/Post/PostDetailComponent";
