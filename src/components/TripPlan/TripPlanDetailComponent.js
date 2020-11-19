@@ -36,10 +36,7 @@ class TripPlanDetailComponent extends React.Component {
                 {/*map */}
                 <Container fluid style={{height: '100vh'}}>
                     {/* <SearchBarComponent/> */}
-
                     <MapForPlanComponent/>
-
-
                 </Container>
                 {/*map */}
             </div>
