@@ -2,6 +2,8 @@ import React from "react";
 import TripPlanTripTableComponent from "./TripPlanTripTableComponent";
 import TripPlanCreateFormComponent from "./TripPlanCreateFormComponent";
 import {Link} from "react-router-dom";
+import {Container} from "react-bootstrap";
+import MapComponent from "../Homepage/Maps/MapComponent";
 
 class TripPlanDetailComponent extends React.Component {
     planHardcode = {
@@ -18,7 +20,7 @@ class TripPlanDetailComponent extends React.Component {
     render() {
         return <div className="row">
             <div className="col-md-7 border-right min-vh-100">
-                <Link className="btn btn-secondary m-1" to={"/trips"}>X</Link>
+                <Link className="btn btn-secondary m-1" to={"/plans"}>X</Link>
                 <div className="p-2">
                     <h2 className="text-center">Plan: {this.state.plan.name}</h2>
                     {this.state.plan.trips && <TripPlanTripTableComponent
@@ -30,7 +32,13 @@ class TripPlanDetailComponent extends React.Component {
                 </div>
             </div>
             <div className="col-md-5">
-                Map
+                <Container fluid style={{height: '100vh'}}>
+                    {/* <SearchBarComponent/> */}
+
+                    <MapComponent/>
+
+
+                </Container>
             </div>
 
         </div>
