@@ -33,7 +33,6 @@ const mapContainerStyle = {
 
 };
 const options = {
-    styles: MapStyle,
     disableDefaultUI: true,
     zoomControl: true,
 };
