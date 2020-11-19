@@ -1,8 +1,6 @@
 import React from "react";
 import usePlacesAutocomplete, {getGeocode, getLatLng} from "use-places-autocomplete";
 import {Combobox, ComboboxInput, ComboboxList, ComboboxOption, ComboboxPopover} from "@reach/combobox";
-import 'font-awesome/css/font-awesome.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function SearchBar({panTo, setMarkers}) {
     const {
