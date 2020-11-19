@@ -1,9 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "@fortawesome/fontawesome-free/js/all.min.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "@reach/combobox/styles.css";
-import 'font-awesome/css/font-awesome.min.css';
 import HeaderComponent from "./components/Homepage/HeaderComponent";
 
 import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button} from "react-bootstrap";

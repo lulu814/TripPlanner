@@ -1,12 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {Container} from "react-bootstrap";
-import { 
-    faPencilAlt,
-    faCalendarPlus,
-    faUser
-} from '@fortawesome/free-solid-svg-icons'
-import { FaForumbee } from 'react-icons/fa';
+import { FaPencilAlt, FaCalendarPlus } from 'react-icons/fa';
 
 export default function MenuTabs(){
     return(
@@ -20,12 +13,12 @@ export default function MenuTabs(){
                 <i className="fab fa-wpforms"></i>
                     Travel Forums
             </a>  
-            <a className="nav-item nav-link pill-item" href="/posts"><FontAwesomeIcon icon={faPencilAlt}/>Write a post</a>
+            <a className="nav-item nav-link pill-item" href="/posts"><FaPencilAlt />Write a post</a>
             <a className="nav-item nav-link pill-item"
                href="/plans"
                tabIndex="-1"
                aria-disabled="true">
-                <FontAwesomeIcon icon={faCalendarPlus}/>
+                <FaCalendarPlus />
                 Travel Plan</a>
         </nav>
     )
