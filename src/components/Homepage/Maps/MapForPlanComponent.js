@@ -10,6 +10,11 @@ import {
 } from "@react-google-maps/api";
 
 
+import usePlacesAutocomplete, {
+    getGeocode,
+    getLatLng,
+} from "use-places-autocomplete";
+
 import "@reach/combobox/styles.css";
 
 import CardComponent from "./CardComponent";
@@ -17,11 +22,12 @@ import MapDirectionsRenderer from "./MapDirectionComponent";
 import SearchBar from "../SearchBarComponent";
 
 import MapStyle from "./MapStyle";
+import {Combobox, ComboboxInput, ComboboxList, ComboboxOption, ComboboxPopover} from "@reach/combobox";
 
 // to avoid rerender
 const libraries = ["places", "geometry", "drawing"];
 const mapContainerStyle = {
-    height: "60vh",
+    height: "100vh",
     width: "100%",
     top: 50
 
@@ -88,7 +94,8 @@ export default  function MapForPlanComponent() {
     return (
         <div>
             <div className="mapContainer">
-                <SearchBar panTo={panTo} setMarkers = {setMarkers}/>
+                <Search2 panTo={panTo} />
+                <Locate panTo={panTo} />
                 <GoogleMap
                     id="map"
                     mapContainerStyle={mapContainerStyle}
@@ -98,7 +105,6 @@ export default  function MapForPlanComponent() {
                     onClick={onMapClick}
                     onLoad={onMapLoad}
                 >
-                    <Locate panTo={panTo} />
                     {markers.map((marker) => (
                         <Marker
                             key={`${marker.lat}-${marker.lng}`}
@@ -159,6 +165,60 @@ function Locate({ panTo }) {
     );
 }
 
+function Search2({ panTo }) {
+    const {
+        ready,
+        value,
+        suggestions: { status, data },
+        setValue,
+        clearSuggestions,
+    } = usePlacesAutocomplete({
+        requestOptions: {
+            location: { lat: () => 43.6532, lng: () => -79.3832 },
+            radius: 100 * 1000,
+        },
+    });
+
+    // https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest
+
+    const handleInput = (e) => {
+        setValue(e.target.value);
+    };
+
+    const handleSelect = async (address) => {
+        setValue(address, false);
+        clearSuggestions();
+
+        try {
+            const results = await getGeocode({ address });
+            const { lat, lng } = await getLatLng(results[0]);
+            panTo({ lat, lng });
+        } catch (error) {
+            console.log("😱 Error: ", error);
+        }
+    };
+
+    return (
+    <div className="search2">
+            <Combobox onSelect={handleSelect}>
+                <ComboboxInput
+                    value={value}
+                    onChange={handleInput}
+                    disabled={!ready}
+                    placeholder="Search your location"
+                />
+                <ComboboxPopover>
+                    <ComboboxList>
+                        {status === "OK" &&
+                        data.map(({ id, description }) => (
+                            <ComboboxOption key={id} value={description} />
+                        ))}
+                    </ComboboxList>
+                </ComboboxPopover>
+            </Combobox>
+        </div>
+    );
+}
 // function MapDirectionsRenderer(props) {
 //     const [directions, setDirections] = useState(null);
 //     const [error, setError] = useState(null);
