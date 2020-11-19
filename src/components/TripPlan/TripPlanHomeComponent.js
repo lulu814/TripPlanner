@@ -1,5 +1,6 @@
 import React from "react";
 import TripPlanHomeCardComponent from "./TripPlanHomeCardComponent";
+import post3 from "../../assets/post3.jpg";
 
 class TripPlanHomeComponent extends React.Component {
     plansHardcode = [{
@@ -40,8 +41,11 @@ class TripPlanHomeComponent extends React.Component {
                     <div className="card p-0 m-2 mx-3 text-center">
                         <div className="card-body">
                             <h5 className="card-title">Create a new trip</h5>
-                            <div className="mt-auto">
-                            <button onClick={() => this.createNewTrip()} className="btn btn-primary mt-1">
+                            <img width="100%"
+                                 src={post3}
+                                 alt=""/>
+                            <div className="mt-2">
+                            <button onClick={() => this.createNewTrip()} className="btn btn-primary m-1">
                                 Create
                             </button>
                             </div>

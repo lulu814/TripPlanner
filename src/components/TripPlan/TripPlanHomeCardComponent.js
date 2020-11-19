@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import post2 from "../../assets/post2.jpg";
 
 class TripPlanHomeCardComponent extends Component {
     state = {
@@ -26,21 +27,30 @@ class TripPlanHomeCardComponent extends Component {
                      }/>
                     }
                     {!this.state.planBeingEdited &&
-                     <Link to={`plans/${this.state.plan.id}`}>{this.state.plan.name}
-                     </Link>
+                     <h5 className="card-title">{this.state.plan.name}</h5>
                     }
-                    <div className="mt-auto">
+                    <img width="100%"
+                         src={post2}
+                         alt=""/>
+                    <div className="row mt-2">
+                        {!this.state.planBeingEdited &&
+                         <Link
+                             to={`plans/${this.state.plan.id}`}
+                             className="btn btn-light col-lg-4 mx-1 my-1">
+                             Detail
+                         </Link>
+                        }
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.setState({planBeingEdited: true})}
-                             className="btn btn-success m-2">
+                             className="btn btn-light col-lg-3 m-1 my-1">
                              Edit
                          </button>
                         }
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.props.deleteCourse(this.state.plan)}
-                             className="btn btn-primary m-2">
+                             className="btn btn-light col-lg-4 ml-1 my-1">
                              Delete
                          </button>
                         }
@@ -51,7 +61,7 @@ class TripPlanHomeCardComponent extends Component {
                                  .then(this.setState({
                                                          planBeingEdited: false
                                                      }))}
-                             className="btn btn-success m-2">
+                             className="btn btn-light m-2">
                              <i className="fa fa-lg fa-check"/>
                          </button>
                         }
