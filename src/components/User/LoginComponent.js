@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
-import {signIn} from "../services/UserService";
+import {signIn} from "../../services/UserService";
 import {message} from 'antd';
 
 export default class Login extends Component {

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import image from '../assets/avatar.jpg';
-import {updateProfile} from "../services/UserService";
+import image from '../../assets/avatar.jpg';
+import {updateProfile} from "../../services/UserService";
 
 
 export default class UserProfile extends Component {

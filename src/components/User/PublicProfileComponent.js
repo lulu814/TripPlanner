@@ -1,8 +1,8 @@
 import React from "react";
-import image from '../assets/avatar.jpg';
-import post1 from '../assets/post1.jpg';
-import post2 from '../assets/post2.jpg';
-import post3 from '../assets/post3.jpg';
+import image from '../../assets/avatar.jpg';
+import post1 from '../../assets/post1.jpg';
+import post2 from '../../assets/post2.jpg';
+import post3 from '../../assets/post3.jpg';
 
 
 export default function PublicProfile(user) {

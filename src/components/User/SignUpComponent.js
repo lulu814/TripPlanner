@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
-import {createUser} from "../services/UserService";
+import {createUser} from "../../services/UserService";
 import {message} from 'antd';
 
 export default class SignUp extends Component {
