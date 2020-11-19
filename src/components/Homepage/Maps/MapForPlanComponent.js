@@ -15,8 +15,6 @@ import usePlacesAutocomplete, {
     getLatLng,
 } from "use-places-autocomplete";
 
-import "@reach/combobox/styles.css";
-
 import CardComponent from "./CardComponent";
 import MapDirectionsRenderer from "./MapDirectionComponent";
 import SearchBar from "../SearchBarComponent";

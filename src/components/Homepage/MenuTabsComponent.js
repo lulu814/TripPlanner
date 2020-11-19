@@ -1,6 +1,4 @@
 import React from "react";
-import 'font-awesome/css/font-awesome.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Container} from "react-bootstrap";
 import { 

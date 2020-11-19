@@ -1,7 +1,6 @@
 /* global google */
 import React from "react";
 import {
-
     DirectionsRenderer
 } from "react-google-maps";
 

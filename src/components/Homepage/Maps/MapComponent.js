@@ -9,9 +9,6 @@ import {
     DirectionsService
 } from "@react-google-maps/api";
 
-
-import "@reach/combobox/styles.css";
-
 import CardComponent from "./CardComponent";
 import MapDirectionsRenderer from "./MapDirectionComponent";
 import SearchBar from "../SearchBarComponent";
