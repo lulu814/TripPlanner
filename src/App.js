@@ -14,7 +14,7 @@ import PublicProfile from "./components/User/PublicProfileComponent";
 import TripPlanHomeComponent from "./components/TripPlan/TripPlanHomeComponent";
 import TripPlanDetailComponent from "./components/TripPlan/TripPlanDetailComponent";
 import PostDetailComponent from "./components/Post/PostDetailComponent";
-import PostHomePage from "./components/Post/PostHomePage";
+import PostHomePageComponent from "./components/Post/PostHomePageComponent";
 import HomepageView from "./components/Homepage/HomepageViewComponent";
 
 
@@ -34,7 +34,7 @@ export default function App() {
             <Route path={["/plans"]} exact component={TripPlanHomeComponent}/>
             <Route path={["/plans/:planId"]} exact component={TripPlanDetailComponent}/>
             <Route path={["/posts/:postId"]} exact component={PostDetailComponent}/>
-            <Route path={["/posts"]} exact component={PostHomePage}/>
+            <Route path={["/posts"]} exact component={PostHomePageComponent}/>
           </Switch>
       </Router>
   );

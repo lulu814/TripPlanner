@@ -46,7 +46,7 @@ export default class MapDirectionsRenderer extends React.Component {
 
     render() {
         if (this.state.error) {
-            return <h1>{this.state.error}</h1>;
+            return <h1 className="map-h1">{this.state.error}</h1>;
         }
         return <DirectionsRenderer directions={this.state.directions} />;
     }

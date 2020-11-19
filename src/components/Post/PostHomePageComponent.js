@@ -1,7 +1,8 @@
 import React from "react";
 import PostHomeCardComponent from "./PostHomeCardComponent";
+import post3 from "../../assets/post3.jpg";
 
-class PostHomePage extends React.Component {
+class PostHomePageComponent extends React.Component {
     plan1Hardcode = {
         name: '1',
         id: '1',
@@ -42,8 +43,11 @@ class PostHomePage extends React.Component {
                     <div className="card p-0 m-2 mx-3 text-center">
                         <div className="card-body">
                             <h5 className="card-title">Create a new post</h5>
-                            <div className="mt-auto">
-                                <button onClick={() => this.createNewPost()} className="btn btn-primary mt-1">
+                            <img width="100%"
+                                 src={post3}
+                                 alt=""/>
+                            <div className="mt-2">
+                                <button onClick={() => this.createNewPost()} className="btn btn-primary m-1">
                                     Create
                                 </button>
                             </div>
@@ -57,4 +61,4 @@ class PostHomePage extends React.Component {
     }
 }
 
-export default PostHomePage;
+export default PostHomePageComponent;
