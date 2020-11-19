@@ -4,6 +4,7 @@ import TripPlanCreateFormComponent from "./TripPlanCreateFormComponent";
 import {Link} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import MapComponent from "../Homepage/Maps/MapComponent";
+import MapForPlanComponent from "../Homepage/Maps/MapForPlanComponent";
 
 class TripPlanDetailComponent extends React.Component {
     planHardcode = {
@@ -36,7 +37,7 @@ class TripPlanDetailComponent extends React.Component {
                 <Container fluid style={{height: '100vh'}}>
                     {/* <SearchBarComponent/> */}
 
-                    <MapComponent/>
+                    <MapForPlanComponent/>
 
 
                 </Container>
