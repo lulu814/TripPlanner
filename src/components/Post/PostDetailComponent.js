@@ -1,6 +1,7 @@
 import React from "react";
 import PostTripTableComponent from "./PostTripTableComponent";
 import WidgetListComponent from "./PostWidgetListComponent";
+import {FaCheck} from "react-icons/all";
 
 class PostDetailComponent extends React.Component {
     planHardcode = {
@@ -46,8 +47,8 @@ class PostDetailComponent extends React.Component {
                 {this.state.editing &&
                  <div>
                      <button className="btn btn-secondary m-1"
-                             onClick={() => this.setState({editing: false})}><i
-                         className="fa fa-lg fa-check"/></button>
+                             onClick={() => this.setState({editing: false})}>
+                         <FaCheck/></button>
                      <select className="custom-select m-1"
                              onChange={() => this.setState(prevState => ({
                                  post: {

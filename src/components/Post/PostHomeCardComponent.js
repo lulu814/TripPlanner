@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import post2 from "../../assets/post2.jpg";
+import {FaCheck} from "react-icons/all";
 
 class PostHomeCardComponent extends Component {
     state = {
@@ -62,8 +63,8 @@ class PostHomeCardComponent extends Component {
                                  .then(this.setState({
                                                          planBeingEdited: false
                                                      }))}
-                             className="btn btn-light m-2">
-                             <i className="fa fa-lg fa-check"/>
+                             className="btn btn-light btn-block m-2">
+                             <FaCheck size={28}/>
                          </button>
                         }
                     </div>

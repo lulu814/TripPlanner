@@ -2,6 +2,7 @@ import React from "react";
 import {deleteWidget, moveWidget, updateWidget} from "../../../actions/widgetActions";
 import {connect} from "react-redux";
 import WidgetService from "../../../services/WidgetService";
+import {FaArrowDown, FaArrowUp, FaTimes} from "react-icons/all";
 
 export const WidgetParagraphComponent = ({widget, preview, index, updateWidget, deleteWidget, moveWidget, length}) =>
     <div className="my-4">
@@ -15,13 +16,13 @@ export const WidgetParagraphComponent = ({widget, preview, index, updateWidget, 
                      {index > 0 &&
                       <div className="btn btn-warning m-1"
                            onClick={() => moveWidget(index, index - 1)}>
-                          <i className="fas fa-arrow-up"/>
+                          <FaArrowUp/>
                       </div>
                      }
                      {index < length - 1 &&
                       <div className="btn btn-warning m-1"
                            onClick={() => moveWidget(index, index + 1)}>
-                          <i className="fas fa-arrow-down"/>
+                          <FaArrowDown/>
                       </div>
                      }
                      <select className="custom-select m-1" value={widget.type} onChange={event => {
@@ -35,7 +36,7 @@ export const WidgetParagraphComponent = ({widget, preview, index, updateWidget, 
                          <option value="IMAGE">Image</option>
                      </select>
                      <div className="btn btn-danger m-1" onClick={() => deleteWidget(widget.id)}>
-                         <i className="fas fa-times"/>
+                         <FaTimes/>
                      </div>
                  </div>
              </div>

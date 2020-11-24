@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {FaCheck} from "react-icons/all";
 
 class TripPlanTripTableItemComponent extends Component {
     state = {
@@ -67,7 +68,7 @@ class TripPlanTripTableItemComponent extends Component {
                 }
                 {this.state.beingEdited &&
                  <button className="btn btn-primary"
-                         onClick={() => this.setState({beingEdited: false})}><i className="fa fa-lg fa-check"/>
+                         onClick={() => this.setState({beingEdited: false})}><FaCheck size={20}/>
                  </button>
                 }
             </th>

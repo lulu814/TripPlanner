@@ -5,6 +5,7 @@ import {createWidget} from "../../actions/widgetActions";
 import WidgetHeadingComponent from "./PostWidgets/WidgetHeadingComponent";
 import WidgetParagraphComponent from "./PostWidgets/WidgetParagraphComponent";
 import WidgetImageComponent from "./PostWidgets/WidgetImageComponent";
+import {FaPlus} from "react-icons/all";
 
 const WidgetListComponent = ({widgets, postId, createWidgetForPost}) => {
     const [preview, setPreview] = useState(false);
@@ -56,7 +57,7 @@ const WidgetListComponent = ({widgets, postId, createWidgetForPost}) => {
          <button className="ml-auto btn btn-success wbdv-add-widget-fixed"
                  title="add new widget"
                  onClick={() => createWidgetForPost(postId)}>
-             <i className="fas fa-plus fa-2x"/>
+             <FaPlus size={28}/>
          </button>
         }
     </div>

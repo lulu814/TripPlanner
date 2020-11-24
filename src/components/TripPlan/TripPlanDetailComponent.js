@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import MapComponent from "../Homepage/Maps/MapComponent";
 import MapForPlanComponent from "../Homepage/Maps/MapForPlanComponent";
+import {FaTimes} from "react-icons/all";
 
 class TripPlanDetailComponent extends React.Component {
     planHardcode = {
@@ -21,7 +22,7 @@ class TripPlanDetailComponent extends React.Component {
     render() {
         return <div className="row">
             <div className="col-md-7 border-right min-vh-100">
-                <Link className="btn btn-secondary m-1" to={"/plans"}>X</Link>
+                <Link className="btn btn-secondary m-1" to={"/plans"}><FaTimes/></Link>
                 <div className="p-2">
                     <h2 className="text-center">Plan: {this.state.plan.name}</h2>
                     {this.state.plan.trips && <TripPlanTripTableComponent
