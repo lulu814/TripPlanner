@@ -1,47 +1,30 @@
 {
-  "name": "project",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@react-google-maps/api": "^1.13.0",
-    "antd": "^4.8.2",
-    "bootstrap": "^4.5.3",
-    "date-fns": "^2.16.1",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
-    "react-dom": "^17.0.1",
-    "react-google-maps": "^9.4.5",
-    "react-icons": "^3.11.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.0",
-    "redux": "^4.0.5",
-    "use-places-autocomplete": "^1.6.0",
-    "@reach/combobox": "^0.11.2",
-    "react-redux": "^7.2.2"
-  },
+  "name": "tripplanner-server",
+  "version": "1.0.0",
+  "description": "A Trip Planner Web Application for CS5610 final project.",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "server": "nodemon server.js",
+    "client": "cd frontend && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others-on-fail \"npm run-script server\" \"npm run-script client\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lulu814/TripPlanner.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lulu814/TripPlanner/issues"
   },
-  "devDependencies": {}
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "concurrently": "^4.0.1"
+  },
+  "homepage": "https://github.com/lulu814/TripPlanner#readme"
 }

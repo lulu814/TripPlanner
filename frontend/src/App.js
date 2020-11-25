@@ -17,8 +17,6 @@ import HomepageView from "./components/Homepage/HomepageViewComponent";
 
 
 export default function App() {
-
-
   return (
       <Router>
         <Container><HeaderComponent/></Container>
