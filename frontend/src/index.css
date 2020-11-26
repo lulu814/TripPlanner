@@ -338,6 +338,10 @@ code {
   width: 100%;
 }
 
+.placelist-info-container {
+  align-items: center !important;
+}
+
 /*-----------Homepage Search bar ends----------------*/
 
 /*-----------Homepage nav bar----------------*/

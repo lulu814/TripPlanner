@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+
+
 const app = express();
 const port = process.env.PORT || 8000;
+
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/TripPlanner',
@@ -16,7 +19,6 @@ app.use(function (req, res, next) {
         'GET, POST, PUT, PATCH, DELETE, OPTIONS');
     next();
 });
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

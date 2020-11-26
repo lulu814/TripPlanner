@@ -11,7 +11,7 @@ import {
 
 import CardComponent from "./CardComponent";
 import MapDirectionsRenderer from "./MapDirectionComponent";
-import SearchBar from "../SearchBarComponent";
+import SearchBar from "../SearchBarWithMapComponent";
 
 // to avoid rerender
 const libraries = ["places", "geometry", "drawing"];

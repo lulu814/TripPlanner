@@ -20,8 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fe38bdd-7481-4cb7-a18f-d5882ef0b451" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Homepage/Place/PlaceListComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Homepage/PlainSearchBarComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/placesApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Homepage/HomepageViewComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Homepage/HomepageViewComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Homepage/Maps/MapComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Homepage/Maps/MapComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Homepage/Maps/MapForPlanComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Homepage/Maps/MapForPlanComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Homepage/SearchBarComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Homepage/SearchBarWithMapComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +88,7 @@
       <workItem from="1606357511824" duration="200000" />
       <workItem from="1606357716091" duration="1850000" />
       <workItem from="1606403150614" duration="50000" />
+      <workItem from="1606403434999" duration="165000" />
     </task>
     <servers />
   </component>
