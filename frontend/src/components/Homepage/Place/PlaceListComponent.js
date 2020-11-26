@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { List } from 'antd';
+import { Link } from "react-router-dom";
 
 const photo_url = (ref) => 
 `https://maps.googleapis.com/maps
@@ -45,11 +46,11 @@ export default function PlaceList({inputText}) {
             />
           }
         >
-          <div>
+          <Link to={`/place/${item.place_id}`}>
             <h4>{item.name}</h4>
             <h5>Address: {item.vicinity}</h5>
             <h5>Rating: {item.rating}</h5>
-          </div>
+          </Link>
         </List.Item>
       )}
     />

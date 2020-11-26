@@ -60,8 +60,6 @@ module.exports = (app) => {
     }
   }
 
-  
-
   const fetchPlaceDetail = async (placeId) => {
     try {
       const details = await client.placeDetails({
@@ -80,6 +78,7 @@ module.exports = (app) => {
   }
 
   const getPlaceDetail = (req, res) => {
+    console.log('hitting server');
     let placeId = req.params.uid;
     if (placeId === "" || placeId === null || placeId === undefined) {
       res.json({});

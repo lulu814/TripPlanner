@@ -1,12 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-
-
 const app = express();
 const port = process.env.PORT || 8000;
 
+const cors = require('cors')
+const path = require('path');
+app.use(cors());
 
+const dotenv = require('dotenv');
+dotenv.config();
+app.use(express.static(path.join(__dirname, 'frontend/src')));
+
+//database 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/TripPlanner',
     {useNewUrlParser: true});
@@ -24,3 +30,4 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+require('./server/api/placesApi')(app)

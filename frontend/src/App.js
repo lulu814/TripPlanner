@@ -14,6 +14,7 @@ import TripPlanDetailComponent from "./components/TripPlan/TripPlanDetailCompone
 import PostDetailComponent from "./components/Post/PostDetailComponent";
 import PostHomePageComponent from "./components/Post/PostHomePageComponent";
 import HomepageView from "./components/Homepage/HomepageViewComponent";
+import DetailPageComponent from "./components/DetailPage/DetailPageComponent";
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Container><HeaderComponent/></Container>
           <Switch>
             <Route exact path='/' component={HomepageView} />
+            <Route path={["/place/:placeId"]} exact component={DetailPageComponent}/>
             <Route path="/signin" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
             <Route path="/profile" exact component={UserProfile} />
