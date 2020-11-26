@@ -17,7 +17,7 @@ import usePlacesAutocomplete, {
 
 import CardComponent from "./CardComponent";
 import MapDirectionsRenderer from "./MapDirectionComponent";
-import SearchBar from "../SearchBarComponent";
+import SearchBar from "../SearchBarWithMapComponent";
 
 import {Combobox, ComboboxInput, ComboboxList, ComboboxOption, ComboboxPopover} from "@reach/combobox";
 
