@@ -60,21 +60,34 @@ module.exports = (app) => {
     }
   }
 
-  const getPlaceDetail = (req, res) => {
+  
+
+  const fetchPlaceDetail = async (placeId) => {
     try {
-      const place = await client.placeDetails({
+      const details = await client.placeDetails({
         params: {
-          address,
+          place_id: placeId,
           key: process.env.GOOGLE_MAPS_API_KEY
         },
         timeout: 1000
       }, axios);
-      console.log(`the geoLocation for ${address} is ${geoLocation.data.results[0].geometry.location}`);
-      return place.data;
+      console.log(`the id for place is ${placeId}, details: ${details.data.result.name}`);
+      return details.data;
     } catch(err) {
       console.log(err);
       return [];
     }
+  }
+
+  const getPlaceDetail = (req, res) => {
+    let placeId = req.params.uid;
+    if (placeId === "" || placeId === null || placeId === undefined) {
+      res.json({});
+    }else{
+      fetchPlaceDetail(placeId).then(detailResult =>{
+        res.json(detailResult);
+      })
+    }  
   }
 
   app.get('/api/places', getAllPlaces)

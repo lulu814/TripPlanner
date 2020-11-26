@@ -1,15 +1,15 @@
 import React, {useState} from "react";
 import {Container} from "react-bootstrap";
-import PlaceList from "../Place/PlaceListComponent";
+import PlaceList from "./Place/PlaceListComponent";
 import MenuTabs from "./MenuTabsComponent";
 import SearchBarComponent from "./PlainSearchBarComponent";
 
 export default function HomepageView(){
     const [searchText, setSearchText] = useState("");
 
-    const updateSearchText = (address) => {
-        console.log(`setting address to: ${address}`);
-        setSearchText(address);
+    const updateSearchText = (text) => {
+        console.log(`setting address to: ${text}`);
+        setSearchText(text);
     }
 
     return(
@@ -17,7 +17,7 @@ export default function HomepageView(){
             <MenuTabs/>
             <Container fluid style={{height: '100vh'}}>
                 <SearchBarComponent updateText={updateSearchText} />
-                <PlaceList searchText={searchText}/>
+                <PlaceList inputText={searchText}/>
             </Container>
         </Container>
     )

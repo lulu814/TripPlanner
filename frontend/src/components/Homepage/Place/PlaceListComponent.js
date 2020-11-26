@@ -1,28 +1,27 @@
 import React, {useEffect, useState} from "react";
-import { List, Avatar, Space } from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { List } from 'antd';
 
 const photo_url = (ref) => 
 `https://maps.googleapis.com/maps
 /api/place/photo?photoreference=
 ${ref}&key=AIzaSyBlHhL9EqgJx0ZFIuzc5vn2yUAe96pZhs8&maxheight=260&maxwidth=260`;
 
-export default function PlaceList({searchText}) {
+export default function PlaceList({inputText}) {
   const [placeList, setPlaceList] = useState([]);
 
-  const fetchPlaces = (address) => {
-    return fetch(`/api/places?searchText=${encodeURIComponent(address)}`)
+  const fetchPlaces = (searchText) => {
+    return fetch(`/api/places?searchText=${encodeURIComponent(searchText)}`)
         .then(response => response.json())
-        .then(data => {
-            return data.results;
+        .then(apiResult => {
+            return apiResult.results;
         })
         .catch(err => console.log(err));
   }
 
   useEffect(() => {
-      const fetchData = async() => setPlaceList(await fetchPlaces(searchText));
-      fetchData();
-  }, [searchText])
+    const fetchData = async() => setPlaceList(await fetchPlaces(inputText));
+    fetchData();
+  }, [inputText])
 
   return(
     <List
@@ -42,15 +41,14 @@ export default function PlaceList({searchText}) {
           extra={
             <img
               width={280}
-              alt="logo"
               src={`${photo_url(item.photos[0].photo_reference)}`}
             />
           }
         >
           <div>
             <h4>{item.name}</h4>
-            <h5>address: {item.vicinity}</h5>
-            <h5>rating: {item.rating}</h5>
+            <h5>Address: {item.vicinity}</h5>
+            <h5>Rating: {item.rating}</h5>
           </div>
         </List.Item>
       )}

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 export default function SearchBar({updateText}) {
-    const [address, setAddress] = useState('');
+    const [searchText, setSearchText] = useState('');
 
     return(
         <div className='search-section'>
@@ -9,15 +9,15 @@ export default function SearchBar({updateText}) {
                 <div className="tb search-tb">
                     <div className="td search-td">
                         <input 
-                            value={address}
-                            onInput={e => setAddress(e.target.value)}
+                            value={searchText}
+                            onInput={e => setSearchText(e.target.value)}
                             className="combo-input combo-searchbox" 
                             type="text" 
                             placeholder="Where to?" 
                             required/>
                     </div>
                     <div className="td search-td" id="s-cover">
-                        <button type="submit" className="search-button" onClick={e => updateText(address)}>
+                        <button type="submit" className="search-button" onClick={event => updateText(searchText)}>
                             <div id="s-circle"></div>
                             <span className="search-span-stick"></span>
                         </button>
