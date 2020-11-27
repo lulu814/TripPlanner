@@ -5,7 +5,7 @@ import MenuTabs from "./MenuTabsComponent";
 import SearchBarComponent from "./PlainSearchBarComponent";
 
 export default function HomepageView(){
-    const [searchText, setSearchText] = useState("");
+    const [searchText, setSearchText] = useState("Boston");
 
     const updateSearchText = (text) => {
         console.log(`setting address to: ${text}`);

@@ -2,14 +2,12 @@ import React, {useEffect, useState} from "react";
 import { List } from 'antd';
 import { Link } from "react-router-dom";
 
-const photo_url = (ref) => 
-`https://maps.googleapis.com/maps
-/api/place/photo?photoreference=
-${ref}&key=AIzaSyBlHhL9EqgJx0ZFIuzc5vn2yUAe96pZhs8&maxheight=260&maxwidth=260`;
-
 export default function PlaceList({inputText}) {
   const [placeList, setPlaceList] = useState([]);
 
+  const photo_url = (ref) => 
+  `https://maps.googleapis.com/maps/api/place/photo?photoreference=${ref}&key=AIzaSyBlHhL9EqgJx0ZFIuzc5vn2yUAe96pZhs8&maxheight=260&maxwidth=260`;
+  
   const fetchPlaces = (searchText) => {
     return fetch(`/api/places?searchText=${encodeURIComponent(searchText)}`)
         .then(response => response.json())

@@ -1,10 +1,10 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "@reach/combobox/styles.css";
 import HeaderComponent from "./components/Homepage/HeaderComponent";
 
-import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button} from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import Login from "./components/User/LoginComponent";
 import SignUp from "./components/User/SignUpComponent";
 import UserProfile from "./components/User/AccountComponent";
