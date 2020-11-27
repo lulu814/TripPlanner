@@ -376,6 +376,11 @@ code {
   margin:15px;
 }
 
+.ant-list{
+  margin-bottom: 50px;
+
+}
+
 .pill-item:hover {
   background-color: black;
   color: white;
@@ -385,4 +390,152 @@ code {
 /*-----------Header css----------------*/
 .blank-header {
   width: 60vw;
+}
+
+/*-----------DetailPage css----------------*/
+.PlaceName{
+  font-weight: bold;
+}
+
+
+body{margin-top:20px;}
+.btn.btn-outline-primary:hover, .bg-color {
+    background-color: #ff7c7c !important;
+}
+.section-medium {
+    padding: 55px 0px;
+    margin-bottom: 32px;
+    margin-top: 18px;
+}
+
+.text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6 {
+    color: white !important;
+}
+
+body{
+  margin-top:20px;
+  background:#eee;
+}
+@media (min-width: 0) {
+  .g-mr-15 {
+      margin-right: 1.07143rem !important;
+  }
+}
+@media (min-width: 0){
+  .g-mt-3 {
+      margin-top: 0.21429rem !important;
+  }
+}
+
+.g-height-50 {
+  height: 50px;
+}
+
+.g-width-50 {
+  width: 50px !important;
+}
+
+@media (min-width: 0){
+  .g-pa-30 {
+      padding: 2.14286rem !important;
+  }
+}
+
+.g-bg-secondary {
+  background-color: #fafafa !important;
+}
+
+.u-shadow-v18 {
+  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
+}
+
+.g-color-gray-dark-v4 {
+  color: #777 !important;
+}
+
+.g-font-size-12 {
+  font-size: 0.85rem !important;
+}
+
+.media-comment {
+  margin-top:20px
+}
+
+
+body{margin-top:20px;}
+
+
+/*======= Contact ======*/
+
+.form-control {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 2px solid #cecece;
+  height: 38px;
+}
+.form-control:hover ,.form-control:focus{
+  border-color: #97a0af;
+}
+
+.error {
+  margin: 8px 0px;
+  display: none;
+  color: red;
+}
+#ajaxsuccess {
+  font-size: 16px;
+  width: 100%;
+  display: none;
+  clear: both;
+  margin: 8px 0px;
+}
+.con_sub_text {
+  margin: 20px 0px;
+  font-size: 15px;
+}
+
+.contact-detail-box {
+  margin-bottom: 50px;
+}
+
+.contact-detail-box address {
+  font-size: 14px;
+}
+
+
+
+
+/* place photo*/
+
+body{
+  background:#eee;
+  margin-top:20px;
+}
+.align-items-center {
+  -webkit-box-align: center!important;
+  align-items: center!important;
+}
+.form-row {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+.img-square {
+  position: relative;
+  padding-bottom: 100%;
+}
+.img-square .img-cover {
+  position: absolute;
+}
+.img-cover {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
 }
