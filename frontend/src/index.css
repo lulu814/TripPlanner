@@ -190,6 +190,18 @@ code {
   transition: opacity .5s ease-in,transform .3s ease-in-out .25s;
 }
 
+.wbdv-fixed-img{
+  position: fixed;
+  bottom: 23%;
+  right: 25%;
+}
+
+.wbdv-card-text {
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+}
+
 
 /*-----------Plan Home style End---------------*/
 

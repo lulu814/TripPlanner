@@ -1,6 +1,6 @@
 import React from "react";
 import TripPlanHomeCardComponent from "./TripPlanHomeCardComponent";
-import post3 from "../../assets/";
+import illustration from "../../assets/illustration.jpg";
 import PlanService from "../../services/PlanService";
 
 class TripPlanHomeComponent extends React.Component {
@@ -59,20 +59,22 @@ class TripPlanHomeComponent extends React.Component {
             <h1 className="text-center mb-4 p-2 articles__title wbdv-bg-hf-trans">“We travel, some of us forever, to
                 seek other places, other lives, other souls.” – Anais Nin</h1>
             <ol className="articles">
-                <li className="articles__article">
+                <li className="articles__article" >
                     <button
                         onClick={() => this.createNewPlan()} className="articles__link">
                         <div className="articles__content articles__content--lhs">
-                            <h2 className="articles__title m-2">Create a new trip</h2>
+                            <h2 className="articles__title">Create a new trip</h2>
+                            <img width="54%" src={illustration} alt="illus" className="wbdv-fixed-img"/>
                             <div className="articles__footer">
-                                <p>Live to travel and travel to live</p>
+                                <p className="text-center wbdv-card-text"><em>Live to travel and travel to live</em></p>
                             </div>
                         </div>
                         <div className="articles__content articles__content--rhs"
                              aria-hidden="true">
-                            <h2 className="articles__title m-2">Create a new trip</h2>
+                            <h2 className="articles__title">Create a new trip</h2>
+                            <img width="54%" src={illustration} alt="illus" className="wbdv-fixed-img"/>
                             <div className="articles__footer">
-                                <p>Live to travel and travel to live</p>
+                                <p className="text-center wbdv-card-text"><em>Live to travel and travel to live</em></p>
                             </div>
                         </div>
                     </button>
