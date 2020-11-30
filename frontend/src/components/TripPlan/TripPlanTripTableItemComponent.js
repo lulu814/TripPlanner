@@ -44,7 +44,7 @@ class TripPlanTripTableItemComponent extends Component {
 
             {!this.state.beingEdited &&
              <th>{this.state.trip.places.map(
-                 place => <span>{place}{'\n'}</span>)}</th>}
+                 (place, index) => <span key={index}>{place}{'\n'}</span>)}</th>}
 
             {this.state.beingEdited &&
              <th><textarea className="form-control wbdv-min-w-table-text"
