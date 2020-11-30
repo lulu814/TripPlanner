@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
-import post2 from "../../assets/post2.jpg";
+import illustration from "../../assets/illustration-3.jpg";
 import {FaCheck} from "react-icons/all";
 
 class TripPlanHomeCardComponent extends Component {
@@ -15,7 +15,7 @@ class TripPlanHomeCardComponent extends Component {
                 <div className="articles__content articles__content--lhs">
                     {this.state.planBeingEdited &&
                      <input
-                         className="form-control"
+                         className="form-control wbdv-high-index"
                          value={this.state.plan.name} onChange={(e) => {
                          const newTitle = e.target.value;
                          this.setState(prevState => ({
@@ -27,21 +27,22 @@ class TripPlanHomeCardComponent extends Component {
                      }}/>
                     }
                     {!this.state.planBeingEdited &&
-                     <Link className="articles__title m-2"
+                     <Link className="articles__title wbdv-high-index"
                            to={`plans/${this.state.plan._id}`}>{this.state.plan.name}</Link>
                     }
+                    <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                     <div className="articles__footer">
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.setState({planBeingEdited: true})}
-                             className="btn btn-light col-lg-3 m-1 my-1">
+                             className="btn btn-light col-lg-3">
                              Edit
                          </button>
                         }
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.props.deletePlan(this.state.plan._id)}
-                             className="btn btn-light col-lg-4 ml-1 my-1">
+                             className="btn btn-light col-lg-4">
                              Delete
                          </button>
                         }
@@ -52,7 +53,7 @@ class TripPlanHomeCardComponent extends Component {
                                  .then(this.setState({
                                                          planBeingEdited: false
                                                      }))}
-                             className="btn btn-light btn-block m-2">
+                             className="btn btn-light btn-block">
                              <FaCheck size={28}/>
                          </button>
                         }
@@ -62,7 +63,7 @@ class TripPlanHomeCardComponent extends Component {
                      aria-hidden="true">
                     {this.state.planBeingEdited &&
                      <input
-                         className="form-control"
+                         className="form-control wbdv-high-index"
                          value={this.state.plan.name} onChange={(e) => {
                          const newTitle = e.target.value;
                          this.setState(prevState => ({
@@ -74,21 +75,22 @@ class TripPlanHomeCardComponent extends Component {
                      }}/>
                     }
                     {!this.state.planBeingEdited &&
-                     <Link className="articles__title m-2"
+                     <Link className="articles__title wbdv-high-index"
                            to={`plans/${this.state.plan._id}`}>{this.state.plan.name}</Link>
                     }
+                    <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                     <div className="articles__footer">
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.setState({planBeingEdited: true})}
-                             className="btn btn-light col-lg-3 m-1 my-1">
+                             className="btn btn-light col-lg-3">
                              Edit
                          </button>
                         }
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.props.deletePlan(this.state.plan._id)}
-                             className="btn btn-light col-lg-4 ml-1 my-1">
+                             className="btn btn-light col-lg-4">
                              Delete
                          </button>
                         }
@@ -99,7 +101,7 @@ class TripPlanHomeCardComponent extends Component {
                                  .then(this.setState({
                                                          planBeingEdited: false
                                                      }))}
-                             className="btn btn-light btn-block m-2">
+                             className="btn btn-light btn-block">
                              <FaCheck size={28}/>
                          </button>
                         }

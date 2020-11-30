@@ -1,6 +1,6 @@
 import React from "react";
 import TripPlanHomeCardComponent from "./TripPlanHomeCardComponent";
-import illustration from "../../assets/illustration.jpg";
+import illustration from "../../assets/illustration-2.jpg";
 import PlanService from "../../services/PlanService";
 
 class TripPlanHomeComponent extends React.Component {
@@ -64,7 +64,7 @@ class TripPlanHomeComponent extends React.Component {
                         onClick={() => this.createNewPlan()} className="articles__link">
                         <div className="articles__content articles__content--lhs">
                             <h2 className="articles__title">Create a new trip</h2>
-                            <img width="54%" src={illustration} alt="illus" className="wbdv-fixed-img"/>
+                            <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                             <div className="articles__footer">
                                 <p className="text-center wbdv-card-text"><em>Live to travel and travel to live</em></p>
                             </div>
@@ -72,7 +72,7 @@ class TripPlanHomeComponent extends React.Component {
                         <div className="articles__content articles__content--rhs"
                              aria-hidden="true">
                             <h2 className="articles__title">Create a new trip</h2>
-                            <img width="54%" src={illustration} alt="illus" className="wbdv-fixed-img"/>
+                            <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                             <div className="articles__footer">
                                 <p className="text-center wbdv-card-text"><em>Live to travel and travel to live</em></p>
                             </div>

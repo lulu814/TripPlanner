@@ -192,14 +192,19 @@ code {
 
 .wbdv-fixed-img{
   position: fixed;
-  bottom: 23%;
-  right: 25%;
+  bottom: 22%;
+  right: 20%;
+  width: 60%;
 }
 
 .wbdv-card-text {
   font-size: 18px;
   text-align: center;
   width: 100%;
+}
+
+.wbdv-high-index {
+  z-index: 999;
 }
 
 
