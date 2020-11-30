@@ -10,16 +10,16 @@ class TripPlanTripTableItemComponent extends Component {
 
     render() {
         return <tr>
-            {!this.state.beingEdited && <th scope="row">{this.state.trip.order}</th>}
+            {!this.state.beingEdited && <th scope="row">{this.state.trip.day}</th>}
             {this.state.beingEdited && <th scope="row"><input
                 className="form-control wbdv-min-w-table-day"
-                value={this.state.trip.order}
+                value={this.state.trip.day}
                 onChange={(e) => {
                     const newValue = e.target.value;
                     this.setState(prevState => ({
                         trip: {
                             ...prevState.trip,
-                            order: newValue,
+                            day: newValue,
                         }
                     }))
                 }
