@@ -1,17 +1,15 @@
 import React from "react";
 import TripPlanTripTableComponent from "./TripPlanTripTableComponent";
-import TripPlanCreateFormComponent from "./TripPlanCreateFormComponent";
 import {Link} from "react-router-dom";
 import {Container} from "react-bootstrap";
-import MapForPlanComponent from "../Homepage/Maps/MapForPlanComponent";
 import {FaTimes} from "react-icons/all";
 import PlanService from "../../services/PlanService";
+import MapComponent from "../Homepage/Maps/MapComponent";
 
 class TripPlanDetailComponent extends React.Component {
     state = {
         plan: []
     }
-
     componentDidMount() {
         const planId = this.props.match.params.planId;
         this.loadPlan(planId);
@@ -34,8 +32,7 @@ class TripPlanDetailComponent extends React.Component {
             <div className="col-md-5 col-lg-6">
                 {/*map */}
                 <Container fluid style={{height: '100vh'}}>
-                    {/* <SearchBarComponent/> */}
-                    <MapForPlanComponent/>
+                    <MapComponent/>
                 </Container>
                 {/*map */}
             </div>

@@ -11,15 +11,15 @@ import {
 
 import CardComponent from "./CardComponent";
 import MapDirectionsRenderer from "./MapDirectionComponent";
-import SearchBar from "../SearchBarWithMapComponent";
+import Search from "./SearchBarComponent";
 
 // to avoid rerender
 const libraries = ["places", "geometry", "drawing"];
 const mapContainerStyle = {
-    height: "60vh",
-    width: "100%",
+    height: "100vh",
+    width: "95%",
     top: 50
-    
+
 };
 const options = {
     disableDefaultUI: true,
@@ -81,7 +81,8 @@ export default  function MapComponent() {
     return (
         <div>
             <div className="mapContainer">
-                <SearchBar panTo={panTo} setMarkers = {setMarkers}/>
+                <Search panTo={panTo} setMarkers = {setMarkers}/>
+                <Locate panTo={panTo} />
                 <GoogleMap
                     id="map"
                     mapContainerStyle={mapContainerStyle}
@@ -91,7 +92,6 @@ export default  function MapComponent() {
                     onClick={onMapClick}
                     onLoad={onMapLoad}
                 >
-                    <Locate panTo={panTo} />
                     {markers.map((marker) => (
                         <Marker
                             key={`${marker.lat}-${marker.lng}`}
@@ -123,7 +123,7 @@ export default  function MapComponent() {
                     {/*    travelMode="DRIVING"*/}
                     {/*/>*/}
                 </GoogleMap>
-            </div>    
+            </div>
 
         </div>
 
