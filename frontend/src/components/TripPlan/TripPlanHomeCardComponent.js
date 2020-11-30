@@ -36,7 +36,7 @@ class TripPlanHomeCardComponent extends Component {
                     <div className="row mt-2">
                         {!this.state.planBeingEdited &&
                          <Link
-                             to={`plans/${this.state.plan.id}`}
+                             to={`plans/${this.state.plan._id}`}
                              className="btn btn-light col-lg-4 mx-1 my-1">
                              Detail
                          </Link>
@@ -50,14 +50,14 @@ class TripPlanHomeCardComponent extends Component {
                         }
                         {!this.state.planBeingEdited &&
                          <button
-                             onClick={() => this.props.deleteCourse(this.state.plan)}
+                             onClick={() => this.props.deletePlan(this.state.plan._id)}
                              className="btn btn-light col-lg-4 ml-1 my-1">
                              Delete
                          </button>
                         }
                         {this.state.planBeingEdited &&
                          <button
-                             onClick={() => this.props.editCourse(this.state.plan.id,
+                             onClick={() => this.props.updatePlan(this.state.plan._id,
                                                                   this.state.plan)
                                  .then(this.setState({
                                                          planBeingEdited: false

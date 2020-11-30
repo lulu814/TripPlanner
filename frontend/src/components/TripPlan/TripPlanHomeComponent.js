@@ -1,36 +1,56 @@
 import React from "react";
 import TripPlanHomeCardComponent from "./TripPlanHomeCardComponent";
 import post3 from "../../assets/post3.jpg";
+import PlanService from "../../services/PlanService";
 
 class TripPlanHomeComponent extends React.Component {
+
+    userId = '1';
+
     plansHardcode = [{
         name: '1',
         id: '1',
-        user: {name: 'user1'},
+        userId: '1',
         trips: [{date: '2022-12-1', places: ['Boston'], order: 1}
             , {date: '2022-12-2', places: ['Cambridge'], order: 2}]
     }, {
         name: '2',
         id: '2',
-        user: {name: 'user1'},
+        userId: '1',
         trips: [{date: '2022-12-1', places: ['Boston'], order: 1}
             , {date: '2022-12-2', places: ['Cambridge'], order: 2}]
     }]
 
     state = {
-        plans: this.plansHardcode,
+        plans: []
     }
 
-    createNewTrip = () => {
-        this.setState(prevState => ({
-            plans: [...prevState.plans, {
-                name: 'new plan',
-                id: '3',
-                user: {
-                    name: 'user1'
-                }
-            }]
-        }))
+    updatePlan = (planId, plan) => PlanService.updatePlan(planId, plan)
+        .then(plans => this.loadPlans(this.userId));
+
+    createNewPlan = () => {
+        const newPlan = {
+            name: "New Plan",
+            userId : this.userId
+        }
+        PlanService.createPlanForUser(this.userId, newPlan).then(actualPlan => this.setState(prevState => (
+            {plans: [...prevState.plans, actualPlan]}
+        )))
+    }
+
+    loadPlans = (userId) => {
+        PlanService.findPlansForUser(userId)
+            .then(fetchedPlans => this.setState({plans: fetchedPlans}))
+    }
+
+    deletePlan = (planId) =>
+        PlanService.deletePlan(planId)
+            .then(() => this.setState(prevState => ({
+                plans: prevState.plans.filter(p => p._id !== planId)
+            })));
+
+    componentDidMount() {
+        this.loadPlans(this.userId);
     }
 
     render() {
@@ -45,7 +65,7 @@ class TripPlanHomeComponent extends React.Component {
                                  src={post3}
                                  alt=""/>
                             <div className="mt-2">
-                            <button onClick={() => this.createNewTrip()} className="btn btn-primary m-1">
+                            <button onClick={() => this.createNewPlan()} className="btn btn-primary m-1">
                                 Create
                             </button>
                             </div>
@@ -53,7 +73,9 @@ class TripPlanHomeComponent extends React.Component {
                     </div>
                 </div>
                 {this.state.plans &&
-                 this.state.plans.map(plan => <TripPlanHomeCardComponent key={plan.id} plan={plan}/>)}
+                 this.state.plans.map(plan => <TripPlanHomeCardComponent key={plan._id} plan={plan}
+                                                                         deletePlan={this.deletePlan}
+                                                                         updatePlan={this.updatePlan}/>)}
             </div>
         </div>
     }

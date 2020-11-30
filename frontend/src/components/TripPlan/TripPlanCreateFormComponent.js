@@ -43,7 +43,16 @@ class TripPlanCreateFormComponent extends React.Component {
                                }
                            }))}/>
                 </div>
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                <button type="submit" className="btn btn-primary btn-block"
+                        onClick={() => this.props.createTrip(this.state.trip)
+                            .then(this.setState({
+                                                    trip: {
+                                                        day: '',
+                                                        date: '',
+                                                        places: []
+                                                    }
+                                                }))}>Submit
+                </button>
             </form>
         </div>
     }
