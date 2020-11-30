@@ -1,6 +1,6 @@
 import React from "react";
 import TripPlanHomeCardComponent from "./TripPlanHomeCardComponent";
-import post3 from "../../assets/post3.jpg";
+import post3 from "../../assets/";
 import PlanService from "../../services/PlanService";
 
 class TripPlanHomeComponent extends React.Component {
@@ -31,11 +31,12 @@ class TripPlanHomeComponent extends React.Component {
     createNewPlan = () => {
         const newPlan = {
             name: "New Plan",
-            userId : this.userId
+            userId: this.userId
         }
-        PlanService.createPlanForUser(this.userId, newPlan).then(actualPlan => this.setState(prevState => (
-            {plans: [...prevState.plans, actualPlan]}
-        )))
+        PlanService.createPlanForUser(this.userId, newPlan)
+            .then(actualPlan => this.setState(prevState => (
+                {plans: [...prevState.plans, actualPlan]}
+            )))
     }
 
     loadPlans = (userId) => {
@@ -54,29 +55,34 @@ class TripPlanHomeComponent extends React.Component {
     }
 
     render() {
-        return <div className="container-fluid">
-            <h1 className="text-center m-2">Trip Plans</h1>
-            <div className="row">
-                <div className="col-sm-4">
-                    <div className="card p-0 m-2 mx-3 text-center">
-                        <div className="card-body">
-                            <h5 className="card-title">Create a new trip</h5>
-                            <img width="100%"
-                                 src={post3}
-                                 alt=""/>
-                            <div className="mt-2">
-                            <button onClick={() => this.createNewPlan()} className="btn btn-primary m-1">
-                                Create
-                            </button>
+        return <div className="wbdv-card-body">
+            <h1 className="text-center mb-4 p-2 articles__title wbdv-bg-hf-trans">“We travel, some of us forever, to
+                seek other places, other lives, other souls.” – Anais Nin</h1>
+            <ol className="articles">
+                <li className="articles__article">
+                    <button
+                        onClick={() => this.createNewPlan()} className="articles__link">
+                        <div className="articles__content articles__content--lhs">
+                            <h2 className="articles__title m-2">Create a new trip</h2>
+                            <div className="articles__footer">
+                                <p>Live to travel and travel to live</p>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <div className="articles__content articles__content--rhs"
+                             aria-hidden="true">
+                            <h2 className="articles__title m-2">Create a new trip</h2>
+                            <div className="articles__footer">
+                                <p>Live to travel and travel to live</p>
+                            </div>
+                        </div>
+                    </button>
+                </li>
                 {this.state.plans &&
                  this.state.plans.map(plan => <TripPlanHomeCardComponent key={plan._id} plan={plan}
                                                                          deletePlan={this.deletePlan}
                                                                          updatePlan={this.updatePlan}/>)}
-            </div>
+            </ol>
+
         </div>
     }
 }
