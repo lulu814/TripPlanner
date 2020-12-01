@@ -2,24 +2,32 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {signIn} from "../../services/UserService";
 import {message} from 'antd';
+import {getCurrUser} from "../../services/UserService";
+import axios from "axios";
+const API_ROOT = "http://localhost:8000"
+
 
 export default class Login extends Component {
     state = {
         email: '',
         password: ''
     }
+
     handleSubmit = e => {
         e.preventDefault();
-        signIn(e).then(response => {
-            console.log(response);
-            if (response.ok) {
-                return response.text();
-            }
-            throw new Error(response.statusText);
-        }).then((data) => {
+        axios.post(`${API_ROOT}/signin`, {
+            email: this.state.email,
+            password: this.state.password
+        })
+            .then(response => {
+                if (response.data.accessToken) {
+                    localStorage.setItem("user", JSON.stringify(response.data));
+                }
+                return response.data;
+            }).then((data) => {
             console.log(data);
-            // this.props.handleLoginSucceed(data);
             message.success('Login succeed!');
+            this.props.history.push("/profile");
         })
             .catch((err) => {
                 console.error(err);
@@ -36,12 +44,16 @@ export default class Login extends Component {
 
                         <div className="form-group">
                             <label>Email</label>
-                            <input type="email" className="form-control" placeholder="Enter email"/>
+                            <input type="email" className="form-control" placeholder="Enter email"
+                                   onChange={e => this.setState({email: e.target.value})}
+                            />
                         </div>
 
                         <div className="form-group">
                             <label>Password</label>
-                            <input type="password" className="form-control" placeholder="Enter password"/>
+                            <input type="password" className="form-control" placeholder="Enter password"
+                                   onChange={e => this.setState({password: e.target.value})}
+                            />
                         </div>
 
                         <div className="form-group">
