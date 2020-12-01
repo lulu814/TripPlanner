@@ -6,6 +6,7 @@ const url = "http://wbdv-generic-server.herokuapp.com/api/tripplanner";
 //     userId: '1'
 // }
 
+
 export const findPlanById = (planId) =>
     fetch(`${url}/plans/${planId}`)
         .then(response => response.json())
