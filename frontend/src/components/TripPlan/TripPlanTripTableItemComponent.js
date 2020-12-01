@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {FaCheck} from "react-icons/all";
-import {FaTimes} from "react-icons/all";
 
 class TripPlanTripTableItemComponent extends Component {
     state = {
@@ -49,10 +48,10 @@ class TripPlanTripTableItemComponent extends Component {
             <div>
                 {!this.state.beingEdited &&
                  <div>
-                     <button className="btn wbdv-td-table-btn m-2"
+                     <button className="btn wbdv-td-table-btn mr-3"
                              onClick={() => this.setState({beingEdited: true})}>Edit
                      </button>
-                     <button className="btn wbdv-td-table-btn m-2"
+                     <button className="btn wbdv-td-table-btn"
                              onClick={() => this.props.deleteTrip(this.state.trip._id)}>Delete
                      </button>
                  </div>

@@ -208,6 +208,12 @@ code {
   transition: opacity .5s ease-in,transform .3s ease-in-out .25s;
 }
 
+.wbdv-fixed-btn{
+  position: absolute;
+  top: -1%;
+  left: 3.5%;
+}
+
 .wbdv-fixed-img{
   position: fixed;
   bottom: 22%;
