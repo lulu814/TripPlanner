@@ -1,80 +1,190 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
-import {signIn} from "../../services/UserService";
-import {message} from 'antd';
-import {getCurrUser} from "../../services/UserService";
-import axios from "axios";
-const API_ROOT = "http://localhost:8000"
+import image from '../../assets/avatar.jpg';
+import {updateProfile} from "../../services/UserService";
 
-
-export default class Login extends Component {
+export default class UserProfile extends Component {
     state = {
-        email: '',
-        password: ''
+        isLogin: false,
+        currUser: JSON.parse(localStorage.getItem('user')),
+        fName: "John",
+        lName: "Smith",
+        text: "About me"
     }
 
-    handleSubmit = e => {
+    componentWillMount() {
+        if (this.state.currUser) {
+            console.log("curruser -> ", this.state.currUser)
+            this.setState({
+                isLogin: true,
+                fName: this.state.currUser.user.fName,
+                lName: this.state.currUser.user.lName,
+                text: this.state.currUser.user.text
+            })
+        }
+
+    }
+
+    handleClick = (e) => {
         e.preventDefault();
-        axios.post(`${API_ROOT}/signin`, {
-            email: this.state.email,
-            password: this.state.password
-        })
-            .then(response => {
-                if (response.data.accessToken) {
-                    localStorage.setItem("user", JSON.stringify(response.data));
-                }
-                return response.data;
-            }).then((data) => {
-            console.log(data);
-            message.success('Login succeed!');
-            this.props.history.push("/profile");
-        })
-            .catch((err) => {
-                console.error(err);
-                message.error('Login failed.');
-            });
+        const updateUser = {
+            ...this.state.currUser.user,
+            fName: this.state.fName,
+            lName: this.state.lName,
+            text: this.state.text
+        }
+        console.log("update user -> ", updateUser)
+        updateProfile(updateUser)
+        localStorage.setItem("user", JSON.stringify(updateUser))
     }
 
     render() {
         return (
-            <div className="outer">
-                <div className="inner">
-                    <form>
-                        <h3>Log in</h3>
-
-                        <div className="form-group">
-                            <label>Email</label>
-                            <input type="email" className="form-control" placeholder="Enter email"
-                                   onChange={e => this.setState({email: e.target.value})}
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input type="password" className="form-control" placeholder="Enter password"
-                                   onChange={e => this.setState({password: e.target.value})}
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck1"/>
-                                <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+            <div className="container">
+                {this.state.isLogin &&
+                <div>
+                    <div className="card">
+                        <div className="card-header mb-2">Edit Profile</div>
+                        <div className="card-body">
+                            <div className="e-profile">
+                                <div className="row">
+                                    <div className="col-12 col-sm-auto mb-3">
+                                        <div className="mx-auto">
+                                            <div className="d-flex justify-content-center align-items-center rounded"
+                                            >
+                                                <img className="rounded-circle"
+                                                     src={image} alt="name"
+                                                     width="110"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                        <div className="text-center text-sm-left mb-2 mb-sm-0">
+                                            <h4 className="pt-sm-2 pb-1 mb-0 text-nowrap">{this.state.fName} {this.state.lName}</h4>
+                                            <div className="mt-2">
+                                                <button className="btn btn-primary" type="button">
+                                                    <i className="fa fa-fw fa-camera"/>
+                                                    <span>Change Photo</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="text-center text-sm-right">
+                                            <span className="badge badge-secondary">{this.state.currUser.user.role}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul className="nav nav-tabs">
+                                    <li className="nav-item">
+                                        <div className="active nav-link">Settings</div>
+                                    </li>
+                                </ul>
+                                <div className="tab-content pt-3">
+                                    <div className="tab-pane active">
+                                        <form className="form">
+                                            <div className="row">
+                                                <div className="col">
+                                                    <div className="row">
+                                                        <div className="col">
+                                                            <div className="form-group">
+                                                                <label>First Name</label>
+                                                                <input className="form-control"
+                                                                       type="text"
+                                                                       onChange={e =>
+                                                                           this.setState({fName: e.target.value})}
+                                                                       value={this.state.fName}/>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col">
+                                                            <div className="form-group">
+                                                                <label>Last Name</label>
+                                                                <input className="form-control" type="text"
+                                                                       onChange={e =>
+                                                                           this.setState({lName: e.target.value})}
+                                                                       value={this.state.lName}/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col">
+                                                            <div className="form-group">
+                                                                <label>Email</label>
+                                                                <input className="form-control" type="text"
+                                                                       value={this.state.currUser.user.email}
+                                                                       readOnly
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col mb-3">
+                                                            <div className="form-group">
+                                                                <label>About</label>
+                                                                <textarea className="form-control" rows="5"
+                                                                          placeholder="My Bio"
+                                                                          onChange={e =>
+                                                                              this.setState({text: e.target.value})}
+                                                                          value={this.state.text}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/*<div className="row">*/}
+                                            {/*    <div className="col-12">*/}
+                                            {/*        <div className="mb-2"><b>Change Password</b></div>*/}
+                                            {/*        <div className="row">*/}
+                                            {/*            <div className="col-12 col-md-6">*/}
+                                            {/*                <div className="form-group">*/}
+                                            {/*                    <label>Current Password</label>*/}
+                                            {/*                    <input className="form-control" type="password"*/}
+                                            {/*                           placeholder="••••••"/>*/}
+                                            {/*                </div>*/}
+                                            {/*            </div>*/}
+                                            {/*            <div className="col-12 col-md-6">*/}
+                                            {/*                <div className="form-group">*/}
+                                            {/*                    <label>New Password</label>*/}
+                                            {/*                    <input className="form-control" type="password"*/}
+                                            {/*                           onChange={e =>*/}
+                                            {/*                               this.setState({password: e.target.value})}*/}
+                                            {/*                           placeholder="••••••"/>*/}
+                                            {/*                </div>*/}
+                                            {/*            </div>*/}
+                                            {/*        </div>*/}
+                                            {/*    </div>*/}
+                                            {/*</div>*/}
+                                            <div className="row">
+                                                <div className="col d-flex justify-content-end">
+                                                    <button className="btn btn-primary"
+                                                            onClick={e => this.handleClick(e)}
+                                                    >Save
+                                                        Changes
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <button className="btn btn-dark btn-lg btn-block"
-                                onClick={(e) => this.handleSubmit(e)}
-                        >Sign in
-                        </button>
-                        <div className="row">
-                            <Link to={"/signup"} className="col-6 register"> register </Link>
-                            <a href="#" className="col-6 forgot-password pull-right">Forgot password?</a>
+                    </div>
+                    <div className="card">
+                        <div className="card-header mb-2">My Plans</div>
+                        <div className="card-body">
+                            <ul className="list-group">
+                                <li className="list-group-item">
+                                    Yellow Stone
+                                </li>
+                                <li className="list-group-item">
+                                    Seattle
+                                </li>
+                            </ul>
                         </div>
-
-                    </form>
-                </div>
+                    </div>
+                </div>}
+                { !this.state.isLogin && <div>Please log in! {this.props.history.push("/signin")}</div>}
             </div>
         );
     }
 }
+
+

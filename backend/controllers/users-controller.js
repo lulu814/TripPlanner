@@ -61,16 +61,12 @@ module.exports = function (app) {
         const user = req.body;
         console.log("update profile -> ", user);
         // User.update({email: user.email}, {$set: {fName: 'change'}})
-        User.findOneAndUpdate({email: user.email}, {fName: 'change'}), (err, _) => {
-            console.log("entering ...");
+        User.findOneAndUpdate({_id:user._id}, {$set: user}, {new: true}, (err) => {
             if (err) {
-                res.send(err);
-                console.log("error updating");
-                return;
+                console.log(err)
             }
-            console.log("no error updating")
-            res.status(200).send('Update profile successfully');
-        }
+        });
+        res.status(200).send('Update profile successfully');
     };
 
     app.post("/signup", userServices.checkDuplicateEmail, signup);
