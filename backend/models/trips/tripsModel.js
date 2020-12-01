@@ -1,14 +1,23 @@
 const mongoose = require("mongoose")
 const questionSchema = require("./tripSchema")
 const tripModel = mongoose.model("tripModel", questionSchema)
-const planModel = require("./../plans/plansModel")
 
 const findAllTrips = () => tripModel.find()
-const findTripsForPlan = (planId) =>
-    tripModel.find({planId: planId}).sort( { date : 1 } );
 
-const createTripForPlans = ( planId, newTrip ) => planModel.createTripForPlans( planId, newTrip )
+const findTripsForPlan = (planId) =>
+    tripModel.find({ _plan : planId}).sort( { date : 1 } );
+
+const findTripById = (tid) => tripModel.findById(tid)
+
+const createTripForPlan = ( newTrip ) => tripModel.create( newTrip )
+
+const removeTrip = (tid) =>
+    tripModel.remove({_id: tid})
+
+const updateTrip = (pid, newTrip) =>
+    tripModel.update({_id: tid}, {$set: newTrip})
+
 
 module.exports = {
-    findAllTrips, findTripsForPlan, createTripForPlans
+    findAllTrips, findTripById, findTripsForPlan, createTripForPlan, removeTrip, updateTrip
 }

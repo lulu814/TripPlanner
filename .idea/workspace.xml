@@ -20,8 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fe38bdd-7481-4cb7-a18f-d5882ef0b451" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/dev.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/plans-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/plans-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/trips-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/trips-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/plans/plansModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/plans/plansModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/plans/plansSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/plans/plansSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/trips/tripSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/trips/tripSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/trips/tripsModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/trips/tripsModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/services/plans-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/plans-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/services/trips-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/trips-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dev.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/keys.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/keys.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/prod.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,21 +70,20 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/config" />
       <recent name="$PROJECT_DIR$/backend/models/trips" />
       <recent name="$PROJECT_DIR$/backend/models/plans" />
       <recent name="$PROJECT_DIR$/frontend/src/components/Homepage/Maps" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

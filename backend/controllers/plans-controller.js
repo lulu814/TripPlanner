@@ -2,10 +2,6 @@ const plansService = require("../services/plans-service")
 
 module.exports = (app) => {
 
-    const findPlansForUser = (req, res) => {
-        plansService.findPlansForUser()
-            .then(plans => res.send(plans))
-    }
     const findAllPlans = (req, res) => {
         plansService.findAllPlans()
             .then(plans => res.send(plans))
@@ -16,15 +12,19 @@ module.exports = (app) => {
             .then(plan => res.send(plan))
     }
 
-    const createPlan = (req, res) => {
-        plansService.createPlan(req.body.plan)
-            .then(plan => res.send(plan))
+    const findPlansForUser = (req, res) => {
+        const userId = req.params.userId
+        plansService.findPlansForUser(userId)
+            .then(plans => res.send(plans))
     }
 
-    // const createPlanForUser = (req, res) => {
-    //     plansService.createPlanForUser(req.body.plan)
-    //         .then(plan => res.send(plan))
-    // }
+    const createPlanForUser = (req, res) => {
+        const userId = req.params.pid
+        const plan = req.body.plan
+        plan._user = userId
+        plansService.createPlanForUser(plan)
+            .then(plan => res.send(plan))
+    }
 
     const deletePlan = (req, res) => {
         const pid = req.params.pid
@@ -39,10 +39,9 @@ module.exports = (app) => {
             .then(status => res.send(status))
     }
     app.get("/api/tripplanner/plans", findAllPlans)
-    //app.get("/api/tripplanner/plans", findPlansForUser)
+    app.get("/api/tripplanner/user/:userId/plans", findPlansForUser)
     app.get("/api/tripplanner/plans/:qid", findPlanById)
     app.delete("/api/tripplanner/plan/:pid", deletePlan)
-    //app.post("/api/tripplanner/user/:userId/plans", createPlanForUser)
-    app.post("/api/tripplanner/plans", createPlan)
+    app.post("/api/tripplanner/user/:userId/plans", createPlanForUser)
     app.put("/api/tripplanner/plans/:pid", updatePlan)
 }
