@@ -56,8 +56,8 @@ class TripPlanHomeComponent extends React.Component {
 
     render() {
         return <div className="wbdv-card-body">
-            <h1 className="text-center mb-4 p-2 articles__title wbdv-bg-hf-trans">“We travel, some of us forever, to
-                seek other places, other lives, other souls.” – Anais Nin</h1>
+            <h1 className="h1 text-center py-5 articles__title text-white"><em>“We travel, some of us forever, to
+                seek other places, other lives, other souls.” – Anais Nin</em></h1>
             <ol className="articles">
                 <li className="articles__article" >
                     <button

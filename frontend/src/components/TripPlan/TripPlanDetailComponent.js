@@ -23,17 +23,17 @@ class TripPlanDetailComponent extends React.Component {
 
     render() {
         return <div className="row container-fluid">
-            <div className="col-md-7 col-lg-6 border-right min-vh-100">
+            <div className="col-md-6 col-lg-5 border-right min-vh-100">
 
                 <span className="p-2">
                     <span>
-                    <Link className="btn btn-secondary m-1 wbdv-fixed-btn" to={"/plans"}><FaArrowLeft/></Link>
-                    <h1 className="h1 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h1>
+                    <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn" to={"/plans"}><FaArrowLeft size={28}/></Link>
+                    <h1 className="h2 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h1>
                         </span>
                     <TripPlanTripTableComponent planId={this.state.plan._id}/>
                 </span>
             </div>
-            <div className="col-md-5 col-lg-6">
+            <div className="col-md-6 col-lg-7">
                 {/*map */}
                 <Container fluid style={{height: '100vh'}}>
                     <MapComponent/>
