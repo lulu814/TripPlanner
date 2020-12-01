@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
-import {createUser} from "../../services/UserService";
+import {register} from "../../services/UserService";
 import {message} from 'antd';
 
 export default class SignUp extends Component {
@@ -8,18 +8,21 @@ export default class SignUp extends Component {
         fName: '',
         lName: '',
         email: '',
-        password: ''
+        password: '',
+        role: 'Traveler'
     }
 
     handleClick = (e) => {
         e.preventDefault();
         const newUser = {
-            firstName: this.state.fName,
-            lastName: this.state.lName,
+            fName: this.state.fName,
+            lName: this.state.lName,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            role: this.state.role
+
         }
-        createUser(newUser).then(response => {
+        register(newUser).then(response => {
             console.log(response);
             if (response.ok) {
                 return response.text();
@@ -40,55 +43,68 @@ export default class SignUp extends Component {
     render() {
         return (
             <div className="outer">
-            <div className="inner">
-            <form>
-                <h3>Register</h3>
+                <div className="inner">
+                    <form>
+                        <h3>Register</h3>
 
-                <div className="form-group">
-                    <label>First name</label>
-                    <input type="text"
-                           className="form-control"
-                           placeholder="First name"
-                           onChange={e => this.setState({fName: e.target.value})}
-                    />
+                        <div className="form-group">
+                            <label>First name</label>
+                            <input type="text"
+                                   className="form-control"
+                                   placeholder="First name"
+                                   onChange={e => this.setState({fName: e.target.value})}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Last name</label>
+                            <input type="text"
+                                   className="form-control"
+                                   placeholder="Last name"
+                                   onChange={e => this.setState({lName: e.target.value})}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Email</label>
+                            <input type="email"
+                                   className="form-control"
+                                   placeholder="Enter email"
+                                   onChange={e => this.setState({email: e.target.value})}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input type="password"
+                                   className="form-control"
+                                   placeholder="Enter password"
+                                   onChange={e => this.setState({password: e.target.value})}
+                            />
+                        </div>
+                        <span className="form-group">
+                    <label>
+                       Register as
+                    </label>
+                    <select className="form-control-sm user-role float-right"
+                            onChange={e => this.setState({role:e.target.value})}
+                            value={this.state.role}
+                    >
+                    <option value="Traveler">Traveler</option>
+                    <option value="Admin">Admin</option>
+                </select>
+                </span>
+
+
+                        <button className="btn btn-dark btn-lg btn-block"
+                                onClick={e => this.handleClick(e)}
+                        >Register</button>
+                        <p className="forgot-password text-right">
+                            Already registered, go back to <Link to={"/signin"} > log in </Link>
+                        </p>
+                    </form>
                 </div>
-
-                <div className="form-group">
-                    <label>Last name</label>
-                    <input type="text"
-                           className="form-control"
-                           placeholder="Last name"
-                           onChange={e => this.setState({lName: e.target.value})}
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="email"
-                           className="form-control"
-                           placeholder="Enter email"
-                           onChange={e => this.setState({email: e.target.value})}
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password"
-                           className="form-control"
-                           placeholder="Enter password"
-                           onChange={e => this.setState({password: e.target.value})}
-                    />
-                </div>
-
-                <button className="btn btn-dark btn-lg btn-block"
-                        onClick={e => this.handleClick(e)}
-                >Register</button>
-                <p className="forgot-password text-right">
-                    Already registered, go back to <Link to={"/signin"} > log in </Link>
-                </p>
-            </form>
-    </div>
-    </div>
+            </div>
         );
     }
 }

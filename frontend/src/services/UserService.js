@@ -1,6 +1,9 @@
-const API_ROOT = "https://wbdv-generic-server.herokuapp.com/api/tripplanner"
+import axios from "axios";
 
-export const createUser = (newUser) =>
+// const API_ROOT = "https://wbdv-generic-server.herokuapp.com/api/tripplanner"
+const API_ROOT = "http://localhost:8000"
+
+export const register = (newUser) =>
     fetch(`${API_ROOT}/signup`, {
         method: 'POST',
         body: JSON.stringify(newUser),
@@ -10,25 +13,35 @@ export const createUser = (newUser) =>
     })
 
 export const signIn = (email, password) => {
-    fetch(`${API_ROOT}/signin`, {
-        method: 'POST',
-        body: JSON.stringify({
-            email,
-            password
-        }),
-        headers: {
-            'content-type': 'application/json'
+    axios.post(`${API_ROOT}/signin`, {
+        email,
+        password
+    }).then(response => {
+        if (response.data.accessToken) {
+            localStorage.setItem("user", JSON.stringify(response.data));
         }
-    })
+        console.log('sign in response -> ', response.data)
+        return response.data;
+    });
 }
 
+export const signOut = () => {
+    localStorage.removeItem("user");
+}
 
 export const updateProfile = (updateUser) => {
-    fetch(`${API_ROOT}/profile/${updateUser.id}`, {
-        method: 'PUT',
-        body: JSON.stringify(updateUser),
-        headers: {
-            'content-type': 'application/json'
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.log("client side update file user ->", user)
+    fetch(`${API_ROOT}/profile`, {
+            method: 'PUT',
+            body: JSON.stringify(updateUser),
+            headers: {'x-access-token': user.accessToken,
+                'content-type': 'application/json'}
         }
-    }).then(response => response.json())
+    ).then(response => console.log(response))
+}
+
+export const findPublicProfileById = (uid) => {
+    fetch(`${API_ROOT}/public-profile/${uid}`)
+        .then(response => response.json())
 }
