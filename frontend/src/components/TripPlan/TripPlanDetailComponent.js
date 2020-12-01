@@ -21,11 +21,11 @@ class TripPlanDetailComponent extends React.Component {
     }
 
     render() {
-        return <div className="row">
+        return <div className="row container-fluid">
             <div className="col-md-7 col-lg-6 border-right min-vh-100">
                 <Link className="btn btn-secondary m-1" to={"/plans"}><FaTimes/></Link>
                 <div className="p-2">
-                    <h2 className="text-center">Plan: {this.state.plan.name}</h2>
+                    <h1 className="h1 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h1>
                     <TripPlanTripTableComponent planId={this.state.plan._id}/>
                 </div>
             </div>

@@ -9,83 +9,68 @@ class TripPlanTripTableItemComponent extends Component {
     }
 
     render() {
-        return <tr>
-            {!this.state.beingEdited && <th scope="row">{this.state.trip.day}</th>}
-            {this.state.beingEdited && <th scope="row"><input
-                className="form-control wbdv-min-w-table-day"
-                value={this.state.trip.day}
-                onChange={(e) => {
-                    const newValue = e.target.value;
-                    this.setState(prevState => ({
-                        trip: {
-                            ...prevState.trip,
-                            day: newValue,
-                        }
-                    }))
-                }
-                }/></th>}
-
-            {!this.state.beingEdited &&
-             <th>{this.state.trip.date}</th>}
+        return <li className="wbdv-td-item text-center">
+            {!this.state.beingEdited && <h4 className="wbdv-td-headline">{!this.state.beingEdited &&
+                                                                          <span>{this.state.trip.places.map(
+                                                                              (place, index) =>
+                                                                                  <span
+                                                                                      key={index}>{place}{'\n'}</span>)}</span>}</h4>}
             {this.state.beingEdited &&
-             <th><input className="form-control wbdv-mx-w-table"
-                        value={this.state.trip.date}
-                        type="date"
-                        onChange={(e) => {
-                            const newValue = e.target.value;
-                            this.setState(prevState => ({
-                                trip: {
-                                    ...prevState.trip,
-                                    date: newValue,
-                                }
-                            }))
-                        }
-                        }/></th>}
+             <textarea className="form-control wbdv-td-headline"
+                       value={this.state.trip.places}
+                       onChange={(e) => {
+                           const newValue = e.target.value;
+                           const newPlaces = newValue.split(',');
+                           this.setState(prevState => ({
+                               trip: {
+                                   ...prevState.trip,
+                                   places: newPlaces,
+                               }
+                           }))
+                       }
+                       }/>}
+            {!this.state.beingEdited && <span>{this.state.trip.date}</span>}
+            {this.state.beingEdited && <input className="form-control"
+                                              value={this.state.trip.date}
+                                              type="date"
+                                              onChange={(e) => {
+                                                  const newValue = e.target.value;
+                                                  console.log(newValue)
+                                                  this.setState(prevState => ({
+                                                      trip: {
+                                                          ...prevState.trip,
+                                                          date: newValue
+                                                      }
+                                                  }))
+                                              }
+                                              }/>}
 
-            {!this.state.beingEdited &&
-             <th>{this.state.trip.places.map(
-                 (place, index) => <span key={index}>{place}{'\n'}</span>)}</th>}
 
-            {this.state.beingEdited &&
-             <th><textarea className="form-control wbdv-min-w-table-text"
-                           value={this.state.trip.places}
-                           onChange={(e) => {
-                               const newValue = e.target.value;
-                               const newPlaces = newValue.split(',');
-                               this.setState(prevState => ({
-                                   trip: {
-                                       ...prevState.trip,
-                                       places: newPlaces,
-                                   }
-                               }))
-                           }
-                           }/></th>
-            }
-
-            <th>
+            <div>
                 {!this.state.beingEdited &&
-                 <button className="btn btn-primary"
-                         onClick={() => this.setState({beingEdited: true})}>Edit
-                 </button>
+                 <div>
+                     <button className="btn wbdv-td-table-btn m-2"
+                             onClick={() => this.setState({beingEdited: true})}>Edit
+                     </button>
+                     <button className="btn wbdv-td-table-btn m-2"
+                             onClick={() => this.props.deleteTrip(this.state.trip._id)}>Delete
+                     </button>
+                 </div>
                 }
                 {this.state.beingEdited &&
                  <div>
-                     <button className="btn btn-primary"
+                     <button className="btn wbdv-td-table-btn m-2 btn-block"
                              onClick={() => this.props.updateTrip(this.state.trip._id,
                                                                   this.state.trip)
                                  .then(this.setState({
                                                          beingEdited: false
                                                      }))}><FaCheck size={20}/>
                      </button>
-                     <button className="btn btn-primary"
-                             onClick={() => this.props.deleteTrip(this.state.trip._id)}><FaTimes
-                         size={20}/>
-                     </button>
                  </div>
                 }
-            </th>
-        </tr>
-
+            </div>
+            <hr/>
+        </li>
     }
 }
 

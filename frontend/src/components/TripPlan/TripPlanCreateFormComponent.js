@@ -10,7 +10,7 @@ class TripPlanCreateFormComponent extends React.Component {
     }
 
     render() {
-        return <div>
+        return <div className="mt-4">
             <form>
                 <div className="form-group">
                     <label htmlFor="InputDay">Day</label>
@@ -43,7 +43,7 @@ class TripPlanCreateFormComponent extends React.Component {
                                }
                            }))}/>
                 </div>
-                <button type="submit" className="btn btn-primary btn-block"
+                <button type="submit" className="btn wbdv-td-table-btn btn-block"
                         onClick={() => this.props.createTrip(this.state.trip)
                             .then(this.setState({
                                                     trip: {

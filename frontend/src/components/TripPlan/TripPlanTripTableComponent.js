@@ -6,7 +6,7 @@ import TripPlanCreateFormComponent from "./TripPlanCreateFormComponent";
 
 class TripPlanTripTableComponent extends React.Component {
     componentDidMount() {
-        this.loadTrips(this.props.planId)
+        // this.loadTrips(this.props.planId)
     }
 
     loadTrips = (planId) => {
@@ -28,33 +28,23 @@ class TripPlanTripTableComponent extends React.Component {
             trips: [...prevState.trips, actualTrip]})));
 
     state = {
-        trips: [{date: '2022-12-1', places: ['Boston'], order: 1, _id: '1'}
-            , {date: '2022-12-2', places: ['Cambridge'], order: 2, _id: '2'}]
+        trips: [{date: '2022-12-01', places: ['Boston'], day: 1, _id: '1'}
+            , {date: '2022-12-02', places: ['Cambridge'], day: 2, _id: '2'}]
     }
 
     render() {
-        return <div>
-            <table className="table table-hover border-bottom">
-                <thead>
-                <tr>
-                    <th scope="col">Day</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Places</th>
-                    <th scope="col">&nbsp;</th>
-                </tr>
-                </thead>
-                <tbody>
-                {this.state.trips.map(
-                    trip => <TripPlanTripTableItemComponent key={trip._id} trip={trip}
-                                                            updateTrip={this.updateTrip}
-                                                            deleteTrip={this.deleteTrip}
-                    />)
-                }
-                </tbody>
-            </table>
-            <Link className="btn btn-success btn-block my-2 text-center"
-                  to={`/posts`}>Share your plan?</Link>
-            <h2 className="text-center">Add Trip</h2>
+        return <div className="mt-4">
+            <div className="wbdv-td-table-body-container">
+                <ol className="wbdv-td-list">
+                    {this.state.trips.map(
+                        trip => <TripPlanTripTableItemComponent key={trip._id} trip={trip}
+                                                                updateTrip={this.updateTrip}
+                                                                deleteTrip={this.deleteTrip}
+                        />)
+                    }
+                </ol>
+            </div>
+            <h2 className="h1 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">Add Trip</h2>
             <TripPlanCreateFormComponent createTrip={this.createTrip}/>
         </div>
     }
