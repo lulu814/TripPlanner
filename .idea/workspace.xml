@@ -21,17 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5fe38bdd-7481-4cb7-a18f-d5882ef0b451" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/plans-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/plans-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/trips-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/trips-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/plans/plansModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/plans/plansModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/plans/plansSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/plans/plansSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/trips/tripSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/trips/tripSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/trips/tripsModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/trips/tripsModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/services/plans-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/plans-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/services/trips-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/trips-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/keys.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/keys.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/prod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/PlanService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/PlanService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/TripService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/TripService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,21 +135,25 @@
     </state>
     <state x="487" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.797@0.23.1440.797" timestamp="1606771721060" />
     <state x="487" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.808@0.23.1440.808" timestamp="1605760234403" />
-    <state width="1398" height="204" key="GridCell.Tab.0.bottom" timestamp="1605756434983">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state width="1398" height="369" key="GridCell.Tab.0.bottom" timestamp="1606849279395">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="369" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1606849279395" />
     <state width="1398" height="204" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1605756434983" />
-    <state width="1398" height="204" key="GridCell.Tab.0.center" timestamp="1605756434982">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state width="1398" height="369" key="GridCell.Tab.0.center" timestamp="1606849279394">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="369" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1606849279394" />
     <state width="1398" height="204" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1605756434982" />
-    <state width="1398" height="204" key="GridCell.Tab.0.left" timestamp="1605756434981">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state width="1398" height="369" key="GridCell.Tab.0.left" timestamp="1606849279393">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="369" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1606849279393" />
     <state width="1398" height="204" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1605756434981" />
-    <state width="1398" height="204" key="GridCell.Tab.0.right" timestamp="1605756434982">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state width="1398" height="369" key="GridCell.Tab.0.right" timestamp="1606849279395">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="369" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1606849279395" />
     <state width="1398" height="204" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1605756434982" />
   </component>
 </project>

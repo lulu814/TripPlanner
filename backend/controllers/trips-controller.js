@@ -1,5 +1,4 @@
 const tripService = require("../services/trips-service")
-const Trip = mongoose.model('trips');
 
 module.exports = (app) => {
     const findAllTrips = (req, res) =>
