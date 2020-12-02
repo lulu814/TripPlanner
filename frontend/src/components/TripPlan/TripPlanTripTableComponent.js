@@ -1,12 +1,11 @@
 import React from "react";
 import TripPlanTripTableItemComponent from "./TripPlanTripTableItemComponent";
 import TripService from "../../services/TripService";
-import {Link} from "react-router-dom";
 import TripPlanCreateFormComponent from "./TripPlanCreateFormComponent";
 
 class TripPlanTripTableComponent extends React.Component {
     componentDidMount() {
-        // this.loadTrips(this.props.planId)
+        this.loadTrips(this.props.planId)
     }
 
     loadTrips = (planId) => {
@@ -28,8 +27,7 @@ class TripPlanTripTableComponent extends React.Component {
             trips: [...prevState.trips, actualTrip]})));
 
     state = {
-        trips: [{date: '2022-12-01', places: ['Boston'], day: 1, _id: '1'}
-            , {date: '2022-12-02', places: ['Cambridge'], day: 2, _id: '2'}]
+        trips: []
     }
 
     render() {
