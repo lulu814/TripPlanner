@@ -14,10 +14,8 @@
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
-    "redux": "^4.0.5",
     "use-places-autocomplete": "^1.6.0",
-    "@reach/combobox": "^0.11.2",
-    "react-redux": "^7.2.2"
+    "@reach/combobox": "^0.11.2"
   },
   "scripts": {
     "start": "react-scripts start",
