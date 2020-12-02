@@ -285,14 +285,12 @@ code {
 }
 
 .wbdv-td-peachy {
-  border: none !important;
-  transition: all 2s linear;
+  transition: all 0.2s linear !important;
 }
 
 .wbdv-td-peachy:hover {
-  border: 2px rgb(240, 109, 124) solid !important;
+  color: rgb(240, 109, 124) !important;
 }
-
 
 .wbdv-td-item:before {
   font: bold 2.25rem/1 var(--font-number);

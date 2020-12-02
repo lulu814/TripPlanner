@@ -63,7 +63,7 @@ class TripPlanHomeComponent extends React.Component {
                     <button
                         onClick={() => this.createNewPlan()} className="articles__link">
                         <div className="articles__content articles__content--lhs">
-                            <h2 className="articles__title">Create a new trip</h2>
+                            <h2 className="articles__title">Create a new plan</h2>
                             <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                             <div className="articles__footer">
                                 <p className="text-center wbdv-card-text"><em>Live to travel and travel to live</em></p>

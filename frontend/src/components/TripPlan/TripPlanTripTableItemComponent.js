@@ -43,11 +43,9 @@ class TripPlanTripTableItemComponent extends Component {
                                                   }))
                                               }
                                               }/>}
-
-
             <div>
                 {!this.state.beingEdited &&
-                 <div>
+                 <div className="mt-2">
                      <button className="btn wbdv-td-table-btn mr-3"
                              onClick={() => this.setState({beingEdited: true})}>Edit
                      </button>
@@ -58,7 +56,7 @@ class TripPlanTripTableItemComponent extends Component {
                 }
                 {this.state.beingEdited &&
                  <div>
-                     <button className="btn wbdv-td-table-btn m-2 btn-block"
+                     <button className="btn wbdv-td-table-btn mt-3 btn-block"
                              onClick={() => this.props.updateTrip(this.state.trip._id,
                                                                   this.state.trip)
                                  .then(this.setState({

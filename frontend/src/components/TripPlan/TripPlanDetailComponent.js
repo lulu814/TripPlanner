@@ -27,7 +27,7 @@ class TripPlanDetailComponent extends React.Component {
 
                 <span className="p-2">
                     <span>
-                    <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn" to={"/plans"}><FaArrowLeft size={28}/></Link>
+                    <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn wbdv-high-index" to={"/plans"}><FaArrowLeft size={28}/></Link>
                     <h1 className="h2 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h1>
                         </span>
                     <TripPlanTripTableComponent planId={this.state.plan._id}/>
