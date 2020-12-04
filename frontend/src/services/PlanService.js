@@ -12,11 +12,11 @@ export const findPlanById = (planId) =>
         .then(response => response.json())
 
 export const findPlansForUser = (userId) =>
-    fetch(`${url}/users/${userId}/plans`)
+    fetch(`${url}/plans`)
         .then(response => response.json())
 
 export const createPlanForUser = (userId, plan) =>
-    fetch(`${url}/users/${userId}/plans`, {
+    fetch(`${url}/plans`, {
         method: "POST",
         body: JSON.stringify(plan),
         headers: {
