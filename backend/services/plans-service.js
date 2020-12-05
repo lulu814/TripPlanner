@@ -15,7 +15,6 @@ const deletePlan = (pid) => plansModel.removePlan(pid)
 
 const updatePlan = (pid, newPlan) => plansModel.updatePlan(pid, newPlan)
 
-
 module.exports = {
     findAllPlans,
     findPlansForUser,

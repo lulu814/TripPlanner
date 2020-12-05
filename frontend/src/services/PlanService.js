@@ -22,7 +22,7 @@ export const createPlanForUser = (userId, plan) =>
         headers: {
             "content-type": "application/json"
         }
-    }).then(response => response.json())
+    })
 
 export const updatePlan = (planId, plan) =>
     fetch(`${url}/plans/${planId}`, {

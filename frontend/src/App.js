@@ -30,7 +30,6 @@ export default function App() {
             <Route path="/profile" exact component={UserProfile} />
             <Route path="/public-profile" exact component={PublicProfile} />
             <Route path="/public-profile/:uid" exact component={PublicProfile} />
-
             <Route path={["/plans"]} exact component={TripPlanHomeComponent}/>
             <Route path={["/plans/:planId"]} exact component={TripPlanDetailComponent}/>
           </Switch>

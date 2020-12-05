@@ -17,7 +17,7 @@ class TripPlanHomeComponent extends React.Component {
     createNewPlan = () => {
         const newPlan = {
             name: "New Plan",
-            userId: this.userId
+            _user: this.userId
         }
         PlanService.createPlanForUser(this.userId, newPlan)
             .then(actualPlan => this.setState(prevState => (
