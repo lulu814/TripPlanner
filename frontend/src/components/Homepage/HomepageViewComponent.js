@@ -3,13 +3,13 @@ import {Container} from "react-bootstrap";
 import PlaceList from "./Place/PlaceListComponent";
 import MenuTabs from "./MenuTabsComponent";
 import SearchBarComponent from "./PlainSearchBarComponent";
+import { useHistory } from "react-router";
 
 export default function HomepageView(){
-    const [searchText, setSearchText] = useState("Boston");
-
+    const history = useHistory();
     const updateSearchText = (text) => {
         console.log(`setting address to: ${text}`);
-        setSearchText(text);
+        history.push(`/search/${text}`);
     }
 
     return(
@@ -17,7 +17,7 @@ export default function HomepageView(){
             <MenuTabs/>
             <Container fluid style={{height: '100vh'}}>
                 <SearchBarComponent updateText={updateSearchText} />
-                <PlaceList inputText={searchText}/>
+                <PlaceList/>
             </Container>
         </Container>
     )

@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import { List } from 'antd';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-export default function PlaceList({inputText}) {
+export default function PlaceList() {
   const [placeList, setPlaceList] = useState([]);
+  let { searchText } = useParams();
 
   const photo_url = (ref) => 
   `https://maps.googleapis.com/maps/api/place/photo?photoreference=${ref}&key=AIzaSyBlHhL9EqgJx0ZFIuzc5vn2yUAe96pZhs8&maxheight=260&maxwidth=260`;
@@ -18,9 +19,12 @@ export default function PlaceList({inputText}) {
   }
 
   useEffect(() => {
-    const fetchData = async() => setPlaceList(await fetchPlaces(inputText));
+    if (searchText === undefined || searchText === null) {
+      searchText = "Boston";
+    }
+    const fetchData = async() => setPlaceList(await fetchPlaces(searchText));
     fetchData();
-  }, [inputText])
+  }, [searchText])
 
   return(
     <List

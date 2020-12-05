@@ -1,6 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "@reach/combobox/styles.css";
 import HeaderComponent from "./components/Homepage/HeaderComponent";
 
@@ -20,7 +20,10 @@ export default function App() {
       <Router>
         <Container><HeaderComponent/></Container>
           <Switch>
-            <Route exact path='/' component={HomepageView} />
+            <Route exact path="/">
+              <Redirect to="/search" />
+            </Route>
+            <Route exact path={['/search', '/search/:searchText']} component={HomepageView} />
             <Route path={["/place/:placeId"]} exact component={DetailPageView}/>
             <Route path="/signin" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
