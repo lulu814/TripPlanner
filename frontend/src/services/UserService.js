@@ -30,12 +30,12 @@ export const signOut = () => {
 }
 
 export const updateProfile = (updateUser) => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    console.log("client side update file user ->", user)
+    const token = JSON.parse(localStorage.getItem('accessToken'));
+    console.log("client side update file user ->", token)
     fetch(`${API_ROOT}/profile`, {
             method: 'PUT',
             body: JSON.stringify(updateUser),
-            headers: {'x-access-token': user.accessToken,
+            headers: {'x-access-token': token,
                 'content-type': 'application/json'}
         }
     ).then(response => console.log(response))
