@@ -6,9 +6,9 @@ export default class UserProfile extends Component {
     state = {
         isLogin: localStorage.getItem('accessToken') !== null,
         currUser: JSON.parse(localStorage.getItem('user')),
-        fName: JSON.parse(localStorage.getItem('user')).fName,
-        lName: JSON.parse(localStorage.getItem('user')).lName,
-        text: JSON.parse(localStorage.getItem('user')).text
+        fName: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).fName : '',
+        lName: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).lName : '',
+        text: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).text : ''
     }
 
     handleClick = (e) => {
