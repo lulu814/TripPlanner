@@ -48,7 +48,7 @@ export default function PlaceList() {
             />
           }
         >
-          <Link to={`/place/${item.place_id}`}>
+          <Link to={`/results/${item.place_id}`}>
             <h4>{item.name}</h4>
             <h5>Address: {item.vicinity}</h5>
             <h5>Rating: {item.rating}</h5>

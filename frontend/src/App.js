@@ -24,7 +24,7 @@ export default function App() {
               <Redirect to="/search" />
             </Route>
             <Route exact path={['/search', '/search/:searchText']} component={HomepageView} />
-            <Route path={["/place/:placeId"]} exact component={DetailPageView}/>
+            <Route path={["/results/:placeId"]} exact component={DetailPageView}/>
             <Route path="/signin" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
             <Route path="/profile" exact component={UserProfile} />
