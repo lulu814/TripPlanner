@@ -2,6 +2,7 @@ import React from "react";
 import TripPlanHomeCardComponent from "./TripPlanHomeCardComponent";
 import illustration from "../../assets/illustration-2.jpg";
 import PlanService from "../../services/PlanService";
+import bg from "../../assets/peach-bg.jpg"
 
 class TripPlanHomeComponent extends React.Component {
 
@@ -41,7 +42,7 @@ class TripPlanHomeComponent extends React.Component {
     }
 
     render() {
-        return <div className="wbdv-card-body">
+        return <div className="wbdv-card-body" style={{ backgroundImage:`url(${bg})` }}>
             <h1 className="h1 text-center py-5 articles__title text-white"><em>“We travel, some of us forever, to
                 seek other places, other lives, other souls.” – Anais Nin</em></h1>
             <ol className="articles">

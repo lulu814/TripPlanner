@@ -1,11 +1,9 @@
-//const url = "http://wbdv-generic-server.herokuapp.com/api/tripplanner";
-const url = "http://localhost:8000/api/tripplanner"
-// planHardcode = {
-//     name: '1',
-//     _id: '1',
-//     userId: '1'
-// }
+const url = "http://wbdv-generic-server.herokuapp.com/api/tripplanner";
+// const url = "http://localhost:8000/api/tripplanner"
 
+export const findAllPlans = () =>
+    fetch(`${url}/plans`)
+        .then(response => response.json())
 
 export const findPlanById = (planId) =>
     fetch(`${url}/plans/${planId}`)
@@ -39,6 +37,7 @@ export const deletePlan = (planId) =>
     }).then(response => response.json())
 
 export default {
+    findAllPlans,
     findPlanById,
     findPlansForUser,
     createPlanForUser,
