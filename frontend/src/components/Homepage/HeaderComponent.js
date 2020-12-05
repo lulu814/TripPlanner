@@ -14,9 +14,9 @@ export default function HeaderComponent(){
             <Navbar.Collapse id="basic-navbar-nav">
                 <Form inline>
                     <Nav className="mr-auto">
-                        {! localStorage.getItem('user')  && <Nav.Link href="/signin">Login</Nav.Link>}
+                        {! localStorage.getItem('accessToken')  && <Nav.Link href="/signin">Login</Nav.Link>}
                         <Nav.Link href="/profile"><FaUserCircle /></Nav.Link>
-                        {localStorage.getItem('user') && <Nav.Link href="/" onClick={() => {
+                        {localStorage.getItem('accessToken') && <Nav.Link href="/" onClick={() => {
                             localStorage.clear();
                         }}>Logout</Nav.Link>}
                     </Nav>
