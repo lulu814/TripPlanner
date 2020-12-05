@@ -1,29 +1,14 @@
 import React, {Component} from "react";
 import image from '../../assets/avatar.jpg';
 import {updateProfile} from "../../services/UserService";
-import {message} from "antd";
-
 
 export default class UserProfile extends Component {
     state = {
-        isLogin: false,
-        currUser: JSON.parse(localStorage.getItem('user')).user,
-        fName: "John",
-        lName: "Smith",
-        text: "About me"
-    }
-
-    componentWillMount() {
-        if (this.state.currUser !== undefined) {
-            console.log("curruser -> ", this.state.currUser)
-            this.setState({
-                isLogin: true,
-                fName: this.state.currUser.fName,
-                lName: this.state.currUser.lName,
-                text: this.state.currUser.text
-            })
-        }
-
+        isLogin: localStorage.getItem('accessToken') !== null,
+        currUser: JSON.parse(localStorage.getItem('user')),
+        fName: JSON.parse(localStorage.getItem('user')).fName,
+        lName: JSON.parse(localStorage.getItem('user')).lName,
+        text: JSON.parse(localStorage.getItem('user')).text
     }
 
     handleClick = (e) => {
@@ -37,6 +22,7 @@ export default class UserProfile extends Component {
         console.log("update user -> ", updateUser)
         updateProfile(updateUser)
         localStorage.setItem("user", JSON.stringify(updateUser))
+        console.log(JSON.parse(localStorage.getItem('user')))
     }
 
     render() {
