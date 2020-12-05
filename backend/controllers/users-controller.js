@@ -69,9 +69,15 @@ module.exports = function (app) {
         res.status(200).send('Update profile successfully');
     };
 
+    const findPublicProfile = (req, res) => {
+        User.findById(req.params.uid)
+            .then(user => res.send(user));
+    }
+
     app.post("/signup", userServices.checkDuplicateEmail, signup);
     app.post("/signin", signin);
     app.put('/profile', userServices.verifyToken, updateProfile);
+    app.get('/public-profile/:uid', findPublicProfile);
 
 }
 
