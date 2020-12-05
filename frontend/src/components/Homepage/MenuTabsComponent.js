@@ -4,16 +4,11 @@ import { FaPencilAlt, FaCalendarPlus, FaWpforms, FaSearchLocation } from 'react-
 export default function MenuTabs(){
     return(
         <nav className="nav nav-pills nav-justified">
-            <a className="nav-item nav-link pill-item" href="/">
-                <FaSearchLocation/>
-                Search places
-            </a> 
             <a className="nav-item nav-link pill-item"
                href="/posts/details">
                 <FaWpforms />
-                    Travel Forums
+                    Plan Forums
             </a>  
-            <a className="nav-item nav-link pill-item" href="/posts"><FaPencilAlt />Write a post</a>
             <a className="nav-item nav-link pill-item"
                href="/plans"
                tabIndex="-1"
