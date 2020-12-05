@@ -1,5 +1,5 @@
-const url = "http://wbdv-generic-server.herokuapp.com/api/tripplanner";
-// const url = "http://localhost:8000/api/tripplanner"
+// const url = "http://wbdv-generic-server.herokuapp.com/api/tripplanner";
+const url = "http://localhost:8000/api/tripplanner"
 
 export const findAllPlans = () =>
     fetch(`${url}/plans`)
