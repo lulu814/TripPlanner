@@ -5,21 +5,7 @@ import PlanService from "../../services/PlanService";
 
 class TripPlanHomeComponent extends React.Component {
 
-    userId = '1';
-
-    plansHardcode = [{
-        name: '1',
-        id: '1',
-        userId: '1',
-        trips: [{date: '2022-12-1', places: ['Boston'], order: 1}
-            , {date: '2022-12-2', places: ['Cambridge'], order: 2}]
-    }, {
-        name: '2',
-        id: '2',
-        userId: '1',
-        trips: [{date: '2022-12-1', places: ['Boston'], order: 1}
-            , {date: '2022-12-2', places: ['Cambridge'], order: 2}]
-    }]
+    userId = JSON.parse(localStorage.getItem('user'))._id
 
     state = {
         plans: []

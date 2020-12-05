@@ -1,4 +1,7 @@
 const plansService = require("../services/plans-service")
+const plansSchema = require("./plansSchema")
+const planModel = mongoose.model("PlanModel", plansSchema)
+
 
 module.exports = (app) => {
 
@@ -14,17 +17,20 @@ module.exports = (app) => {
 
     const findPlansForUser = (req, res) => {
         // const userId = req.params.userId
-        let userId  = JSON.parse(localStorage.getItem('user')).user._id
+        let userId  = JSON.parse(localStorage.getItem('user'))._id
         plansService.findPlansForUser(userId)
             .then(plans => res.send(plans))
     }
 
     const createPlanForUser = (req, res) => {
         // const userId = req.params.pid
-        let userId  = JSON.parse(localStorage.getItem('user')).user._id
-        const plan = req.body.plan
-        plan._user = userId
-        plansService.createPlanForUser(plan)
+        // let userId  = JSON.parse(localStorage.getItem('user')).user._id
+        // const plan = new planModel({
+        //     name : 'New Plan',
+        //     _user : userId
+        // })
+
+        plansService.createPlanForUser(req.body.plan)
             .then(plan => res.send(plan))
     }
 
@@ -42,8 +48,8 @@ module.exports = (app) => {
     }
     app.get("/api/tripplanner/plans", findAllPlans)
     app.get("/api/tripplanner/plans", findPlansForUser)
-    app.get("/api/tripplanner/plans/:qid", findPlanById)
-    app.delete("/api/tripplanner/plan/:pid", deletePlan)
+    app.get("/api/tripplanner/plans/:pid", findPlanById)
+    app.delete("/api/tripplanner/plans/:pid", deletePlan)
     app.post("/api/tripplanner/plans", createPlanForUser)
     app.put("/api/tripplanner/plans/:pid", updatePlan)
 }
