@@ -5,14 +5,18 @@ import {FaArrowLeft} from "react-icons/all";
 import PlanService from "../../services/PlanService";
 import MapComponent from "../Homepage/Maps/MapComponent";
 import PlanForumTableComponent from "./PlanForumTableComponent";
+import {findPublicProfileById} from "../../services/UserService";
 
 class PlanForumDetailComponent extends React.Component {
     state = {
-        plan: []
+        plan: [],
+        user: {}
     }
 
     componentDidMount() {
-        this.loadPlan(this.props.match.params.planId);
+        findPublicProfileById(this.state.plan._user)
+            .then(user => this.setState({user: user}))
+            .then(this.loadPlan(this.props.match.params.planId))
     }
 
     loadPlan = (planId) => {
@@ -27,7 +31,8 @@ class PlanForumDetailComponent extends React.Component {
                     <span>
                     <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn wbdv-high-index" to={"/plan-forum"}><FaArrowLeft size={28}/></Link>
                     <h2 className="h2 text-center m-2 pb-0 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h2>
-                        <h4 className="h4 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">By: </h4>
+                        <h4 className="h4 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">
+                            By: <Link to={`/public-profile/${this.state.plan._user}`}>{this.state.user.fName} {this.state.user.lName}</Link></h4>
                         </span>
                     <PlanForumTableComponent planId={this.state.plan._id}/>
                 </span>

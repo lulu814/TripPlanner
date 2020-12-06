@@ -15,6 +15,7 @@ import HomepageView from "./components/Homepage/HomepageViewComponent";
 import DetailPageView from "./components/DetailPage/DetailPageView";
 import PlanForumDetailComponent from "./components/PlanForums/PlanForumDetailComponent";
 import PlanForumHomeComponent from "./components/PlanForums/PlanForumHomeComponent";
+import TripPlanErrorComponent from "./components/TripPlan/TripPlanErrorComponent";
 
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
             <Route path="/public-profile/:uid" exact component={PublicProfile} />
             <Route path={["/user/:uid/plans"]} exact component={TripPlanHomeComponent}/>
             <Route path={["/plans/:planId"]} exact component={TripPlanDetailComponent}/>
+            <Route path={["/plan-error"]} exact component={TripPlanErrorComponent}/>
             <Route path={["/plan-forum"]} exact component={PlanForumHomeComponent}/>
             <Route path={["/plan-forum/:planId"]} exact component={PlanForumDetailComponent}/>
           </Switch>
