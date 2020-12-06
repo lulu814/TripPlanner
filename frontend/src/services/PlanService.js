@@ -1,8 +1,8 @@
 // const url = "http://wbdv-generic-server.herokuapp.com/api/tripplanner";
-const url = "http://localhost:8000/api/tripplanner"
+const url = "http://localhost:8000"
 
 export const findAllPlans = () =>
-    fetch(`${url}/plans`)
+    fetch(`${url}/allplans`)
         .then(response => response.json())
 
 export const findPlanById = (planId) =>
@@ -10,8 +10,8 @@ export const findPlanById = (planId) =>
         .then(response => response.json())
 
 export const findPlansForUser = (userId) =>
-    fetch(`${url}/plans`)
-        .then(response => response.json())
+    fetch(`${url}/user/${userId}/plans`).then(response => response.json())
+
 
 export const createPlanForUser = (userId, plan) =>
     fetch(`${url}/plans`, {

@@ -1,3 +1,4 @@
+//const mongoose = require("mongoose")
 const tripService = require("../services/trips-service")
 
 module.exports = (app) => {
@@ -17,11 +18,15 @@ module.exports = (app) => {
     }
 
     const createTripForPlan = (req, res) => {
-        const pid = req.params.pid
-        const trip = req.body.trip
-        trip._plan = pid
-        tripService.createTripForPlan(trip)
-            .then(Trip => res.send(Trip))
+        // console.log(req.params.pid)
+        // const {day, date , places} = req.body;
+        // const trip = new Trip({
+        //     day, date,
+        //     places: ['la', 'boston'],
+        //     _plan: req.params.pid,
+        // });
+
+        res.json( tripService.createTripForPlan(req.body))
     }
 
     const deleteTrip = (req, res) => {
@@ -37,10 +42,10 @@ module.exports = (app) => {
             .then(status => res.send(status))
     }
 
-    app.get("/api/tripTripner/trips", findAllTrips)
-    app.get("/api/tripTripner/plans/:pid/trips", findTripsForPlan)
-    app.get("/api/tripplanner/trips/:tid", findTripById)
-    app.post("/api/tripplanner/plans/:pid/trips", createTripForPlan)
-    app.delete("/api/tripplanner/trips/:tid", deleteTrip)
-    app.put("/api/tripplanner/trips/:tid", updateTrip)
+    app.get("/trips", findAllTrips)
+    app.get("/plans/:pid/trips", findTripsForPlan)
+    app.get("/trips/:tid", findTripById)
+    app.post("/plans/:pid/trips", createTripForPlan)
+    app.delete("/trips/:tid", deleteTrip)
+    app.put("/trips/:tid", updateTrip)
 }

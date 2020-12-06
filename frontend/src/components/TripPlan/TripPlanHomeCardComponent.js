@@ -28,7 +28,7 @@ class TripPlanHomeCardComponent extends Component {
                     }
                     {!this.state.planBeingEdited &&
                      <Link className="articles__title wbdv-high-index"
-                           to={`plans/${this.state.plan._id}`}>{this.state.plan.name}</Link>
+                           to={`plans/${this.state.plan._id}`} >{this.state.plan.name}</Link>
                     }
                     <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                     <div className="articles__footer">

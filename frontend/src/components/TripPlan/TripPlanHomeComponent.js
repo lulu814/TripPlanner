@@ -6,26 +6,31 @@ import bg from "../../assets/peach-bg.jpg"
 
 class TripPlanHomeComponent extends React.Component {
 
-    userId = JSON.parse(localStorage.getItem('user'))._id
+
+    componentDidMount() {
+        this.loadPlans(this.state.userId);
+        console.log( this.state.userId)
+
+    }
 
     state = {
-        plans: []
+        plans: [],
+        userId : this.props.match.params.uid
     }
 
     updatePlan = (planId, plan) => PlanService.updatePlan(planId, plan)
-        .then(plans => this.loadPlans(this.userId));
+        .then(plans => this.loadPlans(this.state.userId));
 
-    createNewPlan = () => {
+    createNewPlan = (userId) => {
         const newPlan = {
             name: "New Plan",
-            _user: this.userId
+            user: this.state.userId
         }
-        PlanService.createPlanForUser(this.userId, newPlan)
+        PlanService.createPlanForUser(userId, newPlan)
             .then(actualPlan => this.setState(prevState => (
                 {plans: [...prevState.plans, actualPlan]}
             )))
     }
-
     loadPlans = (userId) => {
         PlanService.findPlansForUser(userId)
             .then(fetchedPlans => this.setState({plans: fetchedPlans}))
@@ -37,9 +42,6 @@ class TripPlanHomeComponent extends React.Component {
                 plans: prevState.plans.filter(p => p._id !== planId)
             })));
 
-    componentDidMount() {
-        this.loadPlans(this.userId);
-    }
 
     render() {
         return <div className="wbdv-card-body" style={{ backgroundImage:`url(${bg})` }}>
@@ -48,7 +50,7 @@ class TripPlanHomeComponent extends React.Component {
             <ol className="articles">
                 <li className="articles__article" >
                     <button
-                        onClick={() => this.createNewPlan()} className="articles__link">
+                        onClick={() => this.createNewPlan(this.state.userId)} className="articles__link">
                         <div className="articles__content articles__content--lhs">
                             <h2 className="articles__title">Create a new plan</h2>
                             <img src={illustration} alt="illus" className="wbdv-fixed-img"/>

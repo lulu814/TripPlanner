@@ -9,11 +9,11 @@ class TripPlanTripTableItemComponent extends Component {
 
     render() {
         return <li className="wbdv-td-item text-center">
-            {!this.state.beingEdited && <h4 className="wbdv-td-headline">{!this.state.beingEdited &&
-                                                                          <span>{this.state.trip.places.map(
-                                                                              (place, index) =>
-                                                                                  <span
-                                                                                      key={index}>{place}{'\n'}</span>)}</span>}</h4>}
+            {!this.state.beingEdited && <h4 className="wbdv-td-headline">{<span>{this.state.trip.places.map(
+                    (place, index) =>
+                        <span
+                            key={index}>{place}</span>
+            )}</span>}</h4>}
             {this.state.beingEdited &&
              <textarea className="form-control wbdv-td-headline"
                        value={this.state.trip.places}

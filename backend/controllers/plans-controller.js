@@ -1,8 +1,8 @@
+const mongoose = require("mongoose")
 const plansService = require("../services/plans-service")
-const plansSchema = require("../models/plans/plansSchema")
+//const Plan = require("./../models/plans/plansSchema")
 
-module.exports = (app, mongoose) => {
-    const planModel = mongoose.model("PlanModel", plansSchema)
+module.exports = (app) => {
 
     const findAllPlans = (req, res) => {
         plansService.findAllPlans()
@@ -15,23 +15,17 @@ module.exports = (app, mongoose) => {
     }
 
     const findPlansForUser = (req, res) => {
-        // const userId = req.params.userId
-        let userId  = JSON.parse(localStorage.getItem('user'))._id
-        plansService.findPlansForUser(userId)
+        plansService.findPlansForUser(req.params.uid)
             .then(plans => res.send(plans))
     }
 
     const createPlanForUser = (req, res) => {
-        // const userId = req.params.pid
-        // let userId  = JSON.parse(localStorage.getItem('user')).user._id
-        // const plan = new planModel({
-        //     name : 'New Plan',
-        //     _user : userId
-        // })
-
-        plansService.createPlanForUser(req.body.plan)
-            .then(plan => res.send(plan))
-    }
+        // const plan = new Plan({
+        //     name : req.body.plan.name,
+        //     _user : req.user.id,
+        // });
+        res.json(plansService.createPlanForUser(req.body))
+      }
 
     const deletePlan = (req, res) => {
         const pid = req.params.pid
@@ -45,10 +39,10 @@ module.exports = (app, mongoose) => {
         plansService.updatePlan(pid, newPlan)
             .then(status => res.send(status))
     }
-    app.get("/api/tripplanner/plans", findAllPlans)
-    app.get("/api/tripplanner/plans", findPlansForUser)
-    app.get("/api/tripplanner/plans/:pid", findPlanById)
-    app.delete("/api/tripplanner/plans/:pid", deletePlan)
-    app.post("/api/tripplanner/plans", createPlanForUser)
-    app.put("/api/tripplanner/plans/:pid", updatePlan)
+    app.get("/allplans", findAllPlans)
+    app.get("/user/:uid/plans", findPlansForUser)
+    app.get("/plans/:pid", findPlanById)
+    app.delete("/plans/:pid", deletePlan)
+    app.post("/plans", createPlanForUser)
+    app.put("/plans/:pid", updatePlan)
 }

@@ -1,6 +1,6 @@
 //const url = "http://wbdv-generic-server.herokuapp.com/api/tripplanner";
 // trip: {date: '2022-12-1', places: ['Boston', 'New York'], day: 1, planId: '1', _id: '1'}
-const url = "http://localhost:8000/api/tripplanner"
+const url = "http://localhost:8000"
 export const findTripById = (tripId) =>
     fetch(`${url}/trips/${tripId}`)
         .then(response => response.json())
@@ -16,7 +16,7 @@ export const createTripForPlan = (planId, trip) =>
         headers: {
             "content-type": "application/json"
         }
-    }).then(response => response.json())
+    })
 
 export const updateTrip = (tripId, trip) =>
     fetch(`${url}/trips/${tripId}`, {

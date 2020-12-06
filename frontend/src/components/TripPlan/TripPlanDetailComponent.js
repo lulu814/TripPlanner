@@ -8,7 +8,8 @@ import MapComponent from "../Homepage/Maps/MapComponent";
 
 class TripPlanDetailComponent extends React.Component {
     state = {
-        plan: []
+        plan: {},
+        planId : this.props.match.params.planId
     }
 
     componentDidMount() {
@@ -29,7 +30,7 @@ class TripPlanDetailComponent extends React.Component {
                     <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn wbdv-high-index" to={"/plans"}><FaArrowLeft size={28}/></Link>
                     <h1 className="h2 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h1>
                         </span>
-                    <TripPlanTripTableComponent planId={this.state.plan._id}/>
+                    <TripPlanTripTableComponent planId={this.state.planId}/>
                 </span>
             </div>
             <div className="col-md-6 col-lg-7">

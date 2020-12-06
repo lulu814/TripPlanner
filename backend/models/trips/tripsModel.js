@@ -1,11 +1,11 @@
 const mongoose = require("mongoose")
-const questionSchema = require("./tripSchema")
-const tripModel = mongoose.model("tripModel", questionSchema)
+const tripsSchema = require("./tripsSchema")
+const tripModel = mongoose.model("tripModel", tripsSchema)
 
 const findAllTrips = () => tripModel.find()
 
 const findTripsForPlan = (planId) =>
-    tripModel.find({ _plan : planId}).sort( { date : 1 } );
+    tripModel.find({ _plan : planId})
 
 const findTripById = (tid) => tripModel.findById(tid)
 

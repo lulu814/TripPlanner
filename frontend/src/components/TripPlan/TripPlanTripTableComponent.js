@@ -4,8 +4,12 @@ import TripService from "../../services/TripService";
 import TripPlanCreateFormComponent from "./TripPlanCreateFormComponent";
 
 class TripPlanTripTableComponent extends React.Component {
+
     componentDidMount() {
+       // const planId = this.props.match.params.planId
         this.loadTrips(this.props.planId)
+        console.log(this.props.planId)
+        console.log(this.state.trips)
     }
 
     loadTrips = (planId) => {
@@ -43,7 +47,7 @@ class TripPlanTripTableComponent extends React.Component {
                 </ol>
             </div>
             <h2 className="h2 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">Add Trip</h2>
-            <TripPlanCreateFormComponent createTrip={this.createTrip}/>
+            <TripPlanCreateFormComponent createTrip={this.createTrip} planId = {this.props.planId}/>
         </div>
     }
 }

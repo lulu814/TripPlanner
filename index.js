@@ -32,6 +32,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 require('./server/api/placesApi')(app)
-require("./backend/controllers/plans-controller")(app, mongoose)
+require("./backend/controllers/plans-controller")(app)
 require("./backend/controllers/trips-controller")(app)
 require("./backend/controllers/users-controller")(app)
