@@ -1,10 +1,17 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import illustration from "../../assets/illustration-4.jpg";
+import {findPublicProfileById} from "../../services/UserService";
 
 class PlanForumHomeCardComponent extends Component {
     state = {
-        plan: this.props.plan
+        plan: this.props.plan,
+        user : {}
+    }
+
+    componentDidMount() {
+        findPublicProfileById(this.state.plan._user)
+            .then(user => this.setState({user: user}))
     }
 
     render() {
@@ -14,7 +21,7 @@ class PlanForumHomeCardComponent extends Component {
                      <h2 className="articles__title wbdv-high-index">{this.state.plan.name}</h2>
                     <img src={illustration} alt="illus" className="wbdv-fixed-img-1"/>
                     <div className="articles__footer">
-                        <h5 className="text-center">By:</h5>
+                        <h5 className="text-center">By: {this.state.user.fName} {this.state.user.lName}</h5>
                     </div>
                 </div>
                 <div className="articles__content articles__content--rhs"
@@ -22,7 +29,7 @@ class PlanForumHomeCardComponent extends Component {
                     <h2 className="articles__title wbdv-high-index">{this.state.plan.name}</h2>
                     <img src={illustration} alt="illus" className="wbdv-fixed-img-1"/>
                     <div className="articles__footer">
-                        <h5 className="text-center">By: </h5>
+                        <h5 className="text-center">By: {this.state.user.fName} {this.state.user.lName}</h5>
                     </div>
                 </div>
             </Link>
