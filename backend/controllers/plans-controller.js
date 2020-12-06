@@ -1,9 +1,8 @@
 const plansService = require("../services/plans-service")
-const plansSchema = require("./plansSchema")
-const planModel = mongoose.model("PlanModel", plansSchema)
+const plansSchema = require("../models/plans/plansSchema")
 
-
-module.exports = (app) => {
+module.exports = (app, mongoose) => {
+    const planModel = mongoose.model("PlanModel", plansSchema)
 
     const findAllPlans = (req, res) => {
         plansService.findAllPlans()
