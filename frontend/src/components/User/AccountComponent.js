@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import image from '../../assets/avatar.jpg';
 import {updateProfile} from "../../services/UserService";
 import PlanService from "../../services/PlanService";
-import PlanForumTableItemComponent from "../PlanForums/PlanForumTableItemComponent";
+import TripPlanHomeCardComponent from "../TripPlan/TripPlanHomeCardComponent";
 
 export default class UserProfile extends Component {
     state = {
@@ -10,6 +10,7 @@ export default class UserProfile extends Component {
         currUser: JSON.parse(localStorage.getItem('user')),
         fName: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).fName : '',
         lName: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).lName : '',
+        password: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).password : '',
         text: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).text : '',
         plans: []
     }
@@ -25,12 +26,22 @@ export default class UserProfile extends Component {
             .then(fetchedPlans => this.setState({plans: fetchedPlans}))
     }
 
+    updatePlan = (planId, plan) => PlanService.updatePlan(planId, plan)
+        .then(plans => this.loadPlans());
+
+    deletePlan = (planId) =>
+        PlanService.deletePlan(planId)
+            .then(() => this.setState(prevState => ({
+                plans: prevState.plans.filter(p => p._id !== planId)
+            })));
+
     handleClick = (e) => {
         e.preventDefault();
         const updateUser = {
             ...this.state.currUser,
             fName: this.state.fName,
             lName: this.state.lName,
+            password: this.state.password,
             text: this.state.text
         }
         console.log("update user -> ", updateUser)
@@ -131,29 +142,29 @@ export default class UserProfile extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-                                            {/*<div className="row">*/}
-                                            {/*    <div className="col-12">*/}
-                                            {/*        <div className="mb-2"><b>Change Password</b></div>*/}
-                                            {/*        <div className="row">*/}
-                                            {/*            <div className="col-12 col-md-6">*/}
-                                            {/*                <div className="form-group">*/}
-                                            {/*                    <label>Current Password</label>*/}
-                                            {/*                    <input className="form-control" type="password"*/}
-                                            {/*                           placeholder="••••••"/>*/}
-                                            {/*                </div>*/}
-                                            {/*            </div>*/}
-                                            {/*            <div className="col-12 col-md-6">*/}
-                                            {/*                <div className="form-group">*/}
-                                            {/*                    <label>New Password</label>*/}
-                                            {/*                    <input className="form-control" type="password"*/}
-                                            {/*                           onChange={e =>*/}
-                                            {/*                               this.setState({password: e.target.value})}*/}
-                                            {/*                           placeholder="••••••"/>*/}
-                                            {/*                </div>*/}
-                                            {/*            </div>*/}
-                                            {/*        </div>*/}
-                                            {/*    </div>*/}
-                                            {/*</div>*/}
+                                            <div className="row">
+                                                <div className="col-12">
+                                                    <div className="mb-2"><b>Change Password</b></div>
+                                                    <div className="row">
+                                                        {/*<div className="col-12 col-md-6">*/}
+                                                        {/*    <div className="form-group">*/}
+                                                        {/*        <label>Current Password</label>*/}
+                                                        {/*        <input className="form-control" type="password"*/}
+                                                        {/*               placeholder="••••••"/>*/}
+                                                        {/*    </div>*/}
+                                                        {/*</div>*/}
+                                                        <div className="col-12 col-md-6">
+                                                            <div className="form-group">
+                                                                <label>New Password</label>
+                                                                <input className="form-control" type="password"
+                                                                       onChange={e =>
+                                                                           this.setState({password: e.target.value})}
+                                                                       placeholder="••••••"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div className="row">
                                                 <div className="col d-flex justify-content-end">
                                                     <button className="btn btn-primary"
@@ -172,6 +183,14 @@ export default class UserProfile extends Component {
                     <div className="card">
                         <div className="card-header mb-2">My Plans</div>
                         <div className="card-body">
+                            <ol className="articles">
+                                {this.state.plans &&
+                                this.state.plans.map(plan =>
+                                    <TripPlanHomeCardComponent key={plan._id} plan={plan}
+                                                               deletePlan={this.deletePlan}
+                                                               updatePlan={this.updatePlan}/>)}
+                            </ol>
+
                             {/*<ul className="list-group">*/}
 
                             {/*<ol className="wbdv-td-list">*/}
@@ -182,7 +201,7 @@ export default class UserProfile extends Component {
                         </div>
                     </div>
                 </div>}
-                { !this.state.isLogin && <div>Please log in! {this.props.history.push("/signin")}</div>}
+                {!this.state.isLogin && <div>Please log in! {this.props.history.push("/signin")}</div>}
             </div>
         );
     }
