@@ -7,11 +7,11 @@ class PlanForumTableItemComponent extends Component {
 
     render() {
         return <li className="wbdv-td-item text-center">
-            <h4 className="wbdv-td-headline">{!this.state.beingEdited &&
-                                              <span>{this.state.trip.places.map(
-                                                  (place, index) =>
-                                                      <span
-                                                          key={index}>{place}{'\n'}</span>)}</span>}</h4>
+            <h4 className="wbdv-td-headline">
+                {this.state.trip.places.map(
+                    (place, index) =>
+                        <span
+                            key={index}>{place}{'\n'}</span>)}</h4>
 
             <span>{this.state.trip.date}</span>
             <hr/>
