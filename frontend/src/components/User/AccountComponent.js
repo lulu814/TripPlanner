@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import image from '../../assets/avatar.jpg';
 import {updateProfile} from "../../services/UserService";
+import PlanService from "../../services/PlanService";
+import PlanForumTableItemComponent from "../PlanForums/PlanForumTableItemComponent";
 
 export default class UserProfile extends Component {
     state = {
@@ -8,7 +10,19 @@ export default class UserProfile extends Component {
         currUser: JSON.parse(localStorage.getItem('user')),
         fName: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).fName : '',
         lName: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).lName : '',
-        text: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).text : ''
+        text: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).text : '',
+        plans: []
+    }
+
+    componentDidMount() {
+        // const planId = this.props.match.params.planId
+        this.loadPlans(this.state.currUser._id)
+        console.log(this.state.plans)
+    }
+
+    loadPlans = (userId) => {
+        PlanService.findPlansForUser(userId)
+            .then(fetchedPlans => this.setState({plans: fetchedPlans}))
     }
 
     handleClick = (e) => {
@@ -158,14 +172,13 @@ export default class UserProfile extends Component {
                     <div className="card">
                         <div className="card-header mb-2">My Plans</div>
                         <div className="card-body">
-                            <ul className="list-group">
-                                <li className="list-group-item">
-                                    Yellow Stone
-                                </li>
-                                <li className="list-group-item">
-                                    Seattle
-                                </li>
-                            </ul>
+                            {/*<ul className="list-group">*/}
+
+                            {/*<ol className="wbdv-td-list">*/}
+                            {/*    {this.state.plans.map(*/}
+                            {/*        plan => <PlanForumTableItemComponent key={plan._id} plan={plan}/>)*/}
+                            {/*    }*/}
+                            {/*</ol>*/}
                         </div>
                     </div>
                 </div>}
