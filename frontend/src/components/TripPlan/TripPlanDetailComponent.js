@@ -8,11 +8,17 @@ import MapComponent from "../Homepage/Maps/MapComponent";
 
 class TripPlanDetailComponent extends React.Component {
     state = {
-        plan: []
+        isLogin: localStorage.getItem('user') !== null,
+        plan: [],
+        userId : ''
     }
 
     componentDidMount() {
-        this.loadPlan(this.props.match.params.planId);
+        if(this.state.isLogin) {
+            this.loadPlan(this.props.match.params.planId)
+                .then(JSON.parse(localStorage.getItem('user'))._id)
+                          .then(userId => this.setState({userId: userId}))
+        }
     }
 
     loadPlan = (planId) => {
@@ -22,8 +28,11 @@ class TripPlanDetailComponent extends React.Component {
 
     render() {
         return <div className="row container-fluid">
+            {!this.state.isLogin &&
+             <div>Please log in! {this.props.history.push("/signin")}</div>}
+            {this.state.userId !== this.state.plan._user &&
+             <div>{this.props.history.push("/plan-error")}</div>}
             <div className="col-md-6 col-lg-5 border-right min-vh-100">
-
                 <span className="p-2">
                     <span>
                     <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn wbdv-high-index" to={"/plans"}><FaArrowLeft size={28}/></Link>
@@ -39,7 +48,6 @@ class TripPlanDetailComponent extends React.Component {
                 </Container>
                 {/*map */}
             </div>
-
         </div>
     }
 }
