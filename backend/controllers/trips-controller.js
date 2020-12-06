@@ -7,8 +7,7 @@ module.exports = (app) => {
             .then(trips => res.send(trips))
 
     const findTripsForPlan = (req, res) => {
-        const pid = req.params.pid
-        tripService.findTripsForPlan(pid)
+        tripService.findTripsForPlan(req.params.pid)
             .then(trips => res.send(trips))
     }
 
@@ -18,14 +17,6 @@ module.exports = (app) => {
     }
 
     const createTripForPlan = (req, res) => {
-        // console.log(req.params.pid)
-        // const {day, date , places} = req.body;
-        // const trip = new Trip({
-        //     day, date,
-        //     places: ['la', 'boston'],
-        //     _plan: req.params.pid,
-        // });
-
         res.json( tripService.createTripForPlan(req.body))
     }
 

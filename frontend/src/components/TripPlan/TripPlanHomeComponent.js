@@ -8,23 +8,20 @@ class TripPlanHomeComponent extends React.Component {
 
     componentDidMount() {
         this.loadPlans(this.state.userId);
-        console.log( this.state.userId)
-
     }
 
     state = {
         isLogin: localStorage.getItem('user') !== null,
         plans: [],
-        userId: ''
+        userId: this.props.match.params.uid
     }
-
     updatePlan = (planId, plan) => PlanService.updatePlan(planId, plan)
         .then(plans => this.loadPlans());
+
     createNewPlan = (userId) => {
         const newPlan = {
             name: "New Plan",
             user: this.state.userId
-
         }
         PlanService.createPlanForUser(userId, newPlan)
             .then(actualPlan => this.setState(prevState => (

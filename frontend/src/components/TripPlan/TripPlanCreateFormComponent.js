@@ -5,7 +5,7 @@ class TripPlanCreateFormComponent extends React.Component {
         trip: {
             day: '',
             date: '',
-            places: [],
+            places: [''],
             _plan: this.props.planId
         }
     }
@@ -39,7 +39,7 @@ class TripPlanCreateFormComponent extends React.Component {
                            onChange={(e) => this.setState(prevState => ({
                                trip: {
                                    ...prevState.trip,
-                                   places: e.target.value.split(',')
+                                   places: e.target.value.split(",")
                                }
                            }))}/>
                     <label className="form__label" htmlFor="InputPlace">Places(e.g. Boston, Cambridge)</label>
@@ -51,7 +51,7 @@ class TripPlanCreateFormComponent extends React.Component {
                                                 trip: {
                                                     day: '',
                                                     date: '',
-                                                    places: [],
+                                                    places: [''],
                                                     _plan : ''
                                                 }
                                             }))}>Submit

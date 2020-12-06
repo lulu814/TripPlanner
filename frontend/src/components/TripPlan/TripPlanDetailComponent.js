@@ -11,16 +11,15 @@ class TripPlanDetailComponent extends React.Component {
         plan: {},
         planId : this.props.match.params.planId,
         isLogin: localStorage.getItem('user') !== null,
-        userId : ''
-
+        userId : JSON.parse(localStorage.getItem('user'))._id
     }
 
     componentDidMount() {
-        if(this.state.isLogin) {
-            this.loadPlan(this.props.match.params.planId)
-                .then(JSON.parse(localStorage.getItem('user'))._id)
-                          .then(userId => this.setState({userId: userId}))
-        }
+        this.loadPlan(this.state.planId)
+        // if(this.state.isLogin) {
+        //     this.loadPlan(this.state.planId)
+        //         .then(userId => this.setState({userId: JSON.parse(localStorage.getItem('user'))._id}))
+        // }
     }
 
     loadPlan = (planId) => {
@@ -32,8 +31,7 @@ class TripPlanDetailComponent extends React.Component {
         return <div className="row container-fluid">
             {!this.state.isLogin &&
              <div>Please log in! {this.props.history.push("/signin")}</div>}
-            {this.state.userId !== this.state.plan._user &&
-             <div>{this.props.history.push("/plan-error")}</div>}
+
             <div className="col-md-6 col-lg-5 border-right min-vh-100">
                 <span className="p-2">
                     <span>

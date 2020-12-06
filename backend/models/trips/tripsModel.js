@@ -14,7 +14,7 @@ const createTripForPlan = ( newTrip ) => tripModel.create( newTrip )
 const removeTrip = (tid) =>
     tripModel.remove({_id: tid})
 
-const updateTrip = (pid, newTrip) =>
+const updateTrip = (tid, newTrip) =>
     tripModel.update({_id: tid}, {$set: newTrip})
 
 
