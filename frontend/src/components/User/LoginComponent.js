@@ -29,6 +29,7 @@ export default class Login extends Component {
             }).then((data) => {
             console.log(data);
             message.success('Login succeed!');
+            this.props.history.push('/');
         })
             .catch((err) => {
                 console.error(err);

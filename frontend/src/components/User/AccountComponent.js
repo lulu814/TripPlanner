@@ -17,7 +17,9 @@ export default class UserProfile extends Component {
 
     componentDidMount() {
         // const planId = this.props.match.params.planId
-        this.loadPlans(this.state.currUser._id)
+        if (this.state.currUser) {
+            this.loadPlans(this.state.currUser._id)
+        }
         console.log(this.state.plans)
     }
 
@@ -146,13 +148,6 @@ export default class UserProfile extends Component {
                                                 <div className="col-12">
                                                     <div className="mb-2"><b>Change Password</b></div>
                                                     <div className="row">
-                                                        {/*<div className="col-12 col-md-6">*/}
-                                                        {/*    <div className="form-group">*/}
-                                                        {/*        <label>Current Password</label>*/}
-                                                        {/*        <input className="form-control" type="password"*/}
-                                                        {/*               placeholder="••••••"/>*/}
-                                                        {/*    </div>*/}
-                                                        {/*</div>*/}
                                                         <div className="col-12 col-md-6">
                                                             <div className="form-group">
                                                                 <label>New Password</label>
@@ -190,14 +185,6 @@ export default class UserProfile extends Component {
                                                                deletePlan={this.deletePlan}
                                                                updatePlan={this.updatePlan}/>)}
                             </ol>
-
-                            {/*<ul className="list-group">*/}
-
-                            {/*<ol className="wbdv-td-list">*/}
-                            {/*    {this.state.plans.map(*/}
-                            {/*        plan => <PlanForumTableItemComponent key={plan._id} plan={plan}/>)*/}
-                            {/*    }*/}
-                            {/*</ol>*/}
                         </div>
                     </div>
                 </div>}
