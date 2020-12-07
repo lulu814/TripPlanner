@@ -28,15 +28,15 @@ class TripPlanHomeCardComponent extends Component {
                     }
                     {!this.state.planBeingEdited &&
                      <Link className="articles__title wbdv-high-index"
-                           to={`/plans/${this.state.plan._id}`}>{this.state.plan.name}</Link>
+                           to={`/user/${this.state.plan.user}/plans/${this.state.plan._id}`}>{this.state.plan.name}</Link>
                     }
                     <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                     <div className="articles__footer">
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.setState({planBeingEdited: true})}
-                             className="btn btn-light col-lg-3">
-                             Edit
+                             className="btn btn-light col-lg-5">
+                             Edit Title
                          </button>
                         }
                         {!this.state.planBeingEdited &&
@@ -76,15 +76,15 @@ class TripPlanHomeCardComponent extends Component {
                     }
                     {!this.state.planBeingEdited &&
                      <Link className="articles__title wbdv-high-index"
-                           to={`plans/${this.state.plan._id}`}>{this.state.plan.name}</Link>
+                           to={`/user/${this.state.plan.user}/plans/${this.state.plan._id}`}>{this.state.plan.name}</Link>
                     }
                     <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                     <div className="articles__footer">
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.setState({planBeingEdited: true})}
-                             className="btn btn-light col-lg-3">
-                             Edit
+                             className="btn btn-light col-lg-5">
+                             Edit Title
                          </button>
                         }
                         {!this.state.planBeingEdited &&
