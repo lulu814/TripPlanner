@@ -41,7 +41,11 @@ export const updateProfile = (updateUser) => {
     ).then(response => console.log(response))
 }
 
-export const findPublicProfileById = (uid) => {
+export const findPublicProfileById = (uid) =>
     fetch(`${API_ROOT}/public-profile/${uid}`)
         .then(response => response.json())
-}
+        .then(data => {
+            console.log(data)
+            return data;
+        });
+
