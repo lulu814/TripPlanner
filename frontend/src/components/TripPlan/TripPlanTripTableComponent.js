@@ -11,13 +11,13 @@ class TripPlanTripTableComponent extends React.Component {
     loadTrips = () => {
         TripService.findTripsForPlan(this.state.planId)
             .then(fetchedTrips => this.setState({trips: fetchedTrips}))
+            .then(r => this.setState({loaded: false}))
+            .then(r => this.setState({loaded: true}))
     }
 
     deleteTrip = (tripId) =>
         TripService.deleteTrip(tripId)
-            .then(() => this.setState(prevState => ({
-                trips: prevState.trips.filter(t => t._id !== tripId)
-            })));
+            .then(actualTrip => this.loadTrips());
 
     updateTrip = (tripId, trip) => TripService.updateTrip(tripId, trip);
 
@@ -25,6 +25,7 @@ class TripPlanTripTableComponent extends React.Component {
         .then(actualTrip => this.loadTrips());
 
     state = {
+        loaded: false,
         trips: [],
         planId: this.props.planId
     }
@@ -42,7 +43,9 @@ class TripPlanTripTableComponent extends React.Component {
                 </ol>
             </div>
             <h2 className="h2 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">Add Trip</h2>
-            <TripPlanCreateFormComponent createTrip={this.createTrip} planId = {this.state.planId}/>
+            {this.state.loaded &&
+            <TripPlanCreateFormComponent createTrip={this.createTrip} planId={this.state.planId}
+            size={this.state.trips.length + 1}/>}
         </div>
     }
 }

@@ -3,20 +3,19 @@ import React from "react";
 class TripPlanCreateFormComponent extends React.Component {
     state = {
         trip: {
-            day: '',
+            day: this.props.size,
             date: '',
             places: [''],
             _plan: this.props.planId
         }
     }
 
-
-
     render() {
         return <div className="mt-4">
             <div className="wbdv-from_field-container mb-4">
                 <div className="form__group field">
-                    <input type="number" className="form__field" id="InputDay" min={1} value={this.state.trip.day}
+                    <input type="number" className="form__field" id="InputDay" min={1} readOnly
+                           value={this.state.trip.day}
                            placeholder="Enter Day" onChange={(e) => this.setState(prevState => ({
                         trip: {
                             ...prevState.trip,
@@ -51,7 +50,7 @@ class TripPlanCreateFormComponent extends React.Component {
                     onClick={() => this.props.createTrip(this.props.planId, this.state.trip)
                         .then(this.setState({
                                                 trip: {
-                                                    day: '',
+                                                    day: this.props.size,
                                                     date: '',
                                                     places: [],
                                                     _plan: this.props.planId
