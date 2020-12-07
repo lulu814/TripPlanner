@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "@reach/combobox/styles.css";
@@ -19,16 +19,22 @@ import TripPlanErrorComponent from "./components/TripPlan/TripPlanErrorComponent
 
 
 export default function App() {
+
+  const [login, setLogin] = useState(localStorage.getItem('accessToken')?true:false);
+  const changeLoginStatus = (status) => setLogin(status);
+
   return (
       <Router>
-        <Container><HeaderComponent/></Container>
+        <Container><HeaderComponent isLogin={login} changeLoginStatus={changeLoginStatus}/></Container>
           <Switch>
             <Route exact path="/">
               <Redirect to="/home" />
             </Route>
             <Route exact path={['/home', '/search', '/search/:searchText']} component={HomepageView} />
             <Route path={["/results/:placeId"]} exact component={DetailPageView}/>
-            <Route path="/signin" exact component={Login} />
+            <Route path="/signin" exact>
+              <Login changeLoginStatus={changeLoginStatus} />
+            </Route>
             <Route path="/signup" exact component={SignUp} />
             <Route path="/profile" exact component={UserProfile} />
             <Route path="/public-profile" exact component={PublicProfile} />

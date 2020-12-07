@@ -4,10 +4,11 @@ import {signIn} from "../../services/UserService";
 import {message} from 'antd';
 import {getCurrUser} from "../../services/UserService";
 import axios from "axios";
+import { withRouter } from 'react-router-dom';
 const API_ROOT = "http://localhost:8000"
 
 
-export default class Login extends Component {
+class Login extends Component {
     state = {
         email: '',
         password: ''
@@ -30,6 +31,7 @@ export default class Login extends Component {
             console.log(data);
             message.success('Login succeed!');
             this.props.history.push('/');
+            this.props.changeLoginStatus(true);
         })
             .catch((err) => {
                 console.error(err);
@@ -80,3 +82,5 @@ export default class Login extends Component {
         );
     }
 }
+
+export default withRouter(Login);
