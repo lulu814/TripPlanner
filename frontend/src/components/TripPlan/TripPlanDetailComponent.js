@@ -11,13 +11,15 @@ class TripPlanDetailComponent extends React.Component {
         plan: {},
         planId : this.props.match.params.planId,
         isLogin: localStorage.getItem('user') !== null,
-        userId : ''
+        userId : '',
+        userRole: ''
     }
 
     componentDidMount() {
         if(this.state.isLogin) {
             this.loadPlan()
             this.setState({userId: JSON.parse(localStorage.getItem('user'))._id})
+            this.setState({userRole: JSON.parse(localStorage.getItem('user')).role})
         }
     }
 
@@ -30,7 +32,7 @@ class TripPlanDetailComponent extends React.Component {
         return <div className="row container-fluid">
             {!this.state.isLogin &&
              <div>Please log in! {this.props.history.push("/signin")}</div>}
-            {this.state.plan.user && this.state.userId !== this.state.plan.user &&
+            {this.state.plan.user && this.state.userRole !== 'Admin' && this.state.userId !== this.state.plan.user  &&
                      <div>Please log in! {this.props.history.push("/plan-error")}</div>
             }
             <div className="col-md-6 col-lg-5 border-right min-vh-100">

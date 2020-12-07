@@ -6,14 +6,23 @@ import bg from "../../assets/peach-bg.jpg"
 
 class TripPlanHomeComponent extends React.Component {
 
-    componentDidMount() {
-        this.loadPlans(this.state.userId);
+    async componentDidMount() {
+        if (this.state.isLogin) {
+            const userRole = await JSON.parse(localStorage.getItem('user')).role;
+            this.setState({userRole: userRole})
+            if (this.state.userRole === 'Admin') {
+                this.loadPlansAdmin()
+            } else {
+                this.loadPlans(this.state.userId);
+            }
+        }
     }
 
     state = {
         isLogin: localStorage.getItem('user') !== null,
         plans: [],
-        userId: this.props.match.params.uid
+        userId: this.props.match.params.uid,
+        userRole: ''
     }
     updatePlan = (planId, plan) => PlanService.updatePlan(planId, plan)
         .then(plans => this.loadPlans());
@@ -27,6 +36,10 @@ class TripPlanHomeComponent extends React.Component {
             .then(this.loadPlans)
     }
 
+    loadPlansAdmin = () => {
+        PlanService.findAllPlans()
+            .then(fetchedPlans => this.setState({plans: fetchedPlans}))
+    }
 
     loadPlans = () => {
         PlanService.findPlansForUser(this.state.userId)
@@ -44,9 +57,12 @@ class TripPlanHomeComponent extends React.Component {
         return <div className="wbdv-card-body" style={{backgroundImage: `url(${bg})`}}>
             {!this.state.isLogin &&
              <div>Please log in! {this.props.history.push("/signin")}</div>}
-            <h1 className="h1 text-center py-5 articles__title text-white"><em>“We travel, some of
+            <h1 className="h1 text-center py-4 articles__title text-white"><em>“We travel, some of
                 us forever, to
                 seek other places, other lives, other souls.” – Anais Nin</em></h1>
+            {this.state.userRole === 'Admin' &&
+             <h3 className="h3 text-center pb-5 articles__title text-white">
+                 <em className="border border-light p-2">You are viewing as ADMIN</em></h3>}
             <ol className="articles">
                 <li className="articles__article">
                     <button
