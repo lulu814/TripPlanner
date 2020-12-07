@@ -10,11 +10,13 @@ class TripPlanCreateFormComponent extends React.Component {
         }
     }
 
+
+
     render() {
         return <div className="mt-4">
             <div className="wbdv-from_field-container mb-4">
                 <div className="form__group field">
-                    <input type="number" className="form__field" id="InputDay" min={1}
+                    <input type="number" className="form__field" id="InputDay" min={1} value={this.state.trip.day}
                            placeholder="Enter Day" onChange={(e) => this.setState(prevState => ({
                         trip: {
                             ...prevState.trip,
@@ -24,7 +26,7 @@ class TripPlanCreateFormComponent extends React.Component {
                     <label className="form__label" htmlFor="InputDay">Day</label>
                 </div>
                 <div className="form__group field">
-                    <input type="text" className="form__field" id="InputDate" placeholder="2021-02-02"
+                    <input type="text" className="form__field" id="InputDate" value={this.state.trip.date} placeholder="2021-02-02"
                            onChange={(e) => this.setState(prevState => ({
                                trip: {
                                    ...prevState.trip,
@@ -34,7 +36,7 @@ class TripPlanCreateFormComponent extends React.Component {
                     <label className="form__label" htmlFor="InputDate">Date(e.g. 2021-02-02)</label>
                 </div>
                 <div className="form__group field">
-                    <input type="text" className="form__field" id="InputPlace"
+                    <input type="text" className="form__field" id="InputPlace" value={this.state.trip.places}
                            placeholder="Please split by ',' Example: Boston, Harvard"
                            onChange={(e) => this.setState(prevState => ({
                                trip: {
@@ -46,13 +48,13 @@ class TripPlanCreateFormComponent extends React.Component {
                 </div>
             </div>
             <button type="submit" className="btn wbdv-td-table-btn btn-block"
-                    onClick={() => this.props.createTrip(  this.props.planId, this.state.trip)
+                    onClick={() => this.props.createTrip(this.props.planId, this.state.trip)
                         .then(this.setState({
                                                 trip: {
                                                     day: '',
                                                     date: '',
-                                                    places: [''],
-                                                    _plan : ''
+                                                    places: [],
+                                                    _plan: this.props.planId
                                                 }
                                             }))}>Submit
             </button>

@@ -16,7 +16,7 @@ export const createTripForPlan = (planId, trip) =>
         headers: {
             "content-type": "application/json"
         }
-    })
+    }).then(response => response.json())
 
 export const updateTrip = (tripId, trip) =>
     fetch(`${url}/trips/${tripId}`, {

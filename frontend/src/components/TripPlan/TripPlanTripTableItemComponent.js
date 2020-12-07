@@ -9,7 +9,9 @@ class TripPlanTripTableItemComponent extends Component {
 
     render() {
         return <li className="wbdv-td-item text-center">
-            {!this.state.beingEdited && <h4 className="wbdv-td-headline">{<span>{this.state.trip.places.map(
+            {console.log(this.state.trip.places)}
+            {!this.state.beingEdited && <h4 className="wbdv-td-headline">{<span>{this.state.trip.places &&
+                                                                                 this.state.trip.places.map(
                     (place, index) =>
                         <span
                             key={index}>{place}</span>
