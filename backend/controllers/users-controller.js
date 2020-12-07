@@ -77,9 +77,7 @@ module.exports = function (app) {
         User.findOne({_id: req.params.uid}, function (err, user){
             if (err) throw err;
             console.log(user);
-            // res.status(200).send({user: user});
-            //
-            res.send(user); // returns null
+            res.send(user);
         });
     }
 
