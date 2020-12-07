@@ -20,10 +20,7 @@ module.exports = (app) => {
     }
 
     const createPlanForUser = (req, res) => {
-        // const plan = new Plan({
-        //     name : req.body.plan.name,
-        //     _user : req.user.id,
-        // });
+
         res.json(plansService.createPlanForUser(req.body))
       }
 
