@@ -18,7 +18,7 @@ class PlanForumHomeCardComponent extends Component {
 
     render() {
         return <li className="articles__article">
-            <Link className="articles__link" to={`plan-forum/${this.state.plan._id}`}>
+            <Link className="articles__link" to={`/plan-forum/${this.state.plan._id}`}>
                 <div className="articles__content articles__content--lhs">
                      <h2 className="articles__title wbdv-high-index">{this.state.plan.name}</h2>
                     <img src={illustration} alt="illus" className="wbdv-fixed-img-1"/>
