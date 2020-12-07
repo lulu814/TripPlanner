@@ -5,19 +5,16 @@ import {FaArrowLeft} from "react-icons/all";
 import PlanService from "../../services/PlanService";
 import MapComponent from "../Homepage/Maps/MapComponent";
 import PlanForumTableComponent from "./PlanForumTableComponent";
+import {findPublicProfileById} from "../../services/UserService";
 
 class PlanForumDetailComponent extends React.Component {
     constructor(prop) {
         super(prop);
-        this.state = {plan:{}}
+        this.state = {plan: {}, user: {}}
         PlanService.findPlanById(this.props.match.params.planId)
             .then(fetchedPlan => this.setState({plan: fetchedPlan}))
-    }
-    componentDidMount() {
-        // if (this.state.plan.user) {
-        //     findPublicProfileById(this.state.plan.user)
-        //         .then(user => this.setState({user: user}))
-        // }
+            .then(r => findPublicProfileById(this.state.plan.user))
+            .then(user => this.setState({user: user}))
     }
 
     render() {
@@ -30,7 +27,7 @@ class PlanForumDetailComponent extends React.Component {
                     <h2 className="h2 text-center m-2 pb-0 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h2>
                         <h4 className="h4 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">
                             By: <Link
-                            to={`/public-profile/${this.state.plan.user}`}>{this.state.plan.user}</Link></h4>
+                            to={`/public-profile/${this.state.plan.user}`}>{this.state.user.lName} {this.state.user.fName}</Link></h4>
                         </span>
                     <PlanForumTableComponent planId={this.props.match.params.planId}/>
                 </span>
