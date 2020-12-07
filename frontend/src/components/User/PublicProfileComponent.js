@@ -3,13 +3,18 @@ import image from '../../assets/avatar.jpg';
 import post1 from '../../assets/post1.jpg';
 import post2 from '../../assets/post2.jpg';
 import post3 from '../../assets/post3.jpg';
-
+import {findPublicProfileById} from "../../services/UserService";
 
 export default function PublicProfile(user) {
     return (
         <div className="container">
+            <button onClick={()=> findPublicProfileById("5fc57c9f67469ce584195f31")}>
+                check
+            </button>
             <div className="card">
-                <div className="card-header mb-2">My Space</div>
+                <div className="card-header mb-2"
+                >My Space
+                </div>
                 <div className="card-body">
                     <div className="e-profile">
                         <div className="row">

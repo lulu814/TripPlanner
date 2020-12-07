@@ -69,9 +69,18 @@ module.exports = function (app) {
         res.status(200).send('Update profile successfully');
     };
 
+    // const findPublicProfile = (req, res) => {
+    //     User.findById(req.params.uid)
+    //         .then(user => res.send(user));
+    // }
     const findPublicProfile = (req, res) => {
-        User.findById(req.params.uid)
-            .then(user => res.send(user));
+        User.findOne({_id: req.params.uid}, function (err, user){
+            if (err) throw err;
+            console.log(user);
+            // res.status(200).send({user: user});
+            //
+            res.send(user); // returns null
+        });
     }
 
     app.post("/signup", userServices.checkDuplicateEmail, signup);
