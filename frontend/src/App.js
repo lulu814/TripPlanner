@@ -24,9 +24,9 @@ export default function App() {
         <Container><HeaderComponent/></Container>
           <Switch>
             <Route exact path="/">
-              <Redirect to="/search" />
+              <Redirect to="/home" />
             </Route>
-            <Route exact path={['/search', '/search/:searchText']} component={HomepageView} />
+            <Route exact path={['/home', '/search', '/search/:searchText']} component={HomepageView} />
             <Route path={["/results/:placeId"]} exact component={DetailPageView}/>
             <Route path="/signin" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
