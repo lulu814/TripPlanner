@@ -38,7 +38,6 @@ class TripPlanTripTableComponent extends React.Component {
                         trip => <TripPlanTripTableItemComponent key={trip._id} trip={trip}
                                                                 updateTrip={this.updateTrip}
                                                                 deleteTrip={this.deleteTrip}
-                                                                size={this.state.trips.length}
                         />)
                     }
                 </ol>

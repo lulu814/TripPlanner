@@ -5,7 +5,6 @@ class TripPlanTripTableItemComponent extends Component {
     state = {
         beingEdited: false,
         trip: this.props.trip,
-        tripSize: this.props.size
     }
 
     render() {
@@ -13,7 +12,7 @@ class TripPlanTripTableItemComponent extends Component {
             {!this.state.beingEdited && <h4 className="wbdv-td-headline">{<span>{this.state.trip.places &&
                                                                                  this.state.trip.places.map(
                     (place, index) =>
-                        <span key={index}> {place}{index !== this.state.tripSize && ','}</span>
+                        <span key={index}> {place}{index !== this.state.trip.places.length - 1 && ','}</span>
             )}</span>}</h4>}
             {this.state.beingEdited &&
              <textarea className="form-control wbdv-td-headline"

@@ -23,7 +23,7 @@ class PlanForumTableComponent extends React.Component {
 
                     {this.state.isLoaded &&
                      this.state.trips.map(
-                        trip => <PlanForumTableItemComponent size={this.state.trips.length} key={trip._id} trip={trip}/>)
+                        trip => <PlanForumTableItemComponent key={trip._id} trip={trip}/>)
                     }
                 </ol>
             </div>
