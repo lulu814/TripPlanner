@@ -1,16 +1,12 @@
-/* global google */
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {
     GoogleMap,
     useLoadScript,
     Marker,
     InfoWindow,
-    DirectionsRenderer,
-    DirectionsService
 } from "@react-google-maps/api";
 
 import CardComponent from "./CardComponent";
-import MapDirectionsRenderer from "./MapDirectionComponent";
 import Search from "./SearchBarComponent";
 
 // to avoid rerender
@@ -34,16 +30,6 @@ let places = [
     {latitude: 27.9947147,longitude: -82.5943645},
     {latitude: 28.4813018,longitude: -81.4387899},
     {latitude: 29.4813018,longitude: -81.4387899}];
-
-// const MapComponent = withScriptjs(
-//     withGoogleMap(props => (
-//         <GoogleMap>
-//             <MapDirectionsRenderer places={props.markers} travelMode="DRIVING" />
-//         </GoogleMap>
-//     ))
-// );
-//
-// export default MapComponent;
 
 export default  function MapComponent() {
     // if the google script is ready
@@ -115,13 +101,6 @@ export default  function MapComponent() {
                             </div>
                         </InfoWindow>
                     ) : null}
-                    {/*<MapDirectionsRenderer*/}
-                    {/*    places={[*/}
-                    {/*        {latitude: 27.9947147,longitude: -82.5943645},*/}
-                    {/*        {latitude: 28.4813018,longitude: -81.4387899},*/}
-                    {/*        {latitude: 29.4813018,longitude: -81.4387899}]}*/}
-                    {/*    travelMode="DRIVING"*/}
-                    {/*/>*/}
                 </GoogleMap>
             </div>
 
@@ -151,48 +130,5 @@ function Locate({ panTo }) {
         </button>
     );
 }
-
-// function MapDirectionsRenderer(props) {
-//     const [directions, setDirections] = useState(null);
-//     const [error, setError] = useState(null);
-//
-//     useEffect(() => {
-//         const { places, travelMode } = props;
-//
-//         const waypoints = places.map(p => ({
-//             location: { lat: p.latitude, lng: p.longitude },
-//             stopover: true
-//         }));
-//         const origin = waypoints.shift().location;
-//         const destination = waypoints.pop().location;
-//
-//         const directionsService = new google.maps.DirectionsService();
-//         directionsService.route(
-//             {
-//                 origin: origin,
-//                 destination: destination,
-//                 travelMode: travelMode,
-//                 waypoints: waypoints
-//             },
-//             (result, status) => {
-//                 console.log(result)
-//                 if (status === google.maps.DirectionsStatus.OK) {
-//                     setDirections(result);
-//                 } else {
-//                     setError(result);
-//                 }
-//             }
-//         );
-//     });
-//
-//     if (error) {
-//         return <h1>{error}</h1>;
-//     }
-//     return (
-//         directions && (
-//             <DirectionsRenderer directions={directions} />
-//         )
-//     );
-// }
 
 

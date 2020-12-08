@@ -44,7 +44,7 @@ export default function PlaceList() {
           extra={
             <img
               width={280}
-              src={`${photo_url(item.photos[0].photo_reference)}`}
+              src={photo_url(item.photos[0].photo_reference)} alt="..." 
             />
           }
         >

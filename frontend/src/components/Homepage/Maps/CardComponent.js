@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 const  CardComponent = ({placeId} ) => {
     const [photoUrl, setPhotoUrl ] = useState("");
-    const [text, setText] = useState("Not Available");
+    const [setText] = useState("Not Available");
 
     useEffect(() => {
         initialize();
@@ -31,13 +31,6 @@ const  CardComponent = ({placeId} ) => {
     return (
             <Card>
                 <Card.Img variant="top" src={photoUrl} />
-                {/* <Card.Body> */}
-                    {/* <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Review :
-                        {text}
-                    </Card.Text> */}
-                {/* </Card.Body> */}
             </Card>
     );
 };

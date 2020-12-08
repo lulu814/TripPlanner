@@ -124,7 +124,7 @@ export default function DetailPlace(){
                 {placeDetail.reviews && placeDetail.reviews.map(review => 
                     <div key={review.author_name} className="col-md-12">
                         <div className="media g-mb-30 media-comment">
-                            <img className="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src={review.profile_photo_url} alt="Image Description"/>
+                            <img className="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src={review.profile_photo_url} alt=""/>
                             <div className="media-body u-shadow-v18 g-bg-secondary g-pa-30">
                             <div className="g-mb-15">
                                 <h5 className="h6 g-color-gray-dark-v1 mb-0">{review.author_name}</h5>
