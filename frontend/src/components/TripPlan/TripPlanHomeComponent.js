@@ -73,7 +73,7 @@ class TripPlanHomeComponent extends React.Component {
                 seek other places, other lives, other souls.” – Anais Nin</em></h1>
             {this.state.userRole === 'Admin' &&
              <h3 className="h3 text-center pb-5 articles__title text-white">
-                 <em className="border border-light p-2">You are viewing as ADMIN</em></h3>}
+                 <em className="border border-light p-2">You are viewing as <span className="font-weight-bold">ADMIN</span></em></h3>}
             <ol className="articles">
                 {this.state.userRole !== 'Admin'&& <li className="articles__article">
                     <button
