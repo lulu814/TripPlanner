@@ -1,8 +1,5 @@
 import React, {Component} from "react";
 import image from '../../assets/avatar.jpg';
-// import post1 from '../../assets/post1.jpg';
-// import post2 from '../../assets/post2.jpg';
-// import post3 from '../../assets/post3.jpg';
 import {findPublicProfileById} from "../../services/UserService";
 import PlanService from "../../services/PlanService";
 import PlanForumHomeCardComponent from "../PlanForums/PlanForumHomeCardComponent";
@@ -53,6 +50,7 @@ export default class PublicProfile extends Component {
                                         >
                                             <img className="rounded-circle"
                                                  src={image} alt="name"
+                                                 height="110"
                                                  width="110"/>
                                         </div>
                                     </div>
