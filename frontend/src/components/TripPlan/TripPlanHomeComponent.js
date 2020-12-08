@@ -25,7 +25,9 @@ class TripPlanHomeComponent extends React.Component {
         userRole: ''
     }
     updatePlan = (planId, plan) => PlanService.updatePlan(planId, plan)
-        .then(plans => this.loadPlans());
+        .then(() => this.setState(prevState => ({
+            plans: prevState.plans.filter(p => p._id === planId ? plan : p)
+        })));
 
     createNewPlan = (userId) => {
         const newPlan = {
@@ -34,6 +36,15 @@ class TripPlanHomeComponent extends React.Component {
         }
         PlanService.createPlanForUser(userId, newPlan)
             .then(this.loadPlans)
+    }
+
+    createNewPlanaAdmin = (userId) => {
+        const newPlan = {
+            name: "New Plan",
+            user: this.state.userId
+        }
+        PlanService.createPlanForUser(userId, newPlan)
+            .then(this.loadPlansAdmin)
     }
 
     loadPlansAdmin = () => {
@@ -64,7 +75,7 @@ class TripPlanHomeComponent extends React.Component {
              <h3 className="h3 text-center pb-5 articles__title text-white">
                  <em className="border border-light p-2">You are viewing as ADMIN</em></h3>}
             <ol className="articles">
-                <li className="articles__article">
+                {this.state.userRole !== 'Admin'&& <li className="articles__article">
                     <button
                         onClick={() => this.createNewPlan(this.state.userId)} className="articles__link">
                         <div className="articles__content articles__content--lhs">
@@ -85,7 +96,30 @@ class TripPlanHomeComponent extends React.Component {
                             </div>
                         </div>
                     </button>
-                </li>
+                </li>}
+
+                {this.state.userRole === 'Admin'&& <li className="articles__article">
+                    <button
+                        onClick={() => this.createNewPlanaAdmin(this.state.userId)} className="articles__link">
+                        <div className="articles__content articles__content--lhs">
+                            <h2 className="articles__title">Create a new plan</h2>
+                            <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
+                            <div className="articles__footer">
+                                <p className="text-center wbdv-card-text"><em>Live to travel and
+                                    travel to live</em></p>
+                            </div>
+                        </div>
+                        <div className="articles__content articles__content--rhs"
+                             aria-hidden="true">
+                            <h2 className="articles__title">Create a new trip</h2>
+                            <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
+                            <div className="articles__footer">
+                                <p className="text-center wbdv-card-text"><em>Live to travel and
+                                    travel to live</em></p>
+                            </div>
+                        </div>
+                    </button>
+                </li>}
                 {this.state.plans &&
                  this.state.plans.map(plan => <TripPlanHomeCardComponent key={plan._id} plan={plan}
                                                                          deletePlan={this.deletePlan}

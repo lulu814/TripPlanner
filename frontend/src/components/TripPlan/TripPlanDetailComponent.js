@@ -5,6 +5,7 @@ import {Container} from "react-bootstrap";
 import {FaArrowLeft} from "react-icons/all";
 import PlanService from "../../services/PlanService";
 import MapComponent from "../Homepage/Maps/MapComponent";
+import {findPublicProfileById} from "../../services/UserService";
 
 class TripPlanDetailComponent extends React.Component {
     state = {
@@ -12,7 +13,8 @@ class TripPlanDetailComponent extends React.Component {
         planId : this.props.match.params.planId,
         isLogin: localStorage.getItem('user') !== null,
         userId : '',
-        userRole: ''
+        userRole: '',
+        planOwner: {}
     }
 
     componentDidMount() {
@@ -26,6 +28,8 @@ class TripPlanDetailComponent extends React.Component {
     loadPlan = () => {
         PlanService.findPlanById(this.state.planId)
             .then(fetchedPlan => this.setState({plan: fetchedPlan}))
+            .then(r => findPublicProfileById(this.state.plan.user))
+            .then(planOwner => this.setState({planOwner: planOwner}))
     }
 
     render() {
@@ -39,7 +43,10 @@ class TripPlanDetailComponent extends React.Component {
                 <span className="p-2">
                     <span>
                     <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn wbdv-high-index" to={`/user/${this.state.userId}/plans`}><FaArrowLeft size={28}/></Link>
-                    <h1 className="h2 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h1>
+                    <h1 className="h2 text-center m-2 pb-0 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h1>
+                        <h4 className="h4 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">
+                            By: <Link
+                            to={`/public-profile/${this.state.plan.user}`}>{this.state.planOwner.lName} {this.state.planOwner.fName}</Link></h4>
                         </span>
                     <TripPlanTripTableComponent planId={this.state.planId}/>
                 </span>

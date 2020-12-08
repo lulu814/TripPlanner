@@ -15,9 +15,9 @@ app.use(express.static(path.join(__dirname, 'frontend/src')));
 
 //database 
 const mongoose = require('mongoose');
-// mongoose.connect(keys.mongoURI);
-mongoose.connect('mongodb://localhost/TripPlanner',
-   {useNewUrlParser: true});
+mongoose.connect(keys.mongoURI, {useNewUrlParser: true})
+// mongoose.connect('mongodb://localhost/TripPlanner',
+//    {useNewUrlParser: true});
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
