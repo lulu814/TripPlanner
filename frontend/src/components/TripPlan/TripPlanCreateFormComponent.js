@@ -32,7 +32,7 @@ class TripPlanCreateFormComponent extends React.Component {
                                    date: e.target.value,
                                }
                            }))}/>
-                    <label className="form__label" htmlFor="InputDate">Date(e.g. 2021-02-02)</label>
+                    <label className="form__label" htmlFor="InputDate">Date(e.g. 2021-02-25)</label>
                 </div>
                 <div className="form__group field">
                     <input type="text" className="form__field" id="InputPlace" value={this.state.trip.places}
