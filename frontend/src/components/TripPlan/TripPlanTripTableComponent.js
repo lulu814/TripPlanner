@@ -34,10 +34,11 @@ class TripPlanTripTableComponent extends React.Component {
         return <div className="mt-4">
             <div className="wbdv-td-table-body-container">
                 <ol className="wbdv-td-list">
-                    {this.state.trips.map(
+                    {this.state.loaded && this.state.trips.map(
                         trip => <TripPlanTripTableItemComponent key={trip._id} trip={trip}
                                                                 updateTrip={this.updateTrip}
                                                                 deleteTrip={this.deleteTrip}
+                                                                size={this.state.trips.length}
                         />)
                     }
                 </ol>
