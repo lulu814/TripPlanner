@@ -7,11 +7,11 @@ class PlanForumTableItemComponent extends Component {
 
     render() {
         return <li className="wbdv-td-item text-center">
-            <h4 className="wbdv-td-headline">{<span>{this.state.trip.places &&
-                                                     this.state.trip.places.map(
-                                                         (place, index) =>
-                                                             <span key={index}> {place}{index !== this.state.trip.places.length - 1 && ','}</span>
-                                                     )}</span>}</h4>
+            <ul className="wbdv-td-headline">{this.state.trip.places &&
+                                              this.state.trip.places.map(
+                                                  (place, index) =>
+                                                      <li className="d-block my-1" key={index}>{place}</li>
+                                              )}</ul>
 
             <span>{this.state.trip.date}</span>
             <hr/>

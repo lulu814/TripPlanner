@@ -1,4 +1,3 @@
-// const url = "http://wbdv-generic-server.herokuapp.com/api/tripplanner";
 const url = "http://localhost:8000"
 
 export const findAllPlans = () =>

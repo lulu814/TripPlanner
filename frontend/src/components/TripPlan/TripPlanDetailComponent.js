@@ -52,11 +52,9 @@ class TripPlanDetailComponent extends React.Component {
                 </span>
             </div>
             <div className="col-md-6 col-lg-7">
-                {/*map */}
                 <Container fluid style={{height: '100vh'}}>
                     <MapComponent/>
                 </Container>
-                {/*map */}
             </div>
         </div>
     }

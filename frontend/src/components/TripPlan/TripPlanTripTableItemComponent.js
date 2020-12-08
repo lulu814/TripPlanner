@@ -8,12 +8,12 @@ class TripPlanTripTableItemComponent extends Component {
     }
 
     render() {
-        return <li className="wbdv-td-item text-center">
-            {!this.state.beingEdited && <h4 className="wbdv-td-headline">{<span>{this.state.trip.places &&
+        return <li className="wbdv-td-item text-center justify-content-center align-content-center">
+            {!this.state.beingEdited && <ul className="wbdv-td-headline">{this.state.trip.places &&
                                                                                  this.state.trip.places.map(
                     (place, index) =>
-                        <span key={index}> {place}{index !== this.state.trip.places.length - 1 && ','}</span>
-            )}</span>}</h4>}
+                        <li className="d-block my-1" key={index}>{place}</li>
+            )}</ul>}
             {this.state.beingEdited &&
              <textarea className="form-control wbdv-td-headline"
                        value={this.state.trip.places}
@@ -45,11 +45,11 @@ class TripPlanTripTableItemComponent extends Component {
                                               }/>}
             <div>
                 {!this.state.beingEdited &&
-                 <div className="mt-2">
+                 <div className="mt-4 text-right">
                      <button className="btn wbdv-td-table-btn mr-3"
                              onClick={() => this.setState({beingEdited: true})}>Edit
                      </button>
-                     <button className="btn wbdv-td-table-btn"
+                     <button className="btn wbdv-td-table-btn text-center"
                              onClick={() => this.props.deleteTrip(this.state.trip._id)}>Delete
                      </button>
                  </div>
