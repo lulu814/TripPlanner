@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
-import {signIn} from "../../services/UserService";
 import {message} from 'antd';
-import {getCurrUser} from "../../services/UserService";
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
 const API_ROOT = "http://localhost:8000"
