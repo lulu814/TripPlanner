@@ -72,7 +72,7 @@ class Login extends Component {
                         >Sign in
                         </button>
                         <div className="row">
-                            <Link to={"/signup"} className="col-6 register"> register </Link>
+                            <Link to={"/signup"} className="col-6 register"> Register </Link>
                             <a href="#" className="col-6 forgot-password pull-right">Forgot password?</a>
                         </div>
 
