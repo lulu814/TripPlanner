@@ -51,7 +51,7 @@ class TripPlanDetailComponent extends React.Component {
                     <TripPlanTripTableComponent planId={this.state.planId}/>
                 </span>
             </div>
-            <div className="col-md-6 col-lg-7">
+            <div className="col-md-6 col-lg-7 d-none d-md-block">
                 <div className="map-detail container-md">
                     <MapComponent/>
                 </div>
