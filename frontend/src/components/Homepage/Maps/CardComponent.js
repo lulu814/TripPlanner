@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 const  CardComponent = ({placeId} ) => {
     const [photoUrl, setPhotoUrl ] = useState("");
-    const [setText] = useState("Not Available");
+    const [text, setText] = useState("Not Available");
 
     useEffect(() => {
         initialize();

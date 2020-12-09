@@ -11,7 +11,12 @@ app.use(cors());
 
 const dotenv = require('dotenv');
 dotenv.config();
-app.use(express.static(path.join(__dirname, 'frontend/src')));
+
+if (process.env.PORT) {
+    app.use(express.static(path.join(__dirname, 'build')));
+} else {
+    app.use(express.static(path.join(__dirname, 'frontend/src')));
+}
 
 //database 
 const mongoose = require('mongoose');
