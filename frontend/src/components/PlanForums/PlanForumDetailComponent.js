@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Container} from "react-bootstrap";
 import {FaArrowLeft} from "react-icons/all";
 import PlanService from "../../services/PlanService";
 import MapComponent from "../Homepage/Maps/MapComponent";
@@ -32,12 +31,11 @@ class PlanForumDetailComponent extends React.Component {
                     <PlanForumTableComponent planId={this.props.match.params.planId}/>
                 </span>
             </div>
-            <div className="col-md-6 col-lg-7">
-                {/*map */}
-                <Container fluid style={{height: '100vh'}}>
+
+            <div className="col-md-6 col-lg-7 d-none d-md-block">
+                <div className="map-detail container-md">
                     <MapComponent/>
-                </Container>
-                {/*map */}
+                </div>
             </div>
         </div>
     }

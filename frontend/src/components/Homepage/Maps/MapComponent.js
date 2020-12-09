@@ -68,7 +68,7 @@ export default  function MapComponent() {
 
     return (
         <div>
-            <div className="mapContainer">
+            <div className="mapContainer d-none d-md-block">
                 {/* <Locate panTo={panTo} /> */}
                 <GoogleMap
                     id="map"
