@@ -27,10 +27,7 @@ export default function App() {
       <Router>
         <Container><HeaderComponent isLogin={login} changeLoginStatus={changeLoginStatus}/></Container>
           <Switch>
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
-            <Route exact path={['/home', '/search', '/search/:searchText']} component={HomepageView} />
+            <Route exact path={['/', '/search', '/search/:searchText']} component={HomepageView} />
             <Route path={["/results/:placeId"]} exact component={DetailPageView}/>
             <Route path="/signin" exact>
               <Login changeLoginStatus={changeLoginStatus} />
