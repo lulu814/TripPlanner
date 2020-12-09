@@ -38,41 +38,42 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="outer">
-                <div className="inner">
-                    <form>
-                        <h3>Log in</h3>
+            <div className="container">
+                <div className="outer">
+                    <div className="inner">
+                        <form>
+                            <h3>Log in</h3>
 
-                        <div className="form-group">
-                            <label>Email</label>
-                            <input type="email" className="form-control" placeholder="Enter email"
-                                   onChange={e => this.setState({email: e.target.value})}
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input type="password" className="form-control" placeholder="Enter password"
-                                   onChange={e => this.setState({password: e.target.value})}
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck1"/>
-                                <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                            <div className="form-group">
+                                <label>Email</label>
+                                <input type="email" className="form-control" placeholder="Enter email"
+                                       onChange={e => this.setState({email: e.target.value})}
+                                />
                             </div>
-                        </div>
 
-                        <button className="btn btn-dark btn-lg btn-block"
-                                onClick={(e) => this.handleSubmit(e)}
-                        >Sign in
-                        </button>
-                        <div className="row">
-                            <Link to={"/signup"} className="col-6 register"> Register </Link>
-                        </div>
+                            <div className="form-group">
+                                <label>Password</label>
+                                <input type="password" className="form-control" placeholder="Enter password"
+                                       onChange={e => this.setState({password: e.target.value})}
+                                />
+                            </div>
 
-                    </form>
+                            <div className="form-group">
+                                <div className="custom-control custom-checkbox">
+                                    <input type="checkbox" className="custom-control-input" id="customCheck1"/>
+                                    <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                                </div>
+                            </div>
+
+                            <button className="btn btn-dark btn-lg btn-block"
+                                    onClick={(e) => this.handleSubmit(e)}
+                            >Sign in
+                            </button>
+                            <div className="row">
+                                <Link to={"/signup"} className="col-6 register"> Register </Link>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         );
