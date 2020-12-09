@@ -7,10 +7,12 @@ export default function HeaderComponent({isLogin, changeLoginStatus}){
     const history = useHistory();
     return (
         <Navbar expand="lg">
-            <Navbar.Brand onClick={e => history.push('/')}>
-                <FaForumbee />
-                Trip Planner
-            </Navbar.Brand>
+            <a>
+                <Navbar.Brand onClick={e => history.push('/')}>
+                    <FaForumbee />
+                    Trip Planner
+                </Navbar.Brand>
+            </a>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <div className="blank-header"/>
             <Navbar.Collapse id="basic-navbar-nav">
