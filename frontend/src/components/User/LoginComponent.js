@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import {message} from 'antd';
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
-const API_ROOT = "http://localhost:8000"
 
 
 class Login extends Component {
@@ -14,7 +13,7 @@ class Login extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        axios.post(`${API_ROOT}/signin`, {
+        axios.post(`/signin`, {
             email: this.state.email,
             password: this.state.password
         })

@@ -1,19 +1,18 @@
-const url = "http://localhost:8000"
 
 export const findAllPlans = () =>
-    fetch(`${url}/allplans`)
+    fetch(`/allplans`)
         .then(response => response.json())
 
 export const findPlanById = (planId) =>
-    fetch(`${url}/plans/${planId}`)
+    fetch(`/plans/${planId}`)
         .then(response => response.json())
 
 export const findPlansForUser = (userId) =>
-    fetch(`${url}/user/${userId}/plans`).then(response => response.json())
+    fetch(`/user/${userId}/plans`).then(response => response.json())
 
 
 export const createPlanForUser = (userId, plan) =>
-    fetch(`${url}/plans`, {
+    fetch(`/plans`, {
         method: "POST",
         body: JSON.stringify(plan),
         headers: {
@@ -22,7 +21,7 @@ export const createPlanForUser = (userId, plan) =>
     })
 
 export const updatePlan = (planId, plan) =>
-    fetch(`${url}/plans/${planId}`, {
+    fetch(`/plans/${planId}`, {
         method: "PUT",
         body: JSON.stringify(plan),
         headers: {
@@ -31,7 +30,7 @@ export const updatePlan = (planId, plan) =>
     }).then(response => response.json())
 
 export const deletePlan = (planId) =>
-    fetch(`${url}/plans/${planId}`, {
+    fetch(`/plans/${planId}`, {
         method: "DELETE"
     }).then(response => response.json())
 

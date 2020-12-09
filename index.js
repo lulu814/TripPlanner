@@ -12,12 +12,6 @@ app.use(cors());
 const dotenv = require('dotenv');
 dotenv.config();
 
-if (process.env.PORT) {
-    app.use(express.static(path.join(__dirname, 'build')));
-} else {
-    app.use(express.static(path.join(__dirname, 'frontend/src')));
-}
-
 //database 
 const mongoose = require('mongoose');
 mongoose.connect(keys.mongoURI, {useNewUrlParser: true})
@@ -36,8 +30,19 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
 require('./server/api/placesApi')(app)
 require("./backend/controllers/plans-controller")(app)
 require("./backend/controllers/trips-controller")(app)
 require("./backend/controllers/users-controller")(app)
+
+if (process.env.PORT) {
+    app.use(express.static(path.join(__dirname, 'build')));
+    app.get('/*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    });
+} else {
+    app.use(express.static(path.join(__dirname, 'frontend/src')));
+}
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
