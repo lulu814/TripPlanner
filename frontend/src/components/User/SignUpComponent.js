@@ -42,52 +42,53 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            <div className="outer">
-                <div className="inner">
-                    <form>
-                        <h3>Register</h3>
+            <div className="container">
+                <div className="outer">
+                    <div className="inner">
+                        <form>
+                            <h3>Register</h3>
 
-                        <div className="form-group">
-                            <label>First name</label>
-                            <input type="text"
-                                   className="form-control"
-                                   placeholder="First name"
-                                   onChange={e => this.setState({fName: e.target.value})}
-                            />
-                        </div>
+                            <div className="form-group">
+                                <label>First name</label>
+                                <input type="text"
+                                       className="form-control"
+                                       placeholder="First name"
+                                       onChange={e => this.setState({fName: e.target.value})}
+                                />
+                            </div>
 
-                        <div className="form-group">
-                            <label>Last name</label>
-                            <input type="text"
-                                   className="form-control"
-                                   placeholder="Last name"
-                                   onChange={e => this.setState({lName: e.target.value})}
-                            />
-                        </div>
+                            <div className="form-group">
+                                <label>Last name</label>
+                                <input type="text"
+                                       className="form-control"
+                                       placeholder="Last name"
+                                       onChange={e => this.setState({lName: e.target.value})}
+                                />
+                            </div>
 
-                        <div className="form-group">
-                            <label>Email</label>
-                            <input type="email"
-                                   className="form-control"
-                                   placeholder="Enter email"
-                                   onChange={e => this.setState({email: e.target.value})}
-                            />
-                        </div>
+                            <div className="form-group">
+                                <label>Email</label>
+                                <input type="email"
+                                       className="form-control"
+                                       placeholder="Enter email"
+                                       onChange={e => this.setState({email: e.target.value})}
+                                />
+                            </div>
 
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input type="password"
-                                   className="form-control"
-                                   placeholder="Enter password"
-                                   onChange={e => this.setState({password: e.target.value})}
-                            />
-                        </div>
-                        <span className="form-group">
+                            <div className="form-group">
+                                <label>Password</label>
+                                <input type="password"
+                                       className="form-control"
+                                       placeholder="Enter password"
+                                       onChange={e => this.setState({password: e.target.value})}
+                                />
+                            </div>
+                            <span className="form-group">
                     <label>
                        Register as
                     </label>
                     <select className="form-control-sm user-role float-right"
-                            onChange={e => this.setState({role:e.target.value})}
+                            onChange={e => this.setState({role: e.target.value})}
                             value={this.state.role}
                     >
                     <option value="Traveler">Traveler</option>
@@ -96,13 +97,15 @@ export default class SignUp extends Component {
                 </span>
 
 
-                        <button className="btn btn-dark btn-lg btn-block"
-                                onClick={e => this.handleClick(e)}
-                        >Register</button>
-                        <p className="forgot-password text-right">
-                            Already registered, go back to <Link to={"/signin"} > log in </Link>
-                        </p>
-                    </form>
+                            <button className="btn btn-dark btn-lg btn-block"
+                                    onClick={e => this.handleClick(e)}
+                            >Register
+                            </button>
+                            <p className="forgot-password text-right">
+                                Already registered, go back to <Link to={"/signin"}> log in </Link>
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
         );
