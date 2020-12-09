@@ -4,10 +4,13 @@
   "description": "A Trip Planner Web Application for CS5610 final project.",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server.js",
+    "server": "node index.js",
     "client": "cd frontend && npm start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently --kill-others-on-fail \"npm run-script server\" \"npm run-script client\""
+    "prod": "node index.js",
+    "prodReact": "cd frontend && npm start",
+    "startDev": "concurrently --kill-others-on-fail \"npm run-script server\" \"npm run-script client\"",
+    "start": "npm run-script server"
   },
   "repository": {
     "type": "git",
@@ -33,5 +36,8 @@
     "nodemon": "^2.0.6",
     "concurrently": "^4.0.1"
   },
-  "homepage": "https://github.com/lulu814/TripPlanner#readme"
+  "homepage": "https://github.com/lulu814/TripPlanner#readme",
+  "engines": {
+    "node": "12.18.3"
+  }
 }
