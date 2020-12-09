@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "@reach/combobox/styles.css";
 import HeaderComponent from "./components/Homepage/HeaderComponent";
 
