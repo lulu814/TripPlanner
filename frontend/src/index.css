@@ -247,10 +247,10 @@ code {
 }
 
 .wbdv-fixed-img-1{
-  position: fixed;
-  bottom: 17%;
-  right: 15%;
-  width: 74%;
+  position: relative;
+  bottom: 6%;
+  right: -10%;
+  width: 76%;
 }
 
 .wbdv-card-text {
