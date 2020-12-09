@@ -59,6 +59,7 @@ module.exports = function (app) {
 
     const updateProfile = (req, res) => {
         const user = req.body;
+        user.password = bcrypt.hashSync(user.password, 8);
         console.log("update profile -> ", user);
         // User.update({email: user.email}, {$set: {fName: 'change'}})
         User.findOneAndUpdate({_id:user._id}, {$set: user}, {new: true}, (err) => {
