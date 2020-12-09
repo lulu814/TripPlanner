@@ -1,7 +1,6 @@
 import React from "react";
 import TripPlanTripTableComponent from "./TripPlanTripTableComponent";
 import {Link} from "react-router-dom";
-import {Container} from "react-bootstrap";
 import {FaArrowLeft} from "react-icons/all";
 import PlanService from "../../services/PlanService";
 import MapComponent from "../Homepage/Maps/MapComponent";

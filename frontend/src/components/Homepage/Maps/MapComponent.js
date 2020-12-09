@@ -1,4 +1,5 @@
 import React from "react";
+import { FaCompass} from 'react-icons/fa';
 import {
     GoogleMap,
     useLoadScript,
@@ -35,6 +36,7 @@ export default  function MapComponent() {
     // if the google script is ready
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey:"AIzaSyBlHhL9EqgJx0ZFIuzc5vn2yUAe96pZhs8",
+        // googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_API_KEY}`
         libraries,
     });
     const [markers, setMarkers] = React.useState([]);
@@ -67,8 +69,7 @@ export default  function MapComponent() {
     return (
         <div>
             <div className="mapContainer">
-                <Search panTo={panTo} setMarkers = {setMarkers}/>
-                <Locate panTo={panTo} />
+                {/* <Locate panTo={panTo} /> */}
                 <GoogleMap
                     id="map"
                     mapContainerStyle={mapContainerStyle}
@@ -101,33 +102,29 @@ export default  function MapComponent() {
                             </div>
                         </InfoWindow>
                     ) : null}
+                    <Search panTo={panTo} setMarkers = {setMarkers}/>
+                    <button
+                        className="locate"
+                        onClick={() => {
+                            navigator.geolocation.getCurrentPosition(
+                                (position) => {
+                                    panTo({
+                                        lat: position.coords.latitude,
+                                        lng: position.coords.longitude,
+                                    });
+                                },
+                                () => null
+                            );
+                        }}
+                    >
+                        <FaCompass size={48}/>
+                    </button>
+          
                 </GoogleMap>
             </div>
 
         </div>
 
-    );
-}
-
-// get the current position
-function Locate({ panTo }) {
-    return (
-        <button
-            className="locate"
-            onClick={() => {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        panTo({
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude,
-                        });
-                    },
-                    () => null
-                );
-            }}
-        >
-            <img src="/compass.svg" alt="compass" />
-        </button>
     );
 }
 
