@@ -52,9 +52,9 @@ class TripPlanDetailComponent extends React.Component {
                 </span>
             </div>
             <div className="col-md-6 col-lg-7">
-                <Container fluid style={{height: '100vh'}}>
+                <div className="map-detail container-md">
                     <MapComponent/>
-                </Container>
+                </div>
             </div>
         </div>
     }

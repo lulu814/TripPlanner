@@ -68,6 +68,10 @@ code {
   cursor: pointer;
 }
 
+.map-detail {
+  min-height: 100vh;
+}
+
 /*-----------map style---------------*/
 
 /*-----------Plan Home style---------------*/
@@ -93,7 +97,8 @@ code {
   padding: calc(var(--base-grid) * 10);
   padding-top: calc(var(--base-grid) * 2);
   min-height: calc(100vh - 69px);
-  background: no-repeat fixed center;
+  background-attachment: scroll;
+  background-repeat: round;
 }
 
 
@@ -102,7 +107,8 @@ code {
   padding: calc(var(--base-grid) * 10);
   padding-top: calc(var(--base-grid) * 2);
   min-height: calc(100vh - 69px);
-  background: no-repeat fixed center;
+  background-attachment: scroll;
+  background-repeat: round;
 }
 
 @media (max-width: 577px) {
@@ -240,10 +246,10 @@ code {
 }
 
 .wbdv-fixed-img{
-  position: fixed;
-  bottom: 22%;
-  right: 20%;
-  width: 60%;
+  position: relative;
+  bottom: 1%;
+  right: -10%;
+  width: 72%;
 }
 
 .wbdv-fixed-img-1{
