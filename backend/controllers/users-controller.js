@@ -84,7 +84,7 @@ module.exports = function (app) {
     app.post("/signup", userServices.checkDuplicateEmail, signup);
     app.post("/signin", signin);
     app.put('/profile', userServices.verifyToken, updateProfile);
-    app.get('/public-profile/:uid', findPublicProfile);
+    app.get('/api/public-profile/:uid', findPublicProfile);
 
 }
 

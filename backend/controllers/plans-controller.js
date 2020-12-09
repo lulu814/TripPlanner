@@ -36,9 +36,9 @@ module.exports = (app) => {
         plansService.updatePlan(pid, newPlan)
             .then(status => res.send(status))
     }
-    app.get("/allplans", findAllPlans)
-    app.get("/user/:uid/plans", findPlansForUser)
-    app.get("/plans/:pid", findPlanById)
+    app.get("/api/allplans", findAllPlans)
+    app.get("/api/user/:uid/plans", findPlansForUser)
+    app.get("/api/plans/:pid", findPlanById)
     app.delete("/plans/:pid", deletePlan)
     app.post("/plans", createPlanForUser)
     app.put("/plans/:pid", updatePlan)

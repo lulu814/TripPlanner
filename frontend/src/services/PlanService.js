@@ -1,14 +1,13 @@
-
 export const findAllPlans = () =>
-    fetch(`/allplans`)
+    fetch(`/api/allplans`)
         .then(response => response.json())
 
 export const findPlanById = (planId) =>
-    fetch(`/plans/${planId}`)
+    fetch(`/api/plans/${planId}`)
         .then(response => response.json())
 
 export const findPlansForUser = (userId) =>
-    fetch(`/user/${userId}/plans`).then(response => response.json())
+    fetch(`/api/user/${userId}/plans`).then(response => response.json())
 
 
 export const createPlanForUser = (userId, plan) =>
