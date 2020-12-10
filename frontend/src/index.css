@@ -767,6 +767,10 @@ code {
 }
 /*-----------Homepage menu pills end----------------*/
 
+.ant-list-lg .ant-list-item {
+  padding: 15px !important;
+}
+
 /*-----------Header css----------------*/
 .blank-header {
   width: 60vw;
