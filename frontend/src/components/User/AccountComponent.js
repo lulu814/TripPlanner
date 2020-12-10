@@ -8,8 +8,7 @@ export default class UserProfile extends Component {
     state = {
         isLogin: localStorage.getItem('accessToken') !== null,
         currUser: JSON.parse(localStorage.getItem('user')),
-        fName: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).fName : '',
-        lName: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).lName : '',
+        email: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).email : '',
         password: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).password : '',
         text: localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).text : '',
         plans: []
@@ -41,8 +40,7 @@ export default class UserProfile extends Component {
         e.preventDefault();
         const updateUser = {
             ...this.state.currUser,
-            fName: this.state.fName,
-            lName: this.state.lName,
+            email: this.state.email,
             password: this.state.password,
             text: this.state.text
         }
@@ -75,7 +73,7 @@ export default class UserProfile extends Component {
                                     </div>
                                     <div className="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                                         <div className="text-center text-sm-left mb-2 mb-sm-0">
-                                            <h4 className="pt-sm-2 pb-1 mb-0 text-nowrap">{this.state.fName} {this.state.lName}</h4>
+                                            <h4 className="pt-sm-2 pb-1 mb-0 text-nowrap">@{this.state.currUser.username}</h4>
                                       
                                         </div>
                                         <div className="text-center text-sm-right">
@@ -94,23 +92,37 @@ export default class UserProfile extends Component {
                                             <div className="row">
                                                 <div className="col">
                                                     <div className="row">
-                                                        <div className="col">
+                                                        <div className="col-12 col-md-6">
                                                             <div className="form-group">
-                                                                <label>First Name</label>
-                                                                <input className="form-control"
-                                                                       type="text"
-                                                                       onChange={e =>
-                                                                           this.setState({fName: e.target.value})}
-                                                                       value={this.state.fName}/>
+                                                                <label>Username</label>
+                                                                <input className="form-control" type="text"
+                                                                       value={this.state.currUser.username}
+                                                                       readOnly
+                                                                />
                                                             </div>
                                                         </div>
-                                                        <div className="col">
+                                                        <div className="col-12 col-md-6">
                                                             <div className="form-group">
-                                                                <label>Last Name</label>
-                                                                <input className="form-control" type="text"
+                                                                <label>New Password</label>
+                                                                <input className="form-control" type="password"
                                                                        onChange={e =>
-                                                                           this.setState({lName: e.target.value})}
-                                                                       value={this.state.lName}/>
+                                                                           this.setState({password: e.target.value})}
+                                                                       placeholder="••••••"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-12">
+                                                            <div className="row">
+                                                                {/*<div className="col-12 col-md-6">*/}
+                                                                {/*    <div className="form-group">*/}
+                                                                {/*        <label>New Password</label>*/}
+                                                                {/*        <input className="form-control" type="password"*/}
+                                                                {/*               onChange={e =>*/}
+                                                                {/*                   this.setState({password: e.target.value})}*/}
+                                                                {/*               placeholder="••••••"/>*/}
+                                                                {/*    </div>*/}
+                                                                {/*</div>*/}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -118,10 +130,11 @@ export default class UserProfile extends Component {
                                                         <div className="col">
                                                             <div className="form-group">
                                                                 <label>Email</label>
-                                                                <input className="form-control" type="text"
-                                                                       value={this.state.currUser.email}
-                                                                       readOnly
-                                                                />
+                                                                <input className="form-control"
+                                                                       type="text"
+                                                                       onChange={e =>
+                                                                           this.setState({email: e.target.value})}
+                                                                       value={this.state.email}/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -135,22 +148,6 @@ export default class UserProfile extends Component {
                                                                               this.setState({text: e.target.value})}
                                                                           value={this.state.text}
                                                                 />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    <div className="mb-2"><b>Change Password</b></div>
-                                                    <div className="row">
-                                                        <div className="col-12 col-md-6">
-                                                            <div className="form-group">
-                                                                <label>New Password</label>
-                                                                <input className="form-control" type="password"
-                                                                       onChange={e =>
-                                                                           this.setState({password: e.target.value})}
-                                                                       placeholder="••••••"/>
                                                             </div>
                                                         </div>
                                                     </div>
