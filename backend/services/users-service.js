@@ -2,10 +2,10 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/users/user.model");
 const config = require("../config/auth.config")
 
-const checkDuplicateEmail = (req, res, next) => {
+const checkDuplicateUsername = (req, res, next) => {
     // register verify
     User.findOne({
-        email: req.body.email
+        username: req.body.username
     }).exec((err, user) => {
         if (err) {
             res.status(500).send({message: err});
@@ -13,7 +13,7 @@ const checkDuplicateEmail = (req, res, next) => {
         }
 
         if (user) {
-            res.status(400).send({message: "Failed! Email is already in use!"});
+            res.status(400).send({message: "Failed! Username is already in use!"});
             return;
         }
 
@@ -38,4 +38,4 @@ const verifyToken = (req, res, next) => {
 };
 
 
-module.exports = {checkDuplicateEmail, verifyToken}
+module.exports = {checkDuplicateUsername, verifyToken}
