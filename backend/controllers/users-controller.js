@@ -7,9 +7,8 @@ const bcrypt = require("bcryptjs");
 module.exports = function (app) {
     const signup = (req, res) => {
         const user = new User({
+            username:req.body.username,
             email: req.body.email,
-            fName: req.body.fName,
-            lName: req.body.lName,
             password: bcrypt.hashSync(req.body.password, 8),
             role: req.body.role,
             text: ""
@@ -25,7 +24,7 @@ module.exports = function (app) {
 
     const signin = (req, res) => {
         console.log(req.body)
-        User.findOne({email: req.body.email})
+        User.findOne({username: req.body.username})
             .exec((err, user) => {
                 if (err) {
                     res.status(500).send({message: err});
@@ -70,10 +69,6 @@ module.exports = function (app) {
         res.status(200).send('Update profile successfully');
     };
 
-    // const findPublicProfile = (req, res) => {
-    //     User.findById(req.params.uid)
-    //         .then(user => res.send(user));
-    // }
     const findPublicProfile = (req, res) => {
         User.findOne({_id: req.params.uid}, function (err, user){
             if (err) throw err;
@@ -82,7 +77,7 @@ module.exports = function (app) {
         });
     }
 
-    app.post("/signup", userServices.checkDuplicateEmail, signup);
+    app.post("/signup", userServices.checkDuplicateUsername, signup);
     app.post("/signin", signin);
     app.put('/profile', userServices.verifyToken, updateProfile);
     app.get('/api/public-profile/:uid', findPublicProfile);
