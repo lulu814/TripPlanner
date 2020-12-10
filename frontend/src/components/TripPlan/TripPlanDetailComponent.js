@@ -46,7 +46,7 @@ class TripPlanDetailComponent extends React.Component {
                     <h1 className="h2 text-center m-2 pb-0 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h1>
                         <h4 className="h4 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">
                             By: <Link
-                            to={`/public-profile/${this.state.plan.user}`}>{this.state.planOwner.lName} {this.state.planOwner.fName}</Link></h4>
+                            to={`/public-profile/${this.state.plan.user}`}>{this.state.planOwner.username}</Link></h4>
                         </span>
                     <TripPlanTripTableComponent planId={this.state.planId}/>
                 </span>
