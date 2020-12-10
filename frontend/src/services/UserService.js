@@ -9,9 +9,9 @@ export const register = (newUser) =>
         }
     })
 
-export const signIn = (email, password) => {
+export const signIn = (username, password) => {
     axios.post(`/signin`, {
-        email,
+        username,
         password
     }).then(response => {
         if (response.data.accessToken) {
