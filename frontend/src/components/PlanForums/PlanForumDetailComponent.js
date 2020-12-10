@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {Container} from "react-bootstrap";
 import {FaArrowLeft} from "react-icons/all";
 import PlanService from "../../services/PlanService";
 import MapComponent from "../Homepage/Maps/MapComponent";
@@ -18,7 +19,7 @@ class PlanForumDetailComponent extends React.Component {
 
     render() {
         return <div className="row container-fluid">
-            <div className="col-md-6 col-lg-5 min-vh-100">
+            <div className="col-md-6 col-lg-5 border-right min-vh-100">
                 <span className="p-2">
                     <span>
                     <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn wbdv-high-index"
@@ -26,16 +27,17 @@ class PlanForumDetailComponent extends React.Component {
                     <h2 className="h2 text-center m-2 pb-0 wbdv-td-headline font-weight-bold text-uppercase">{this.state.plan.name}</h2>
                         <h4 className="h4 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">
                             By: <Link
-                            to={`/public-profile/${this.state.plan.user}`}>{this.state.user.lName} {this.state.user.fName}</Link></h4>
+                            to={`/public-profile/${this.state.plan.user}`}>{this.state.user.username}</Link></h4>
                         </span>
                     <PlanForumTableComponent planId={this.props.match.params.planId}/>
                 </span>
             </div>
-
-            <div className="col-md-6 col-lg-7 border-left d-none d-md-block">
-                <div className="map-detail container-md">
+            <div className="col-md-6 col-lg-7">
+                {/*map */}
+                <Container fluid style={{height: '100vh'}}>
                     <MapComponent/>
-                </div>
+                </Container>
+                {/*map */}
             </div>
         </div>
     }
