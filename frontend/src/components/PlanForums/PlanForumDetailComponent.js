@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Container} from "react-bootstrap";
 import {FaArrowLeft} from "react-icons/all";
 import PlanService from "../../services/PlanService";
 import MapComponent from "../Homepage/Maps/MapComponent";
@@ -19,7 +18,7 @@ class PlanForumDetailComponent extends React.Component {
 
     render() {
         return <div className="row container-fluid">
-            <div className="col-md-6 col-lg-5 border-right min-vh-100">
+            <div className="col-md-6 col-lg-5 min-vh-100">
                 <span className="p-2">
                     <span>
                     <Link className="btn wbdv-td-peachy border-0 m-1 wbdv-fixed-btn wbdv-high-index"
@@ -32,12 +31,11 @@ class PlanForumDetailComponent extends React.Component {
                     <PlanForumTableComponent planId={this.props.match.params.planId}/>
                 </span>
             </div>
-            <div className="col-md-6 col-lg-7">
-                {/*map */}
-                <Container fluid style={{height: '100vh'}}>
+
+            <div className="col-md-6 col-lg-7 border-left d-none d-md-block">
+                <div className="map-detail container-md">
                     <MapComponent/>
-                </Container>
-                {/*map */}
+                </div>
             </div>
         </div>
     }
