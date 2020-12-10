@@ -20,7 +20,7 @@ export default function SearchBar({updateText}) {
                             onInput={e => setSearchText(e.target.value)}
                             className="combo-input combo-searchbox" 
                             type="text" 
-                            placeholder="Where to?" 
+                            placeholder=" Where to?" 
                             required/>
                     </div>
                     <div className="td search-td" id="s-cover">

@@ -356,6 +356,12 @@ code {
   font: normal 1.5rem var(--font-head);
 }
 
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
 
 /* Demo styles */
 
@@ -566,7 +572,7 @@ code {
 
 #cover
 {
-  padding: 15px;
+  padding: 5px;
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
@@ -718,6 +724,11 @@ code {
   background-color: white !important;
 }
 
+.mr-auto, .mx-auto {
+  margin-left: auto!important;
+  text-align: -webkit-center;
+}
+
 .navbar-brand {
   font-family:inherit;
   font-weight: 600;
@@ -737,7 +748,7 @@ code {
 /*-----------Homepage menu pills----------------*/
 .pill-item{
   display: block;
-  padding: 1.5rem 2rem !important;
+  padding: 1rem 2rem !important;
   border-radius: 1rem !important;
   border: solid black 1px;
   color: black;
