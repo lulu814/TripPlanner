@@ -34,9 +34,6 @@ export default class PublicProfile extends Component {
     render() {
         return (
             <div className="container">
-                {/*<button onClick={() => findPublicProfileById("5fc57c9f67469ce584195f31")}>*/}
-                {/*    check*/}
-                {/*</button>*/}
                 <div className="card">
                     <div className="card-header mb-2"
                     >My Space
@@ -57,7 +54,7 @@ export default class PublicProfile extends Component {
                                 </div>
                                 <div className="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                                     <div className="text-center text-sm-left mb-2 mb-sm-0">
-                                        <h4 className="pt-sm-2 pb-1 mb-0 text-nowrap">{this.state.user.fName} {this.state.user.lName}</h4>
+                                        <h4 className="pt-sm-2 pb-1 mb-0 text-nowrap">@{this.state.user.username}</h4>
                                         <p className="mb-0">{this.state.user.text}</p>
                                     </div>
                                 </div>
