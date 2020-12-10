@@ -7,14 +7,14 @@ import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
     state = {
-        email: '',
+        username: '',
         password: ''
     }
 
     handleSubmit = e => {
         e.preventDefault();
         axios.post(`/signin`, {
-            email: this.state.email,
+            username: this.state.username,
             password: this.state.password
         })
             .then(response => {
@@ -45,9 +45,9 @@ class Login extends Component {
                             <h3>Log in</h3>
 
                             <div className="form-group">
-                                <label>Email</label>
-                                <input type="email" className="form-control" placeholder="Enter email"
-                                       onChange={e => this.setState({email: e.target.value})}
+                                <label>Username</label>
+                                <input type="text" className="form-control" placeholder="Enter username"
+                                       onChange={e => this.setState({username: e.target.value})}
                                 />
                             </div>
 
