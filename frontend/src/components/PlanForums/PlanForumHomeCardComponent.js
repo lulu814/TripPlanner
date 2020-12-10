@@ -23,7 +23,7 @@ class PlanForumHomeCardComponent extends Component {
                      <h2 className="articles__title wbdv-high-index">{this.state.plan.name}</h2>
                     <img src={illustration} alt="illus" className="wbdv-fixed-img-1"/>
                     <div className="articles__footer">
-                        <h5 className="text-center wbdv-high-index">By: {this.state.user.fName} {this.state.user.lName}</h5>
+                        <h5 className="text-center wbdv-high-index">By: {this.state.user.username}</h5>
                     </div>
                 </div>
                 <div className="articles__content articles__content--rhs"
@@ -31,7 +31,7 @@ class PlanForumHomeCardComponent extends Component {
                     <h2 className="articles__title wbdv-high-index">{this.state.plan.name}</h2>
                     <img src={illustration} alt="illus" className="wbdv-fixed-img-1"/>
                     <div className="articles__footer">
-                        <h5 className="text-center wbdv-high-index">By: {this.state.user.fName} {this.state.user.lName}</h5>
+                        <h5 className="text-center wbdv-high-index">By: {this.state.user.username}</h5>
                     </div>
                 </div>
             </Link>
