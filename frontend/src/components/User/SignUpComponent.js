@@ -5,8 +5,7 @@ import {message} from 'antd';
 
 export default class SignUp extends Component {
     state = {
-        fName: '',
-        lName: '',
+        username: '',
         email: '',
         password: '',
         role: 'Traveler'
@@ -15,8 +14,7 @@ export default class SignUp extends Component {
     handleClick = (e) => {
         e.preventDefault();
         const newUser = {
-            fName: this.state.fName,
-            lName: this.state.lName,
+            username: this.state.username,
             email: this.state.email,
             password: this.state.password,
             role: this.state.role
@@ -49,20 +47,11 @@ export default class SignUp extends Component {
                             <h3>Register</h3>
 
                             <div className="form-group">
-                                <label>First name</label>
+                                <label>Username</label>
                                 <input type="text"
                                        className="form-control"
-                                       placeholder="First name"
-                                       onChange={e => this.setState({fName: e.target.value})}
-                                />
-                            </div>
-
-                            <div className="form-group">
-                                <label>Last name</label>
-                                <input type="text"
-                                       className="form-control"
-                                       placeholder="Last name"
-                                       onChange={e => this.setState({lName: e.target.value})}
+                                       placeholder="Username"
+                                       onChange={e => this.setState({username: e.target.value})}
                                 />
                             </div>
 
