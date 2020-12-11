@@ -239,6 +239,21 @@ code {
   transition: opacity .5s ease-in,transform .3s ease-in-out .25s;
 }
 
+.wbdv-card-abs-btn-1 {
+  position: absolute;
+  bottom: 2%;
+  left: 7.5%;
+  z-index: 1000;
+}
+
+.wbdv-card-abs-btn-2 {
+  position: absolute;
+  bottom: 2%;
+  right: 13.5%;
+  z-index: 1000;
+}
+
+
 .wbdv-fixed-btn{
   position: absolute;
   top: -1%;
@@ -246,17 +261,19 @@ code {
 }
 
 .wbdv-fixed-img{
-  position: relative;
-  bottom: 1%;
-  right: -10%;
-  width: 72%;
+  position: absolute;
+  bottom: 12%;
+  right: 14%;
+  width: 76%;
+  z-index: -1;
 }
 
 .wbdv-fixed-img-1{
-  position: relative;
-  bottom: 6%;
-  right: -10%;
-  width: 76%;
+  position: absolute;
+  bottom: 12%;
+  right: 11%;
+  width: 80%;
+  z-index: -1;
 }
 
 .wbdv-card-text {

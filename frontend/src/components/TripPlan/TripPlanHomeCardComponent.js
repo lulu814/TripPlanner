@@ -35,14 +35,14 @@ class TripPlanHomeCardComponent extends Component {
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.setState({planBeingEdited: true})}
-                             className="btn btn-light col-lg-5">
+                             className="btn btn-light wbdv-card-abs-btn-1">
                              Edit Title
                          </button>
                         }
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.props.deletePlan(this.state.plan._id)}
-                             className="btn btn-light col-lg-4">
+                             className="btn btn-light wbdv-card-abs-btn-2">
                              Delete
                          </button>
                         }
@@ -83,14 +83,14 @@ class TripPlanHomeCardComponent extends Component {
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.setState({planBeingEdited: true})}
-                             className="btn btn-light col-lg-5">
+                             className="btn btn-light wbdv-card-abs-btn-1">
                              Edit Title
                          </button>
                         }
                         {!this.state.planBeingEdited &&
                          <button
                              onClick={() => this.props.deletePlan(this.state.plan._id)}
-                             className="btn btn-light col-lg-4">
+                             className="btn btn-light wbdv-card-abs-btn-2">
                              Delete
                          </button>
                         }
