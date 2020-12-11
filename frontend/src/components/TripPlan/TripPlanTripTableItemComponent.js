@@ -45,11 +45,11 @@ class TripPlanTripTableItemComponent extends Component {
                                               }/>}
             <div>
                 {!this.state.beingEdited &&
-                 <div className="mt-4 text-right">
+                 <div className="mt-4 text-center">
                      <button className="btn wbdv-td-table-btn mr-3"
                              onClick={() => this.setState({beingEdited: true})}>Edit
                      </button>
-                     <button className="btn wbdv-td-table-btn text-center"
+                     <button className="btn wbdv-td-table-btn"
                              onClick={() => this.props.deleteTrip(this.state.trip._id)}>Delete
                      </button>
                  </div>
