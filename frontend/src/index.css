@@ -11,7 +11,7 @@
 
 .search input {
   padding: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1rem !important;
   width: 100%;
 }
 
@@ -37,12 +37,13 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 18px;
+  font-size: 1.1rem !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif!important;
 }
 
 .map-h1 {
@@ -578,7 +579,9 @@ code {
 .combo-input, .search-button
 {
   color: #ff7c7c;
-  font-family: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif!important;
   font-size: xxx-large!important;
   padding: 0;
   margin: 0;
@@ -746,7 +749,9 @@ code {
 }
 
 .navbar-brand {
-  font-family:inherit;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif!important;
   font-weight: 600;
   font-size: 1.8rem !important;
   color: white;
@@ -784,7 +789,7 @@ code {
 /*-----------Homepage menu pills end----------------*/
 
 .ant-list-lg .ant-list-item {
-  padding: 15px !important;
+  padding: 1rem !important;
 }
 
 /*-----------Header css----------------*/
@@ -853,7 +858,7 @@ body{
 }
 
 .g-font-size-12 {
-  font-size: 0.85rem !important;
+  font-size: 1rem !important;
 }
 
 .media-comment {
