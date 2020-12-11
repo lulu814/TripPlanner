@@ -93,6 +93,9 @@ code {
   margin: 0;
 }
 
+.wbdv-one-point-6-rem{
+    font-size: 1.6rem!important;
+}
 .wbdv-card-body-2 {
   font-family: Bitter, 'serif';
   padding: calc(var(--base-grid) * 10);

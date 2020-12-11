@@ -20,7 +20,6 @@ class PlanForumTableComponent extends React.Component {
         return <div className="mt-4">
             <div className="wbdv-td-table-body-container">
                 <ol className="wbdv-td-list">
-
                     {this.state.isLoaded &&
                      this.state.trips.map(
                         trip => <PlanForumTableItemComponent key={trip._id} trip={trip}/>)

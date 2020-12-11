@@ -20,7 +20,7 @@ class PlanForumHomeComponent extends React.Component {
 
     render() {
         return <div className="wbdv-card-body-2" style={{backgroundImage: `url(${bg})`}}>
-            <h1 className="h1 text-center py-5 articles__title text-white"><em>Plan Forum</em></h1>
+            <h4 className="h4 text-center py-5 font-weight-bold wbdv-one-point-6-rem articles__title text-white"><em>Plan Forum</em></h4>
             <ol className="articles">
                 {this.state.plans &&
                  this.state.plans.map(

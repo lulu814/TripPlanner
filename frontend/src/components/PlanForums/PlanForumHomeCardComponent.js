@@ -20,18 +20,18 @@ class PlanForumHomeCardComponent extends Component {
         return <li className="articles__article">
             <Link className="articles__link" to={`/plan-forum/${this.state.plan._id}`}>
                 <div className="articles__content articles__content--lhs">
-                     <h2 className="articles__title wbdv-high-index">{this.state.plan.name}</h2>
+                     <h4 className="articles__title wbdv-high-index">{this.state.plan.name}</h4>
                     <img src={illustration} alt="illus" className="wbdv-fixed-img-1"/>
                     <div className="articles__footer">
-                        <h5 className="text-center wbdv-high-index">By {this.state.user.username}</h5>
+                        <h6 className="text-center wbdv-high-index wbdv-card-abs-btn-1">By {this.state.user.username}</h6>
                     </div>
                 </div>
                 <div className="articles__content articles__content--rhs"
                      aria-hidden="true">
-                    <h2 className="articles__title wbdv-high-index">{this.state.plan.name}</h2>
+                    <h4 className="articles__title wbdv-high-index">{this.state.plan.name}</h4>
                     <img src={illustration} alt="illus" className="wbdv-fixed-img-1"/>
                     <div className="articles__footer">
-                        <h5 className="text-center wbdv-high-index">By {this.state.user.username}</h5>
+                        <h6 className="text-center wbdv-high-index wbdv-card-abs-btn-1">By {this.state.user.username}</h6>
                     </div>
                 </div>
             </Link>
