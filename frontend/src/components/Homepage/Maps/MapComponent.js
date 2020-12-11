@@ -14,7 +14,7 @@ import Search from "./SearchBarComponent";
 const libraries = ["places", "geometry", "drawing"];
 const mapContainerStyle = {
     height: "100vh",
-    width: "95%",
+    width: "100%",
     top: 50
 
 };

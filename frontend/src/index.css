@@ -344,8 +344,6 @@ code {
   content: counter(list);
   width: 5rem;
   height: 5rem;
-  float: left;
-  margin: 0 1.5rem 0.75rem 0;
   color: var(--bg);
   background: var(--highlight1) linear-gradient(to bottom right, var(--highlight1) 25%, var(--highlight2));
   text-shadow: 0 0 2px var(--highlight1);
@@ -355,6 +353,8 @@ code {
   justify-content: center;
   shape-outside: ellipse();
   z-index: 1;
+  position: absolute;
+  left: 0;
 }
 
 .wbdv-td-item:after {
