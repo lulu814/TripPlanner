@@ -101,15 +101,15 @@ export default class UserProfile extends Component {
                                                                 />
                                                             </div>
                                                         </div>
-                                                        <div className="col-12 col-md-6">
-                                                            <div className="form-group">
-                                                                <label>New Password</label>
-                                                                <input className="form-control" type="password"
-                                                                       onChange={e =>
-                                                                           this.setState({password: e.target.value})}
-                                                                       placeholder="••••••"/>
-                                                            </div>
-                                                        </div>
+                                                        {/*<div className="col-12 col-md-6">*/}
+                                                        {/*    <div className="form-group">*/}
+                                                        {/*        <label>New Password</label>*/}
+                                                        {/*        <input className="form-control" type="password"*/}
+                                                        {/*               onChange={e =>*/}
+                                                        {/*                   this.setState({password: e.target.value})}*/}
+                                                        {/*               placeholder="••••••"/>*/}
+                                                        {/*    </div>*/}
+                                                        {/*</div>*/}
                                                     </div>
                                                     <div className="row">
                                                         <div className="col-12">
