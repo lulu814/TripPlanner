@@ -68,18 +68,18 @@ class TripPlanHomeComponent extends React.Component {
         return <div className="wbdv-card-body" style={{backgroundImage: `url(${bg})`}}>
             {!this.state.isLogin &&
              <div>Please log in! {this.props.history.push("/signin")}</div>}
-            <h1 className="h1 text-center py-4 articles__title text-white"><em>“We travel, some of
+            <h4 className="text-center py-4 articles__title text-white"><em>“We travel, some of
                 us forever, to
-                seek other places, other lives, other souls.” – Anais Nin</em></h1>
+                seek other places, other lives, other souls.” – Anais Nin</em></h4>
             {this.state.userRole === 'Admin' &&
-             <h3 className="h3 text-center pb-5 articles__title text-white">
-                 <em className="border border-light p-2">You are viewing as <span className="font-weight-bold">ADMIN</span></em></h3>}
+             <h4 className="text-center pb-5 articles__title text-white">
+                 <em className="border border-light p-2">You are viewing as <span className="font-weight-bold">ADMIN</span></em></h4>}
             <ol className="articles">
                 {this.state.userRole !== 'Admin'&& <li className="articles__article">
                     <button
                         onClick={() => this.createNewPlan(this.state.userId)} className="articles__link">
                         <div className="articles__content articles__content--lhs">
-                            <h2 className="articles__title">Create a new plan</h2>
+                            <h4 className="articles__title">Create a new plan</h4>
                             <img src={illustration} alt="illus" className="wbdv-fixed-img"/>
                             <div className="articles__footer">
                                 <p className="text-center wbdv-card-text"><em>Live to travel and

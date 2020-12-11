@@ -214,7 +214,7 @@ code {
 }
 
 .articles__title {
-  font-size: calc(var(--base-grid) * 4);
+  font-size: 1.5rem;
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: -.02em;
@@ -302,8 +302,7 @@ code {
 
 .wbdv-td-list {
   list-style: none;
-  width: 600px;
-  max-width: 90%;
+  width: 100%;
 }
 
 .wbdv-td-item {
@@ -370,7 +369,7 @@ code {
 .wbdv-td-headline {
   padding: 0rem 0 0 0;
   margin: 0 0 1rem 0;
-  font: normal 1.5rem var(--font-head);
+  font: inherit 1.5rem var(--font-head);
 }
 
 .row{
@@ -483,7 +482,7 @@ code {
   border: 0;
   border-bottom: 2px solid #9b9b9b;
   outline: 0;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #0a0a0a;
   padding: 7px 0;
   background: transparent;
@@ -493,7 +492,7 @@ code {
   color: transparent;
 }
 .form__field:placeholder-shown ~ .form__label {
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: text;
   top: 20px;
 }

@@ -42,7 +42,7 @@ class TripPlanTripTableComponent extends React.Component {
                     }
                 </ol>
             </div>
-            <h2 className="h2 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">Add Trip</h2>
+            <h2 className="h4 text-center m-2 pb-0 border-bot-3 wbdv-td-headline font-weight-bold text-uppercase">Add Trip</h2>
             {this.state.loaded &&
             <TripPlanCreateFormComponent createTrip={this.createTrip} planId={this.state.planId}
             size={this.state.trips.length + 1}/>}
