@@ -44,10 +44,8 @@ export default class UserProfile extends Component {
             password: this.state.password,
             text: this.state.text
         }
-        console.log("update user -> ", updateUser)
         updateProfile(updateUser)
         localStorage.setItem("user", JSON.stringify(updateUser))
-        console.log(JSON.parse(localStorage.getItem('user')))
     }
 
     render() {

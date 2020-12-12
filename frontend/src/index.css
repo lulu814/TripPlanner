@@ -307,6 +307,7 @@ code {
 .wbdv-td-list {
   list-style: none;
   width: 100%;
+  padding: 0;
 }
 
 .wbdv-td-item {
@@ -352,26 +353,12 @@ code {
   align-items: center;
   justify-content: center;
   shape-outside: ellipse();
-  z-index: -1;
-  position: absolute;
-  left: 0;
+  z-index: 1;
+  margin-bottom: 1rem;
 }
-
-.wbdv-td-item:after {
-  width: 2.5rem;
-  height: 2.5rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  background: var(--highlight1);
-  z-index: -2;
-  border-top-left-radius: 3px;
-}
-
 
 .wbdv-td-headline {
-  padding: 0rem 0 0 0;
+  padding: 0 0 0 0;
   margin: 0 0 1rem 0;
   font: inherit 1.5rem var(--font-head);
 }
@@ -379,8 +366,8 @@ code {
 .row{
   display: flex;
   flex-wrap: wrap;
-  margin-right: 0px !important;
-  margin-left: 0px !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 
 /* Demo styles */

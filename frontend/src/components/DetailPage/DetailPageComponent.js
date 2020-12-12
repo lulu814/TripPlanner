@@ -11,11 +11,9 @@ export default function DetailPlace(){
     let params = useParams();
 
     const fetchPlaceDetail = () => {
-        console.log(`getting id ${params.placeId}`)
         return fetch(`/api/place/${params.placeId}`)
             .then(response => response.json())
             .then(placeDetailResult => {
-                console.log(placeDetailResult.result)
                 return placeDetailResult.result;
             })
             .catch(err => console.log(err))

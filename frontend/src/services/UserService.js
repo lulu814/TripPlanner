@@ -35,14 +35,13 @@ export const updateProfile = (updateUser) => {
             headers: {'x-access-token': token,
                 'content-type': 'application/json'}
         }
-    ).then(response => console.log(response))
+    )
 }
 
 export const findPublicProfileById = (uid) =>
     fetch(`/api/public-profile/${uid}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             return data;
         });
 

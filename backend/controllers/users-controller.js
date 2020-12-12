@@ -23,7 +23,6 @@ module.exports = function (app) {
     }
 
     const signin = (req, res) => {
-        console.log(req.body)
         User.findOne({username: req.body.username})
             .exec((err, user) => {
                 if (err) {
@@ -31,7 +30,6 @@ module.exports = function (app) {
                     return;
                 }
                 if (!user) {
-                    console.log(user);
                     return res.status(404).send({message: "User Not found."});
                 }
                 const passwordIsValid = bcrypt.compareSync(

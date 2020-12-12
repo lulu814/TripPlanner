@@ -19,19 +19,16 @@ class Login extends Component {
         })
             .then(response => {
                 if (response.data.accessToken) {
-                    console.log(response.data);
                     localStorage.setItem("user", JSON.stringify(response.data.user));
                     localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
                 }
                 return response.data;
             }).then((data) => {
-            console.log(data);
             message.success('Login succeed!');
             this.props.history.push('/');
             this.props.changeLoginStatus(true);
         })
             .catch((err) => {
-                console.error(err);
                 message.error('Login failed.');
             });
     }

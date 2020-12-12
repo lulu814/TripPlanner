@@ -13,12 +13,8 @@ export default class PublicProfile extends Component {
     }
 
     componentDidMount() {
-        // const planId = this.props.match.params.planId
         this.loadPlans(this.state.userId)
-        console.log(this.state.userId)
-        console.log(this.state.plans)
         this.findUserById(this.state.userId)
-        console.log(this.state.user)
     }
 
     loadPlans = (userId) => {
