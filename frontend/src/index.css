@@ -352,7 +352,7 @@ code {
   align-items: center;
   justify-content: center;
   shape-outside: ellipse();
-  z-index: 1;
+  z-index: -1;
   position: absolute;
   left: 0;
 }
@@ -365,7 +365,7 @@ code {
   left: 0;
   content: "";
   background: var(--highlight1);
-  z-index: -1;
+  z-index: -2;
   border-top-left-radius: 3px;
 }
 
