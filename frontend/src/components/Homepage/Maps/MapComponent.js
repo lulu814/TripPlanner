@@ -117,7 +117,7 @@ export default  function MapComponent() {
                             );
                         }}
                     >
-                        <FaCompass size={48}/>
+                        <FaCompass size={40}/>
                     </button>
           
                 </GoogleMap>

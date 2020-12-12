@@ -585,7 +585,7 @@ code {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif!important;
-  font-size: xxx-large!important;
+  font-size: xxx-large;
   padding: 0;
   margin: 0;
   border: 0;
@@ -594,7 +594,7 @@ code {
 
 #cover
 {
-  padding: 5px;
+  padding: 0px;
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
@@ -606,7 +606,7 @@ code {
 {
   width: 100%;
   height: 96px;
-  font-size: 40px;
+  font-size: 2.5rem!important;
   line-height: 1;
 }
 
@@ -740,7 +740,6 @@ code {
 }
 
 /*-----------Homepage Search bar ends----------------*/
-
 /*-----------Homepage nav bar----------------*/
 .navbar {
   background-color: white !important;
@@ -781,7 +780,7 @@ code {
 }
 
 .ant-list{
-  margin-bottom: 50px;
+  padding-bottom: 30px!important;
 
 }
 
@@ -812,8 +811,12 @@ body{margin-top:20px;}
 }
 .section-medium {
     padding: 55px 0px;
-    margin-bottom: 32px;
+    margin-bottom: 32px!important;
     margin-top: 18px;
+}
+
+.p-website {
+    word-break: break-all !important;
 }
 
 .text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6 {

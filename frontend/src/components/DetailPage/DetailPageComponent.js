@@ -55,9 +55,9 @@ export default function DetailPlace(){
                         <div className="contact-detail-box">
                             <FaMapMarkedAlt size={50} color="#f16000"/>
                             <h4>Location</h4>
-                            <address>
+                            <p>
                                 {placeDetail.formatted_address} 
-                            </address>
+                            </p>
                         </div>
                     </div>
 
@@ -65,7 +65,9 @@ export default function DetailPlace(){
                         <div className="contact-detail-box">
                             <FaBook size={50} color="#f16000"/>    
                             <h4>Website</h4>
-                            <p>{placeDetail.website}</p>
+                            <p className="p-website">
+                                {placeDetail.website}
+                            </p>
                         </div>
                     </div>
                 </div>
