@@ -14,7 +14,8 @@ dotenv.config();
 
 //database 
 const mongoose = require('mongoose');
-mongoose.connect(keys.mongoURI, {useNewUrlParser: true})
+const mongoose_connect = mongoose.connect(keys.mongoURI, {useNewUrlParser: true})
+console.log(mongoose_connect);
 // mongoose.connect('mongodb://localhost/TripPlanner',
 //    {useNewUrlParser: true});
 

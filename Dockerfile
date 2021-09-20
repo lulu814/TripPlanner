@@ -4,4 +4,4 @@ RUN npm install
 RUN npm install pm2 -g
 COPY . .
 EXPOSE 8000
-CMD ["pm2","start","index.js"]
+CMD ["pm2-runtime","start","index.js"]
