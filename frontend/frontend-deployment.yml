@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudl-client-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cloudl-client
+    spec:
+      containers:
+        - name: cloudl-client
+          image: vaibhav932000/tripplanner:frontend
+          ports:
+            - containerPort: 80
+              name: http-port
+  selector:
+    matchLabels:
+      app: cloudl-client
