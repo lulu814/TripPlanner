@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudl-server-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cloudl-server
+    spec:
+      containers:
+        - name: cloudl-server
+          image: tarinik/my_repo_tarini:backend
+          ports:
+            - containerPort: 8000
+              name: nodejs-port
+  selector:
+    matchLabels:
+      app: cloudl-server
