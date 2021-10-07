@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: cloudl-server-service
+  name: clould-server-service
 spec:
   ports:
     - port: 8000
       protocol: TCP
   selector:
-    app: cloudl-server
+    app: clould-server
   type: ClusterIP
